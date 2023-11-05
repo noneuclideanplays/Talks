@@ -1,0 +1,83 @@
+\makeatletter
+\def\moverlay{\mathpalette\mov@rlay}
+\def\mov@rlay#1#2{\leavevmode\vtop{%
+   \baselineskip\z@skip \lineskiplimit-\maxdimen
+   \ialign{\hfil$\m@th#1##$\hfil\cr#2\crcr}}}
+\newcommand{\charfusion}[3][\mathord]{
+    #1{\ifx#1\mathop\vphantom{#2}\fi
+        \mathpalette\mov@rlay{#2\cr#3}
+      }
+    \ifx#1\mathop\expandafter\displaylimits\fi}
+\makeatother
+
+\newcommand{\abs}[1]{\left\vert#1\right\vert}
+\newcommand{\cupdot}{\charfusion[\mathbin]{\cup}{\cdot}}
+\newcommand{\bigcupdot}{\charfusion[\mathop]{\bigcup}{\cdot}}
+
+\documentclass{amsart}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{construction}[theorem]{Construction}
+\newtheorem{case}{Case}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[top=1.5in, left=1in, right=1in, bottom=1in]{geometry}
+
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+
+\title{Dihedral Game}
+\author{Logan Crone, Lior Fishman, Mckenzie Fontenot, Naomi Krawzik, Brandon Mather, Erin Raign, Julie Thompson}
+\date{January 2020}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+\section{Definitions}
+
+\begin{definition}
+Let $G$ be a finite group. We play the following game: \medskip \\
+ \begin{tabular}{c|ccc}
+ \hline
+  Player 1 & $g_0 \in G$ & & $g_2 \in G \backslash (cl\{g_0\} \cup cl\{g_1\})$ \\
+  Player 2 & & $g_1 \in G \backslash cl\{g_0\}$ 
+  \end{tabular} \medskip \\
+   where $g_n \in G\backslash \bigcup_{i<n} cl\{g_i\}$ and $g_n \not = e$. Define $p_n = g_0 g_1 \cdot \cdot \cdot g_n$.\\
+    If both players run out of moves, it is a draw. Otherwise, the first player to make $p_n = e$ wins.
+\end{definition}
+
+\begin{theorem}
+The game played on $D_n$ has the following properties 
+\begin{enumerate}
+    \item If $n$ is odd, both players can force a draw
+    \item If $n\equiv 2$ mod $4$ then Player $1$ wins
+    \item If $n \equiv 0$ mod $4$, then we have
+    \begin{enumerate}
+     \item Player 1 wins if $n \equiv 0$ mod $8$
+        \item Player 2 wins if $n \equiv 4$ mod $8$
+     \end{enumerate}
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(1) Suppose $n$ is odd, then the conjugacy classes of $D_n$ are $\{e\}, \{\mu \rho^k:k\le n\}$ and $\frac{n-1}{2}$ of $\{\rho^k,\rho^{n-k}\}$.
+If we wish for the product of the moves to equal $e$, then neither player can play an element from the single $\mu$ class as the inverse cannot be played after.
+Thus both players can force a draw by playing an element from the $\mu$ class, so neither player wins.\\
+
+(2) Suppose $n\equiv 2$ mod $4$.
+\begin{case}
+Player $2$ plays $\rho^i$ for $i \in \{1,...,n-1\}$.
+\end{case}
+
+
+\end{proof}
+
+\end{document}

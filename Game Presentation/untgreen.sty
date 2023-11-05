@@ -1,0 +1,30 @@
+\ProvidesPackage{untgreen}
+\usepackage{xcolor}
+
+%% Source https://identityguide.unt.edu/create-our-look/color
+%% on March 27, 2020
+
+%Official UNT Green (white and black are also official colors)
+\definecolor{UNTG}{cmyk}  {1.00, 0.00, 1.00, 0.33}
+
+%Secondary UNTGreen
+\definecolor{UNTGS1}{cmyk}{0.70, 0.00, 1.00, 0.09}
+\definecolor{UNTGS2}{cmyk}{0.59, 0.00, 1.00, 0.07}
+
+%Accent Colors
+\definecolor{UNTGA1}{cmyk}{1.00, 0.00, 0.65, 0.30}%Dark, greenish blue
+\definecolor{UNTGA2}{cmyk}{0.22, 0.00, 1.00, 0.08}%Greenish yellow
+\definecolor{UNTGA3}{cmyk}{0.29, 0.00, 1.00, 0.00}%Greenish yellow
+\definecolor{UNTGA4}{cmyk}{0.11, 0.00, 0.94, 0.00}%Greenish yellow, very yellow
+\definecolor{UNTGA5}{cmyk}{0.57, 0.80, 1.00, 0.05}%Brown
+\definecolor{UNTGA6}{cmyk}{0.00, 0.14, 0.28, 0.55}%Gray-Brown
+\definecolor{UNTGA7}{cmyk}{0.00, 0.04, 0.30, 0.11}%Off-white
+\definecolor{UNTGA8}{cmyk}{0.38, 0.04, 0.00, 0.19}%Light blue
+
+\newcommand{\UNTGpalette}{%
+\setbeamercolor{palette primary}{fg=white, bg=UNTG}%
+\setbeamercolor{palette secondary}{fg=white, bg=UNTGS1}%
+\setbeamercolor{palette tertiary}{fg=white, bg=UNTGS2}%
+\setbeamercolor{palette quaternary}{fg=white, bg=UNTGA1}%
+\setbeamercolor{structure}{fg=UNTG, bg=white}%
+}%

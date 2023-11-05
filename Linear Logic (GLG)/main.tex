@@ -1,0 +1,356 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{listings}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsmath,amsthm}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{layout}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage{bussproofs}
+\usepackage{stackengine}[2013-09-11]
+\usetikzlibrary{positioning}
+\usepackage{etoolbox,refcount,multicol}
+\newcommand{\comp}{\overline{\phantom{A}}}
+\setlength{\tabcolsep}{12pt}
+
+\usepackage{etex} % to fix "no room for new dimen" error. Voodoo.
+\usepackage{array}
+\usepackage{varwidth}
+\usepackage{bussproofs}
+\usepackage{epigraph}
+\usepackage{stmaryrd}
+\usepackage{mathdots}
+\usepackage{amsmath, amscd, amssymb, mathrsfs, accents, amsfonts,amsthm}
+\usepackage[all]{xy}
+\usepackage{mathtools} % for bra-ket
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\newcommand{\tagarray}{\mbox{}\refstepcounter{equation}$(\theequation)$}
+
+\newenvironment{mathprooftree}
+  {\varwidth{.9\textwidth}\centering\leavevmode}
+  {\DisplayProof\endvarwidth}
+
+\def\drawbang{\draw[color=teal!50, line width=2pt]}
+\def\drawprom{\draw[color=gray, line width=3pt]}
+\def\bluenode{\node[circle,draw=blue!50,fill=blue!20]}
+\def\mapnode{\node[circle,draw=black,fill=black,inner sep=0.5mm]}
+\def\whitenode{\node[circle,draw=blue!50,fill=blue!5]}
+\def\dernode{\node[circle,draw=black,fill=white]}
+\definecolor{Myblue}{rgb}{0,0,0.6}
+\usepackage[a4paper,colorlinks,citecolor=Myblue,linkcolor=Myblue,urlcolor=Myblue,pdfpagemode=None]{hyperref}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{definition}[theorem]{Definition}
+\newcommand\NN{\mathbb{N}} 
+\newcommand\RR{\mathbb{R}}
+\newcommand\CR{\mathcal{R}}
+\newcommand\ZZ{\mathbb{Z}}
+\newcommand\AL{\mathcal{A}}
+\newcommand\MM{\mathcal{M}}
+\newcommand\BB{\mathcal{B}}
+\newcommand\BBB{\mathfrak{B}}
+\newcommand\CC{\mathcal{C}}
+\newcommand\CCC{\mathfrak{C}}
+\newcommand\BC{\mathbb{C}}
+\newcommand\DD{\mathcal{D}}
+\newcommand\FF{\mathcal{F}}
+\newcommand\GG{\mathcal{G}}
+\newcommand\HH{\mathcal{H}}
+\newcommand\JJ{\mathcal{J}}
+\newcommand\PP{\mathcal{P}}
+\newcommand\QQ{\mathbb{Q}}
+\newcommand\CS{\mathcal{S}}
+\newcommand\TT{\mathcal{T}}
+\newcommand\BT{\mathbb{T}}
+\newcommand\OO{\mathcal{O}}
+\newcommand\UU{\mathcal{U}}
+\newcommand\VV{\mathcal{V}}
+\newcommand\PPT{\mathcal{P}^{*}}
+\newcommand\CST{\Sigma^{*}}
+\newcommand\RX{\mathsf{X}}
+\newcommand\XX{\mathcal{X}}
+
+%multi-col itemize
+\newcounter{countitems}
+\newcounter{nextitemizecount}
+\newcommand{\setupcountitems}{%
+  \stepcounter{nextitemizecount}%
+  \setcounter{countitems}{0}%
+  \preto\item{\stepcounter{countitems}}%
+}
+\makeatletter
+\newcommand{\computecountitems}{%
+  \edef\@currentlabel{\number\c@countitems}%
+  \label{countitems@\number\numexpr\value{nextitemizecount}-1\relax}%
+}
+\newcommand{\nextitemizecount}{%
+  \getrefnumber{countitems@\number\c@nextitemizecount}%
+}
+\newcommand{\previtemizecount}{%
+  \getrefnumber{countitems@\number\numexpr\value{nextitemizecount}-1\relax}%
+}
+\makeatother    
+\newenvironment{AutoMultiColItemize}{%
+\ifnumcomp{\nextitemizecount}{>}{3}{\begin{multicols}{2}}{}%
+\setupcountitems\begin{itemize}}%
+{\end{itemize}%
+\unskip\computecountitems\ifnumcomp{\previtemizecount}{>}{3}{\end{multicols}}{}}
+
+%\voffset=-1truein		% LaTeX has too much space at page top
+\addtolength{\textheight}{0.3truein}
+\addtolength{\textheight}{\topmargin}
+\addtolength{\topmargin}{-\topmargin}
+\textwidth  6.0in		% LaTeX article default 360pt=4.98''
+%\oddsidemargin 0pt	% \oddsidemargin  .35in   % default is 21.0 pt
+%\evensidemargin 0pt	% \evensidemargin .35in   % default is 59.0 pt
+%\marginparwidth=0pt
+% decrease margins on sides and top/bottom
+\geometry{
+bottom=20mm,
+margin=20mm
+}
+\title{Not Another Categorization}
+\date{}
+\begin{document}%\layout
+	%\MakeScribeTop
+	
+
+	
+\maketitle
+
+\begin{abstract}
+Linear logic is a system encompassing classical logic that is keeps track of premises.
+We will describe the structure of linear logic and its deductive system.
+Intuitionistc linear logic then has a natural categorical form in a very well-known category.
+We will describe this category model of intuitionistic linear logic.
+\end{abstract}
+
+\section{Linear Logic}
+
+\begin{definition}
+    Let $Var=\{x_1,x_2,\ldots\}$ be a collection of countably many variables, intuitionistic linear logic (ILL) has two binary connectives, $\multimap$ and $\otimes$, a unary connective, $!$, and a constant $1$.
+    Formulas in $ILL$ are defined recursively in the typical way, any variable or constant is a formula and if $A$ and $B$ are formulas so are $A\multimap B$, $A\otimes B$ and $!A$.
+\end{definition}
+
+What is fundamentally different about linear logic from classical logic is that it is resource-sensitive.
+This means if $A$ proves both $B$ and $C$, we cannot conclude $B$ and $C$ from $A$ as we only have one $A$.
+That is where the connective $!$ comes in, $!A$ is an "infinite" resource.
+Due to this the contraction and weakening rules are modified.
+One could argue this method is closer the natural language, for example if "If I have 2 dollars then I can buy a soda" and "If I have 2 dollars then I can buy a candy bar" are true, then having 2 dollars would mean you could buy a candy bar and a soda in classical logic, but not in reality.
+So you must pay attention to exactly how many of the resource "dollars" you have.
+The tensor product $\otimes$ acts similar to conjunction, but $A\otimes B$ does not prove $A$ or $B$ and $A$ does not prove $A\otimes A$.
+
+
+The deduction rules of ILL are as follows:
+
+% Axiom rule
+\begin{center}
+\begin{tabular}{ >{\centering}m{6cm} >{\centering}m{6cm} >{\centering}m{2cm}}
+\AxiomC{}
+\LeftLabel{(Axiom): }
+\UnaryInfC{$A \vdash A$}
+\DisplayProof
+\end{tabular}
+
+
+% Exchange rule ======
+
+\begin{tabular}{ >{\centering}m{6cm} >{\centering}m{6cm} >{\centering}m{2cm}}
+\AxiomC{$\Gamma, A, B, \Delta \vdash C$}
+\LeftLabel{(Exchange): }
+\UnaryInfC{$\Gamma, B, A, \Delta \vdash C$}
+\DisplayProof
+\end{tabular}
+\end{center}
+
+% Cut rule ======
+\begin{center}
+\begin{tabular}{ >{\centering}m{6cm} >{\centering}m{6cm} >{\centering}m{2cm}}
+\AxiomC{$\Gamma \vdash A$} 
+\AxiomC{$\Delta', A, \Delta \vdash B$}
+\LeftLabel{(Cut): }
+\RightLabel{\scriptsize cut}
+\BinaryInfC{$\Delta',\Gamma, \Delta \vdash B$}
+\DisplayProof
+\end{tabular}
+\end{center}
+
+
+% Right tensor ======
+\begin{center}
+\begin{tabular}{ >{\centering}m{6cm} >{\centering}m{6cm} >{\centering}m{2cm}}
+\AxiomC{$\Gamma \vdash A$} \AxiomC{$\Delta \vdash B$}
+\LeftLabel{(Right $\otimes$): }
+\RightLabel{\scriptsize $\otimes$-$R$}
+\BinaryInfC{$\Gamma, \Delta \vdash A \otimes B$}
+\DisplayProof
+\end{tabular}
+\end{center}
+
+% Left tensor ======
+\begin{center}
+\begin{tabular}{ >{\centering}m{6cm} >{\centering}m{6cm} >{\centering}m{2cm}}
+\AxiomC{$\Gamma, A, B, \Delta \vdash C$}
+\LeftLabel{(Left $\otimes$): }
+\RightLabel{\scriptsize $\otimes$-$L$}
+\UnaryInfC{$\Gamma, A \otimes B, \Delta \vdash C$}
+\DisplayProof
+\end{tabular}
+\end{center}
+
+% Right Hom ======
+\begin{center}
+\begin{tabular}{ >{\centering}m{6cm} >{\centering}m{6cm} >{\centering}m{2cm}}
+\AxiomC{$A, \Gamma \vdash B$}
+\LeftLabel{(Right $\multimap$): }
+\RightLabel{\scriptsize $\multimap R$ }
+\UnaryInfC{$\Gamma \vdash A \multimap B$}
+\DisplayProof
+\end{tabular}
+\end{center}
+
+% Left Hom ======
+\begin{center}
+\begin{tabular}{ >{\centering}m{6cm} >{\centering}m{6cm} >{\centering}m{2cm}}
+\AxiomC{$\Gamma \vdash A$} \AxiomC{$\Delta', B, \Delta \vdash C$}
+\LeftLabel{(Left $\multimap$): }
+\RightLabel{\scriptsize $\multimap L$ }
+\BinaryInfC{$\Delta', \Gamma, A \multimap B, \Delta \vdash C$}
+\DisplayProof
+\end{tabular}
+\end{center}
+
+% Promotion ======
+\begin{center}
+\begin{tabular}{ >{\centering}m{6cm} >{\centering}m{6cm} >{\centering}m{2cm}}
+\AxiomC{$! \Gamma \vdash A$}
+\LeftLabel{(Promotion): }
+\RightLabel{\scriptsize prom}
+\UnaryInfC{$!\Gamma \vdash !A$}
+\DisplayProof
+\end{tabular}
+\end{center}
+
+% Dereliction ======
+\begin{center}
+\begin{tabular}{ >{\centering}m{6cm} >{\centering}m{6cm} >{\centering}m{2cm}}
+\AxiomC{$\Gamma, A, \Delta \vdash B$}
+\LeftLabel{(Dereliction): }
+\RightLabel{\scriptsize der}
+\UnaryInfC{$\Gamma, !A, \Delta \vdash B$}
+\DisplayProof
+\end{tabular}
+\end{center}
+
+% Contraction ======
+\begin{center}
+\begin{tabular}{ >{\centering}m{6cm} >{\centering}m{6cm} >{\centering}m{2cm}}
+\AxiomC{$\Gamma, !A, !A, \Delta \vdash B$}
+\LeftLabel{(Contraction): }
+\RightLabel{\scriptsize ctr}
+\UnaryInfC{$\Gamma, !A, \Delta \vdash B$}
+\DisplayProof
+\end{tabular}
+\end{center}
+
+% Weakening ======
+\begin{center}
+\begin{tabular}{ >{\centering}m{6cm} >{\centering}m{6cm} >{\centering}m{2cm}}
+\AxiomC{$\Gamma, \Delta \vdash B$}
+\LeftLabel{(Weakening): }
+\RightLabel{\scriptsize weak}
+\UnaryInfC{$\Gamma, !A, \Delta \vdash B$}
+\DisplayProof
+\end{tabular}
+\end{center}
+
+% Left 1 ======
+\begin{center}
+\begin{tabular}{ >{\centering}m{6cm} >{\centering}m{6cm} >{\centering}m{2cm}}
+\AxiomC{$\Gamma, \Delta \vdash A$}
+\LeftLabel{(Left $1$): }
+\RightLabel{\scriptsize $1$-$L$}
+\UnaryInfC{$\Gamma, 1, \Delta \vdash A$}
+\DisplayProof
+\end{tabular}
+\end{center}
+
+% Right 1 ======
+\begin{center}
+\begin{tabular}{ >{\centering}m{6cm} >{\centering}m{6cm} >{\centering}m{2cm}}
+\AxiomC{}
+\LeftLabel{(Right $1$): }
+\RightLabel{\scriptsize $1$-$R$}
+\UnaryInfC{$\vdash 1$}
+\DisplayProof
+\end{tabular}
+\end{center}
+
+Towards the goal of considering semantics of ILL, we consider a categorization.
+Each formula $A$ is assigned an object $[[A]]$ and each proof $\Gamma\vdash A$ assigned a morphism $[[\Gamma]]\to[[A]]$.
+This assignment is module cut-elimination, so if two proofs are equivalent under cut-elimination then they are assigned the same morphism.
+From the deduction rules, one can see the category formed must be a symmetric monoidal closed category with a comonad.
+
+
+\section{Category}
+\begin{definition}
+    A symmetric monoidal category is a tuple $(\CC,\otimes,a,L,R,1,\tau)$ where $\otimes:Obj(\CC)\to Obj(\CC)$ is a functor, $a,L,R$ are families of morphisms describing associatvity and that $A\otimes1=A=1\otimes A$, and $\tau$ is a family of isomorphisms $\tau_{A,B}:A\otimes B\to B\otimes A$ so that $\tau_{B,A}\circ\tau_{A,B}=id_{A\otimes B}$.
+\end{definition}
+
+To say the category is closed means a morphism $A\otimes B\to C$ can be viewed as a morphism $X\to Hom(Y,Z)$ where $Hom(Y,Z)$ is now treated as an object in the category.
+This is the same as the concept of currying, changing a function of two variables into an operation on one variable returning a function in the other variable.\\
+
+\begin{definition}
+    If $V$ is a vector space, then there is a corresponding cofree cocommutative coalgebra that is universal and we will denote it as $!V$.
+\end{definition}
+
+\begin{definition}
+    A linear category is a symmetric monoidal closed category with a comonad defined by the $!V$.
+\end{definition}
+
+\begin{definition}
+    We define $[[A]]$ as follows:
+    \begin{enumerate}
+        \item a variable $x$ is assigned a finite dimensional vector space $[[x]]$
+        \item $[[1]]=k$
+        \item $[[A\otimes B]]=[[A]]\otimes[[B]]$
+        \item $[[A\multimap B]]=[[A]]\multimap [[B]]:=Hom(A,B)$
+        \item $[[!A]]=![[A]]$
+        \item if $\Gamma=A_1,\ldots,A_n$, then $[[\Gamma]]=[[A_1]]\otimes\cdots\otimes[[A_n]]$, and if $\Gamma=\emptyset$ then $[[\Gamma]]=k$
+    \end{enumerate}
+\end{definition}
+
+Now what do proofs look like in the category?
+
+\begin{definition}
+    If $\pi$ is a proof of $\Gamma\vdash B$, then $[[\pi]]$ is a linear map $[[\Gamma]]\to[[B]]$.
+\end{definition}
+
+\begin{itemize}
+\item The diagram for the axiom rule depicts the identity of $[[A]]$.
+\item The diagram for the exchange rule uses the symmetry $[[B]] \otimes [[A]] \to [[A]] \otimes [[B]]$.
+\item The diagram for the cut rule depicts the composition of the two inputs.
+\item The right tensor rule depicts the tensor product of the two given morphisms, while the left tensor rule depicts the identity, viewed as a morphism between two strands labelled $[[A]]$ and $[[B]]$ and a single strand labelled $[[A]] \otimes [[B]]$.
+\item The diagram for the right $\multimap$ rule denotes the adjoint of the input morphism while the left $\multimap$ rule uses the composition map.
+\item The diagram for the promotion rule depicts the lifting of the input to a morphism of coalgebras.
+\item The diagram for the dereliction rule depicts the composition of the input with the universal map out of the coalgebra ${!} V$.
+\end{itemize}
+
+\end{document}

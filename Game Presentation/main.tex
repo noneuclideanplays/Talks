@@ -1,0 +1,297 @@
+\documentclass{beamer}
+\usepackage{amsthm,amsmath,amsfonts, amssymb, ulem}
+
+\usepackage{graphicx}
+\usepackage{ulem}
+\usepackage{untgreen}
+\UNTGpalette
+\usetheme{Warsaw}
+
+\newtheorem{conjecture}{Conjecture}
+
+
+\title{A Game Considered on $D_n$}
+\author{Logan Crone, Brandon Mather, Erin Raign, Julie Thompson}
+\date{10.1.21}
+
+
+\begin{document}
+
+\begin{frame}
+
+\titlepage
+
+\end{frame}
+    
+\begin{frame}{Background}
+   \begin{itemize}
+       \item $D_n$ is a group made up of rotations, $\rho^n$, and reflections, $\mu \rho^n$. The order of $D_n$ is $2n$. \bigskip
+       \item The conjugacy class of the element $x\in D_n$ is $cl(x) = \{gxg^{-1} : g\in D_n\}$.\\ \bigskip
+       
+       \item The conjugacy classes partition the elements of $D_n$, since for all $a,b\in D_n, cl(a)=cl(b)$ iff $a$ and $b$ are conjugate; they are disjoint otherwise.
+      
+   \end{itemize} 
+   
+\end{frame}
+
+\begin{frame}{How do we play the game?}
+\begin{itemize}
+    \item We will play the game on the dihedral group, $D_n$.
+    \medskip
+     \item We will play from the conjugacy classes of $D_n$, excluding the identity, $e$.
+     \medskip
+    \item After an element from a conjugacy class has been played, no element from that conjugacy class can be played for the rest of the game.
+    \medskip
+    \item After each element is played, we take the product of all moves that have been played.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{How do we play the game?}
+    \begin{itemize}
+        \item The goal is to make a move which changes the product to $e$, the identity element; this player wins the game.
+        \medskip
+        \item If all conjugacy classes have been played before the product equals $e$, the game is a draw.
+        \medskip
+        \item A winning strategy for a player is an algorithm that a player follows to always win the game.
+        \medskip
+        \item A good move for a player is a move where they will not lose after the next player's turn.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Example}
+   Let $G = D_4$.\\ \bigskip
+   $D_4 = \{e, \rho, \rho^2, \rho^3, \mu, \mu \rho, \mu \rho^2, \mu \rho^3\}$.\\ \bigskip
+   The conjugacy classes of $D_4$ are: $\{e\}, \{\rho, \rho^3\}, \{\rho^2\}, \{\mu, \mu\rho^2 \}, \{\mu\rho, \mu\rho^3 \}$.
+\end{frame}
+
+\begin{frame}{Example game played in $D_4$}
+\begin{center}
+\only<1>{$\{\rho, \rho^3\}, \{\rho^2\}, \{\mu, \mu\rho^2 \}, \{\mu\rho, \mu\rho^3 \}$} 
+\begin{sloppypar}
+\only<2>{{\sout{$\{\rho, \rho^3\}$}, $\{\rho^2\}, \{\mu, \mu\rho^2 \}, \{\mu\rho, \mu\rho^3 \}$}}
+\end{sloppypar}
+\begin{sloppypar}
+\only<3>{\sout{$\{\rho, \rho^3\}$}, \sout{$\{\rho^2\}$}, $\{\mu, \mu\rho^2 \}, \{\mu\rho, \mu\rho^3 \}$}
+\end{sloppypar}
+\begin{sloppypar}
+\only<4>{\sout{$\{\rho, \rho^3\}$}, \sout{$\{\rho^2\}$}, \sout{$\{\mu, \mu\rho^2 \}$}, $\{\mu\rho, \mu\rho^3 \}$}
+\end{sloppypar}
+\begin{sloppypar}
+\only<5>{\sout{$\{\rho, \rho^3\}$}, \sout{$\{\rho^2\}$}, \sout{$\{\mu, \mu\rho^2 \}$}, \sout{$\{\mu\rho, \mu\rho^3 \}$}}
+\end{sloppypar}
+
+   
+   \begin{tabular}{c|ccccc}
+    \hline
+        Player 1 & \onslide<2->{$\rho$} & & \onslide<4->{$\mu$} \\
+        Player 2 & & \onslide<3->{$\rho^2$} & &  \onslide<5->{$\mu\rho$}\\
+    \hline 
+        Current Product & \onslide<2->{$\rho$} & \onslide<3->{$\rho^3$} & \onslide<4->{$\mu\rho$} & \onslide<5->{$e$}
+    \end{tabular}
+    \end{center}
+\end{frame}
+
+\begin{frame}{}
+    \begin{block}{Definition}
+    Let $G$ be a finite group. We play the following game:
+    \medskip
+    
+    \begin{tabular}{c|ccc}
+    \hline
+        Player 1 & $g_0 \in G$ & & $g_2 \in G \backslash (cl\{g_0\} \cup cl\{g_1\})$ \\
+        Player 2 & & $g_1 \in G \backslash cl\{g_0\}$ 
+    \end{tabular}\\
+    \medskip
+    where $g_n \in G\backslash \bigcup_{i<n} cl\{g_i\}$ and $g_n \not = e$. Define $p_n = g_0 g_1 \cdot \cdot \cdot g_n$.\\
+    If both players run out of moves, it is a draw. Otherwise, the first player to make $p_n = e$ wins.
+    \end{block}
+\end{frame}
+
+\begin{frame}{Motivation}
+    \begin{itemize}
+        \item There are few games played on algebraic groups.
+        \medskip 
+        \item We can learn about the object the game is played on.
+        \medskip
+        \item This can be played on other algebraic groups.
+        \medskip
+        \item Why play from conjugacy classes?
+        \medskip
+        \item Why play on $D_n$?
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Results}
+
+\begin{Theorem}[C., M., R., T.]
+    \begin{itemize}
+        \item If $n\equiv 1 \mod 2$, then both players can force a draw.
+        \item If $n\equiv 2 \mod 4$, then Player 1 has a winning strategy.
+        \end{itemize}
+\end{Theorem}
+\begin{conjecture}
+        If $n\equiv 0 \mod 4$, we conjecture the winning player alternates depending on $n\mod 8$.
+\end{conjecture}
+    
+\end{frame}
+\begin{frame}{Strategy for $n \equiv 1 \mod 2$}
+When $n$ is odd, both players can always force a draw.\\
+\medskip
+Note there is exactly one conjugacy class containing reflection elements when $n$ is odd.\\
+\medskip
+Both players can force a draw by playing a reflection element.\\
+\bigskip
+Let G=$D_5$\\
+Conjugacy classes: $\{e\}, \{\rho,\rho^4\},\{\rho^2,\rho^3\},\{\mu,\mu\rho, \mu\rho^2, \mu\rho^3, \mu\rho^4\}$.\\
+    \begin{tabular}{c|ccccc}
+    \hline
+        Player 1 & {$\rho$} & & {$\rho^2$} \\
+        Player 2 & & {$\mu$} & \\
+    \hline 
+        Current Product & {$\rho$} & {$\mu\rho^4$} & {$\mu\rho$}
+    \end{tabular}\\
+\end{frame}
+
+\begin{frame}{$n\equiv 2 \mod 4$}
+When $n\equiv 2 \mod 4$, Player 1 has a winning strategy. \\
+\medskip
+Player 1's winning strategy  is to play the center, $\rho^{\frac{n}{2}}$.\\
+\medskip
+Then Player 2 has no good move. 
+\bigskip
+
+Let $G=D_6$. \\
+\medskip
+Conjugacy classes: $\{e\},\{\rho^3\}, \{\rho, \rho^5\}, \{\rho^2\, \rho^4\}, \{\mu, \mu\rho^2, \mu\rho^4\}, \{\mu\rho, \mu\rho^3, \mu\rho^5\}$. \\
+\medskip
+
+
+ \begin{tabular}{c|ccc}
+    \hline
+        Player 1 & $\rho^3$ & & $\mu\rho^4$ \\
+        Player 2 & & $\mu\rho$ \\
+    \hline
+    Current Product & & $\mu\rho^4$ & $e$ 
+    \end{tabular}\\
+\end{frame}
+
+\begin{frame}{$n\equiv 2 \mod 4$ Example of a Bad Move}
+Let $G=D_6$. \\
+\medskip
+Conjugacy classes: \\
+\medskip
+$\{e\},\{\rho^3\}, \{\rho, \rho^5\}, \{\rho^2\, \rho^4\}, \{\mu, \mu\rho^2, \mu\rho^4\}, \{\mu\rho, \mu\rho^3, \mu\rho^5\}$ \\
+\medskip
+ \begin{tabular}{c|cccc}
+    \hline
+        Player 1 & $\rho^2$ & & $\rho$ \\
+        Player 2 & & $\mu\rho$ & & $\mu$\\
+    \hline
+    Current Product & & $\mu\rho^5$ & $\mu$ & $e$
+    \end{tabular}\\
+\end{frame}
+
+\begin{frame}{$n\equiv 0 \mod 4$}
+
+\begin{conjecture}
+If $n\equiv0 \mod 4$, we split further into two cases: \\
+\begin{itemize}
+    \item If $n\equiv 0 \mod 8$, then Player 1 has a winning strategy.\\
+    \item If $n\equiv 4 \mod 8$, then Player 2 has a winning strategy. 
+\end{itemize}
+\bigskip
+
+Furthermore, if there is an even number of even powered rotation classes, Player 1 has a winning strategy. \\
+\medskip
+If there is an odd number of even powered rotation classes, Player 2 has a winning strategy. 
+\end{conjecture}
+\end{frame}
+
+\begin{frame}{Game played on $D_{8}$}
+    The conjugacy classes are:\\ $\{e\}$, $\{\rho,\rho^{7}\}$, $\{\rho^2,\rho^{6}\}$,$\{\rho^3,\rho^5\}$,$\{\rho^4\}$, $\{\mu, \mu\rho^2, \mu\rho^4, \mu\rho^6\}$ and $\{\mu\rho, \mu\rho^3, \mu\rho^5, \mu\rho^7\}$\\
+    \bigskip
+    Note that the even powered rotation classes for $D_8$ are $\{\rho^{2}, \rho^{6}\}$ and $\{\rho^4\}$, so there are two of them (an even number). We see Player 1 has a winning strategy:\\
+    \bigskip
+    \begin{tabular}{c|cccccc}
+    \hline
+        Player 1 & {$\rho^2$} & & {$\mu\rho^2$} & & {$\mu\rho^5$}\\
+        Player 2 & & {$\rho^4$} & & {$\rho$} \\
+    \hline 
+        Current Product & {$\rho^2$} & {$\rho^6$} & {$\mu\rho^4$} & {$\mu\rho^5$} & {$e$}
+    \end{tabular}\\
+\end{frame}
+
+\begin{frame}{Game played on $D_{12}$}
+    The conjugacy classes are:\\ $\{e\}$, $\{\rho,\rho^{11}\}$, $\{\rho^2,\rho^{10}\}$,$\{\rho^3,\rho^9\}$,$\{\rho^4,\rho^8\}$,$\{\rho^5,\rho^7\}$, $\{\rho^6\}$,$\{\mu, \mu\rho^2, \mu\rho^4, \mu\rho^6, \mu\rho^8, \mu\rho^{10}\}$ and $\{\mu\rho, \mu\rho^3, \mu\rho^5, \mu\rho^7, \mu\rho^9, \mu\rho^{11}\}$\\
+    \bigskip
+    Note that the even powered rotation classes for $D_{12}$ are $\{\rho^2,\rho^{10}\}$, $\{\rho^4,\rho^8\}$, and $\{\rho^6\}$, so there are three of them (an odd number). We see Player 2 has a winning strategy: \\
+    \bigskip
+    \begin{tabular}{c|cccccc}
+    \hline
+        Player 1 & {$\rho^4$} & & {$\rho^6$} & & {$\rho$}\\
+        Player 2 & & {$\rho^{10}$} & & {$\mu$} & & {$\mu\rho^5$}\\
+    \hline 
+        Current Product & {$\rho^4$} & {$\rho^2$} & {$\rho^8$} & {$\mu\rho^4$} & {$\mu\rho^5$} & {$e$}
+    \end{tabular}\\
+\end{frame}
+
+\begin{frame}{Motivation for the Game on $\mathbb{Z}_n$}
+\begin{itemize}
+\item We noticed that when a reflection class was played, it played a vital role in the outcome of the game.
+\medskip
+\item This led to players playing strictly from the rotation classes until all even rotation classes had been exhausted. 
+\medskip
+\item Can both players force a draw playing only from the rotation classes?
+\medskip
+\item This led to an auxiliary game on $\mathbb{Z}_n$.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{The game on $\mathbb{Z}_n$}
+Let $G=(\mathbb{Z}_n, +)$.The identity element in $(\mathbb{Z}_n, +)$ is 0.
+\medskip
+\\Notice since $\mathbb{Z}_n$ is abelian, the conjugacy class of $z$ for any $z\in\mathbb{Z}_n$ is just itself,$\{z\}$.
+\medskip
+\\In order to replicate the game on $D_n$, we let the sets the game is played on be $\{\pm{a}_i|{a}_i\in\mathbb{Z}_n\}\cup\{0\}$ for each $i\in\{1,\dots,n\}$.
+
+
+\end{frame}
+
+\begin{frame}{Game played on $\mathbb{Z}_n$}
+    $\mathbb{Z}_8=\{0,1,2,3,4,5,6,7\}$ \\ 
+    Move classes: $\{0\},\text{ }\{1,7\}, \text{ } \{2,6\},\text{ }  \{3,5\}, \text{ } \{4\}$\\
+    Illegal moves: $\{0\}$\onslide<1->{$, \{1,7\}$}\onslide<2->{, $\{2,6\}$}\onslide<3->{, $\{3,5\}$}\onslide<4->{, $\{4\}$}
+    \bigskip
+    
+    \begin{tabular}{c|cccccc}
+    \hline
+        Player 1 & \onslide<1->{1} & & \onslide<3->{3} \\
+        Player 2 & & \onslide<2->{6} & &  \onslide<4->{4}\\
+    \hline 
+        Current Sum && \onslide<2->{7} & \onslide<3->{2} & \onslide<4->{6} 
+    \end{tabular}\\
+    \bigskip
+    \onslide<4->{The game ends in a draw.}
+\end{frame}
+    
+
+\begin{frame}{Going Back to the Game on $n \equiv 0 \mod 4$}
+    \begin{itemize}
+        \item We hope to show both players can force a draw in the $\mathbb{Z}_n$ game.
+        \medskip
+        \item Then the player's winning strategy, when $n\equiv 0 \mod 4$, will depend on when a reflection class is played.
+        \medskip
+        \item We will finish our characterization of $D_{n}$ under this game.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Future Work}
+  \begin{itemize}
+      \item We plan to consider other groups on this game.
+      \medskip
+      \item The game may illuminate some group theoretic properties.
+  \end{itemize}  
+\end{frame}
+
+\end{document}

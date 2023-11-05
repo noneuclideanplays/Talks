@@ -1,0 +1,117 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{listings}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsmath,amsthm}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{layout}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage{bussproofs}
+\usetikzlibrary{positioning}
+\usepackage{etoolbox,refcount,multicol}
+\newcommand{\comp}{\overline{\phantom{A}}}
+\setlength{\tabcolsep}{12pt}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{definition}[theorem]{Definition}
+\newcommand\NN{\mathbb{N}} 
+\newcommand\RR{\mathbb{R}}
+\newcommand\CR{\mathcal{R}}
+\newcommand\ZZ{\mathbb{Z}}
+\newcommand\AL{\mathcal{A}}
+\newcommand\MM{\mathcal{M}}
+\newcommand\BB{\mathcal{B}}
+\newcommand\BBB{\mathfrak{B}}
+\newcommand\CC{\mathcal{C}}
+\newcommand\CCC{\mathfrak{C}}
+\newcommand\BC{\mathbb{C}}
+\newcommand\DD{\mathcal{D}}
+\newcommand\FF{\mathcal{F}}
+\newcommand\GG{\mathcal{G}}
+\newcommand\HH{\mathcal{H}}
+\newcommand\JJ{\mathcal{J}}
+\newcommand\PP{\mathcal{P}}
+\newcommand\QQ{\mathbb{Q}}
+\newcommand\CS{\mathcal{S}}
+\newcommand\TT{\mathcal{T}}
+\newcommand\BT{\mathbb{T}}
+\newcommand\OO{\mathcal{O}}
+\newcommand\UU{\mathcal{U}}
+\newcommand\VV{\mathcal{V}}
+\newcommand\PPT{\mathcal{P}^{*}}
+\newcommand\CST{\Sigma^{*}}
+\newcommand\RX{\mathsf{X}}
+\newcommand\XX{\mathcal{X}}
+
+%multi-col itemize
+\newcounter{countitems}
+\newcounter{nextitemizecount}
+\newcommand{\setupcountitems}{%
+  \stepcounter{nextitemizecount}%
+  \setcounter{countitems}{0}%
+  \preto\item{\stepcounter{countitems}}%
+}
+\makeatletter
+\newcommand{\computecountitems}{%
+  \edef\@currentlabel{\number\c@countitems}%
+  \label{countitems@\number\numexpr\value{nextitemizecount}-1\relax}%
+}
+\newcommand{\nextitemizecount}{%
+  \getrefnumber{countitems@\number\c@nextitemizecount}%
+}
+\newcommand{\previtemizecount}{%
+  \getrefnumber{countitems@\number\numexpr\value{nextitemizecount}-1\relax}%
+}
+\makeatother    
+\newenvironment{AutoMultiColItemize}{%
+\ifnumcomp{\nextitemizecount}{>}{3}{\begin{multicols}{2}}{}%
+\setupcountitems\begin{itemize}}%
+{\end{itemize}%
+\unskip\computecountitems\ifnumcomp{\previtemizecount}{>}{3}{\end{multicols}}{}}
+
+%\voffset=-1truein		% LaTeX has too much space at page top
+\addtolength{\textheight}{0.3truein}
+\addtolength{\textheight}{\topmargin}
+\addtolength{\topmargin}{-\topmargin}
+\textwidth  6.0in		% LaTeX article default 360pt=4.98''
+%\oddsidemargin 0pt	% \oddsidemargin  .35in   % default is 21.0 pt
+%\evensidemargin 0pt	% \evensidemargin .35in   % default is 59.0 pt
+%\marginparwidth=0pt
+% decrease margins on sides and top/bottom
+\geometry{
+bottom=20mm,
+margin=20mm
+}
+\title{}
+\date{}
+\begin{document}%\layout
+	%\MakeScribeTop
+	
+
+	
+\maketitle
+
+\begin{abstract}
+
+\end{abstract}
+
+\section{Braids}
+
+
+\end{document}

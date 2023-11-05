@@ -1,0 +1,470 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{listings}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsmath,amsthm}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{layout}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage{bussproofs}
+\usetikzlibrary{positioning}
+\usepackage{etoolbox,refcount,multicol}
+\newcommand{\comp}{\overline{\phantom{A}}}
+\setlength{\tabcolsep}{12pt}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{definition}[theorem]{Definition}
+\newcommand\NN{\mathbb{N}} 
+\newcommand\RR{\mathbb{R}}
+\newcommand\CR{\mathcal{R}}
+\newcommand\ZZ{\mathbb{Z}}
+\newcommand\AL{\mathcal{A}}
+\newcommand\MM{\mathcal{M}}
+\newcommand\BB{\mathcal{B}}
+\newcommand\BBB{\mathfrak{B}}
+\newcommand\CC{\mathcal{C}}
+\newcommand\CCC{\mathfrak{C}}
+\newcommand\BC{\mathbb{C}}
+\newcommand\DD{\mathcal{D}}
+\newcommand\FF{\mathcal{F}}
+\newcommand\GG{\mathcal{G}}
+\newcommand\HH{\mathcal{H}}
+\newcommand\JJ{\mathcal{J}}
+\newcommand\PP{\mathcal{P}}
+\newcommand\QQ{\mathbb{Q}}
+\newcommand\CS{\mathcal{S}}
+\newcommand\TT{\mathcal{T}}
+\newcommand\BT{\mathbb{T}}
+\newcommand\OO{\mathcal{O}}
+\newcommand\UU{\mathcal{U}}
+\newcommand\VV{\mathcal{V}}
+\newcommand\PPT{\mathcal{P}^{*}}
+\newcommand\CST{\Sigma^{*}}
+\newcommand\RX{\mathsf{X}}
+
+%multi-col itemize
+\newcounter{countitems}
+\newcounter{nextitemizecount}
+\newcommand{\setupcountitems}{%
+  \stepcounter{nextitemizecount}%
+  \setcounter{countitems}{0}%
+  \preto\item{\stepcounter{countitems}}%
+}
+\makeatletter
+\newcommand{\computecountitems}{%
+  \edef\@currentlabel{\number\c@countitems}%
+  \label{countitems@\number\numexpr\value{nextitemizecount}-1\relax}%
+}
+\newcommand{\nextitemizecount}{%
+  \getrefnumber{countitems@\number\c@nextitemizecount}%
+}
+\newcommand{\previtemizecount}{%
+  \getrefnumber{countitems@\number\numexpr\value{nextitemizecount}-1\relax}%
+}
+\makeatother    
+\newenvironment{AutoMultiColItemize}{%
+\ifnumcomp{\nextitemizecount}{>}{3}{\begin{multicols}{2}}{}%
+\setupcountitems\begin{itemize}}%
+{\end{itemize}%
+\unskip\computecountitems\ifnumcomp{\previtemizecount}{>}{3}{\end{multicols}}{}}
+
+%\voffset=-1truein		% LaTeX has too much space at page top
+\addtolength{\textheight}{0.3truein}
+\addtolength{\textheight}{\topmargin}
+\addtolength{\topmargin}{-\topmargin}
+\textwidth  6.0in		% LaTeX article default 360pt=4.98''
+%\oddsidemargin 0pt	% \oddsidemargin  .35in   % default is 21.0 pt
+%\evensidemargin 0pt	% \evensidemargin .35in   % default is 59.0 pt
+%\marginparwidth=0pt
+% decrease margins on sides and top/bottom
+\geometry{
+bottom=20mm,
+margin=20mm
+}
+\title{Deductive Diagrams}
+\date{}
+\begin{document}%\layout
+	%\MakeScribeTop
+	
+
+	
+\maketitle
+
+\begin{abstract}
+We will define and describe the basic properties of Category Theory, in particular Topos Theory, and Simple Type Theory. 
+These will then be used to describe the internal language of a topos and how it relates to classical logics. 
+We will also describe how given a language one can describe it inside a topos.
+\end{abstract}
+\section{Categories}
+
+As we are attempting, in a way, to form Category Theory as a foundation of math, we will define things in a metamathematical sense.
+
+\begin{definition}
+A \textit{metacategory} $\mathcal{ C}$ is a collection of objects, $\text{Ob}\mathcal{C}$, and arrows (morphisms) and operations:
+\begin{itemize}
+\begin{AutoMultiColItemize}
+    \item Domain: assigns each arrow an object, $\text{dom}f=a$
+    \item Codomain: assigns each arrow an object, $\text{cod}f=b$
+    \item Identity: assigns each object an arrow, $\text{id}_a=1_a:a\to a$
+    \item Composition: assigns to each pair of arrows $\left<f,g\right>$ with $\text{dom}f=\text{cod}g$ an arrow $g\circ f$
+\end{AutoMultiColItemize}
+\end{itemize}
+The operations are given certain restrictions:
+\begin{itemize}
+    \item Associativity: For objects $a,b,c$ and $d$ and arrows $f:a\to b$, $g:b\to c$, $k:c\to d$, we have the equality $k\circ(g\circ f)=(k\circ g)\circ f$. Represented as a commuting diagaram:\\
+    \begin{center}
+    \begin{tikzcd}[sep = 20mm]
+       a \arrow[rr,"k\circ(g\circ f)=(k\circ g)\circ f"]
+         \arrow[d,"f"]
+         \arrow[drr,"g\circ f" near start]
+         & & d \\ b \arrow[urr,"k\circ g" near start]
+                    \arrow[rr,"g"] & &  c \arrow[u,"k"]
+    \end{tikzcd}
+    \end{center}
+    \item Unit Law: For all arrows $f:a\to b$ and $g:b\to c$, composition with identity arrows $1_b$ gives $1_b\circ f=f$ and $g\circ 1_b=g$. Represented as a commuting diagram:\\
+    \begin{center}
+    \begin{tikzcd}[sep = 15 mm]
+        a \arrow[r,"f"] \arrow[dr,"f"] & b \arrow[d,"1_b"] \arrow[dr,"g"] & \\
+                                       & b \arrow[r,"g"]                  & c
+    \end{tikzcd}
+    \end{center}
+\end{itemize}
+\end{definition}
+
+\begin{example}
+The metacategory of sets has as its objects all sets and its arrows all functions between sets. 
+Note that the collection of objects is never given to be a set, interpreted in set theory it can be a proper class. 
+In the metacategory of sets, we have identity function $1_X:X\to X$ defined by $x\mapsto x$. 
+We also have composition, if $f:X\to Y$ and $g: Y\to Z$ then $g\circ f:X\to Z$ is defined by $g(f(x))$, and this composition is well-known to be associative.
+\end{example}
+
+\begin{example}
+    The collection of topological spaces as objects and with continuous functions as arrows forms a metacategory.
+    So does the collection of compact Hausdorff spaces and continuous functions, groups with group homomorphisms, etc.
+\end{example}
+
+\begin{definition}
+    Inside a specific category we define the \textit{Hom-set} between objects $b$ and $c$ as $\hom(b,c)=\{f|f\in \mathcal{C},\text{dom}f=b,\text{cod}f=c\}$
+\end{definition}
+
+\begin{definition}
+    A \textit{functor} is a "morphism of categories". 
+    Specifically, if we have to categories $\mathcal{C}$ and $\mathcal{B}$, a functor $T:\CC\to\BB$ consists of two functions: the \textit{object function} $T$ assigns each object $c\in\CC$ an object $Tc\in\BB$, and the \textit{arrow function} $T$ assigning each arrow $f:c\to c'$ of $\CC$ an arrow $Tf:Tc\to Tc'$ of $\BB$.
+    The functor must respect the structure of the categories, $T(1_c)=1_{Tc}$ and $T(g\circ f)=Tg\circ Tf$.
+\end{definition}
+
+\begin{example}
+    Let $\textbf{Set}$ be the category of sets, a simple example of a functor is the power set $\PP:\textbf{Set}\to\textbf{Set}$.
+    Each set $X$ is assigned a set $\PP(X)$ and each arrow $f:X\to Y$ gets assigned a map $\PP f:\PP(X)\to\PP(Y)$.
+\end{example}
+
+\begin{definition}
+    Given two functors $S,T:\CC\to\BB$, a \textit{natural transformation}, "morphism of functors", $\tau:S\to T$ is a function which assigns to each object $c$ of $\CC$ an arrow $\tau c:Sc\to Tc$ of $\BB$ in such a way that every arrow $f:c\to c'$ in $\CC$ yields a commuting diagram\\
+    \begin{center}
+    \begin{tikzcd}[sep=15mm]
+        c\arrow[d,"f"] & Sc \arrow[r,"\tau c"] \arrow[d,"Sf"] & Tc \arrow[d,"Tf"]\\
+        c'             & Sc'\arrow[r,"\tau c'"]               & Tc'
+    \end{tikzcd}
+    \end{center}
+\end{definition}
+
+ The natural transformation can be thought of as translating the image under $S$ to the image under $T$.
+ While one of the harder concepts to intuit, this is one of the most important notions in Category Theory.
+
+ \begin{example}
+     Let $\textbf{Grp}$ be the category of groups and $\textbf{CRng}$ be the category of commutative rings.
+     There is a functor $GL_n:\textbf{CRng}\to\textbf{Grp}$ defined by taking a commutative ring $K$ to the group of invertible $n\times n$ matrices $GL_n(K)$.
+     We also have a functor ${}^*:\textbf{CRng}\to\textbf{Grp}$ defined by sending a commutative ring $K$ to its group of units $K^*$.
+     Between these functors is a natural transformation, $det:GL_n\to{}^*$.
+     \begin{center}
+         \begin{tikzcd}[sep=15mm]
+            GL_n K \arrow[r,"det_K"] \arrow[d,"GL_n f"] & K^* \arrow[d,"f^*"]\\
+            GL_n K' \arrow[r,"det_{K'}"]                & K^{'*}
+         \end{tikzcd}
+     \end{center}   
+ \end{example}
+
+\begin{definition}
+A \textit{terminal object} in a category $\CC$ is a $\CC$-object $1$ such that for any other $\CC$-object $A$, there is exactly one $\CC$-arrow $A\to 1$.
+\end{definition}
+
+\begin{example}
+    In the category \textbf{Set}, the singletons are terminal since there is only one map from a set to a singleton.
+\end{example}
+
+\begin{definition}
+A \textit{product} of two $\CC$-objects $A$ and $B$ is a $\CC$-object $A\times B$ and a pair of $\CC$-arrows $\pi_A:A\times B\to A$ and $\pi_B:A\times B\to B$ such that for any other other pair of $\CC$-arrows $f:C\to A$ and $g:C\to B$, there is an arrow $\left<f,g\right>:C\to A\times B$ with $\pi_A\circ \left<f,g\right>=f$ and $\pi_b\circ\left<f,g\right>=g$.
+ \begin{center}
+    \begin{tikzcd}[sep = 20mm]
+         & C \arrow[ld,"f"] \arrow[d,"{\left<f,g\right>}"] \arrow[rd,"g"] & \\
+        A & A\times B \arrow[l,"\pi_a"] \arrow[r,"\pi_B"] & B
+    \end{tikzcd}
+\end{center}
+\end{definition}
+ 
+\begin{definition}
+    Given a category $\CC$ and two $\CC$-objects $A$ and $B$, their \textit{exponentiation} is a $\CC$-object $B^A$ and an \textit{evaluation map} $ev:B^A\times A\to B$ with the property that if $C$ is a $\CC$-object and $g:C\times A\to B$ is a $\CC$-arrow, there is a unique arrow $\hat{g}:C\to B^A$ such that $g(c,a)=ev(\hat{g}(c),a)$.\\
+    \begin{center}
+    \begin{tikzcd}[sep = 20mm]
+       B^A\times A \arrow[r,"ev"] & B \\
+       C\times A \arrow[u,"\hat{g}\times 1_A"] \arrow[ur,"g"]
+    \end{tikzcd}
+    \end{center}
+\end{definition}
+In a sense, every arrow from an $A$-indexed collection of elements mapping to $B$ factors through the evaluation map.
+
+\begin{definition}
+    A category $\CC$ is said to be a Cartesian Closed Category (CCC) if it has a terminal object, products and exponentials.
+\end{definition}
+
+\begin{example}
+    The category \textbf{Set} is clearly CCC. Similarly the category \textit{Finord} of finite ordinals is also CCC.
+\end{example}
+
+\begin{definition}
+    A \textit{diagram} D in $\CC$ is a collection of $\CC$-objects, $\{a_i\}_{i\in I}$, and of $\CC$-arrows, $\{a_i\to a_j\}$.
+\end{definition}
+
+\begin{example}
+    A special type of diagram is the D-cone, literally a cone drawn from elements of the diagram D.
+    This has a vertex $\CC$-object $c$ and exactly one $\CC$-arrow $f_i:c\to a_i$ for each $a_i\in D$ such that $f_j:c\to a_j=f_i\circ g$ whenever $g$ is an arrow in $D$.
+\end{example}
+
+\begin{definition}
+    A \textit{limit} for a diagram D is a D-cone $\{f_i:c\to a_i\}$ such that for any other D-cone $\{f_i':c'\to a_i\}$, there is exactly one $\CC$-arrow $g:c'\to c$ such that for each $a_i\in D$, $f_i'=f_i\circ g$.
+    \begin{center}
+        \begin{tikzcd}
+            & a_i & \\
+            c' \arrow[ur,"f_i'"] \arrow[rr,"g"] & & c \arrow[ul,"f_i"]
+        \end{tikzcd}
+    \end{center}
+\end{definition}
+
+The limit of D is universal in the sense that any other D-cone will factor through the limit.
+
+\begin{definition}
+    A \textit{sub-object} of an object $A$ is an equivalence class of monic (injective) arrows, where two arrows, $f:B\to A$ and $g:C\to A$, if there is an arrow $h:B\to C$ such that $f=g\circ h$, ie. $f$ factors through $g$.
+\end{definition}
+
+\begin{example}
+    In \textbf{Set} every sub-object is an equivalence class of injections.
+\end{example}
+
+\begin{definition}
+    If $\CC$ has a terminal object $1$, a \textit{sub-object classifier} is an object $\Omega$ and a monic arrow $\TT:1\to\Omega$ such that for any monic arrow $f:A\to B$, there is exactly one arrow $\chi_f:B\to\Omega$ making the diagram commute.
+    \begin{center}
+        \begin{tikzcd}[sep=20mm]
+            A \arrow[r,"f"] \arrow[d,"!"] & B \arrow[d,"\chi_f"]\\
+            1 \arrow[r,"T"]               & \Omega
+        \end{tikzcd}
+    \end{center}
+(Note that such a diagram would make $T$ and $\chi_f$ what is known as a \textit{pullback} or \textit{fiber product}, ie. there is a way to pull both arrows back to the same domain and make the diagram commute)
+\end{definition}
+
+We interpret $\chi_f$ as classifying $f$ or the sub-object represented by $f$.
+There is an isomorphism between the sub-objects of an object $X$ and the arrows $X\to \Omega$ given by $f\mapsto \chi_f$.
+
+\begin{example}
+    In \textbf{Set} we have the isomorphism between sub-objects of a set $S$, $2^S$ and the arrows $\{S\to 2\}$.
+    To see this we note that for each subset $A\subseteq S$ there is a unique characteristic arrow $\chi_A: S\to 2$ defined by $\chi_A(x)=0$ if $x\not\in A$ and $1$ if $x\in A$.
+    We can then define a "true" valuation as $true:1\to 2$ by $0\mapsto 1$ to give us a monic arrow from a terminal object $1$ of \textbf{Set} to the object $2$.
+    Note that $A=\chi_A^{-1}(1)$. 
+    But this is equivalent to the following diagram commuting:
+    \begin{center}
+        \begin{tikzcd}[sep=20mm]
+            A \arrow[r,"inclusion"] \arrow[d,"!"] & S \arrow[d,"\chi_A"]\\
+            1 \arrow[r,"true"]                    & 2
+        \end{tikzcd}
+    \end{center}
+    And so we see that $\chi_A$ is witness to $A$ being a subobject of $S$.
+\end{example}   
+
+\section{Intuitionistic Type Theories}
+
+The type of logic we will attempt to categorize can be described as Intuitionistic ($p\vee\neg p\not\equiv \top$) Type Theories (formulas and variables are assigned a 'type').
+
+\begin{definition}
+    Higher order type language, $l$, is a language of symbols and terms that can be thought of as building up from propositional logic, so we start with the typical propositional language.
+\end{definition}
+
+Symbols:
+\begin{itemize}
+\begin{AutoMultiColItemize}  
+    \item A collection of types $T_1,\ldots T_n$ closed under products, ie. $T_1\times\cdots\times T_n$ is a type, and the empty product type $1$, includes also the type $\Omega$
+    \item If $T$ is a type, the collection of all sub-objects of $T$, $PT$ is also a type
+    \item If $T$ is a type, there are countably many variables with type $T$
+    \item Special symbol $*$
+    \item A set of function symbols for each pair of type symbols and a map assigning each function is type, eg. given types $T_1$ and $T_2$, we have a collection of function symbols $F_l(T_1,T_2)$ and an $f\in F_l(T_1,T_2)$ will have type $T_1,T_2$
+    \item A set of relation symbols $R_i$ and a map assigning the type of the arguments in the relation, eg. if $x_1$ is of type $T_1$ and $x_2$ of type $T_2$, then $R(x_1,x_2)\subseteq T_1\times T_2$
+\end{AutoMultiColItemize}
+\end{itemize}
+
+Terms:
+\begin{itemize}
+\begin{AutoMultiColItemize}
+    \item The variables of type $T$ are terms of type $T$
+    \item The symbol $*$ is a term of type $1$
+    \item A term of type $\Omega$ is called a formula
+    \item Given a function symbol $f:T_1\to T_2$ and a term t of type $T_1$, $f(t)$ is a term of type $T_2$
+    \item Given terms $t_1,\ldots,t_n$ of types $T_1,\ldots,T_n$ respectively, $\left<t_1,\ldots,t_n\right>$ is a term of type $T_1\times\cdots\times T_n$
+    \item If $\omega$ is a term of type $\Omega$ and $\alpha $ a variable of type $T$, then $\{\alpha|\omega\}$ is a term of type $PT$
+    \item If $x_1,x_2$ are terms of the same type, $x_1=x_2$ is of type $\Omega$
+    \item If $x_1, x_2$ are terms of type PT and PPT respectively, then $x_1\in x_2$ is a term of type $\Omega$
+    \item If $x_1$ and $x_2$ are both terms of type $PT$ then $x_1\subseteq x_2$ is a term of type $\Omega$
+\end{AutoMultiColItemize}
+\end{itemize}
+
+Atomic Formulas:
+\begin{itemize}
+\begin{AutoMultiColItemize}
+    \item The set of Relation symbols
+    \item Equality terms
+    \item Truth $\top$
+    \item False $\bot$
+\end{AutoMultiColItemize}
+\end{itemize}
+
+Formulas: Defined recursively on atomic formulas by ($\alpha$ and $\beta$ are formulas)
+\begin{itemize}
+    \begin{AutoMultiColItemize}
+    \item $\alpha\vee\beta$
+    \item $\alpha\wedge\beta$
+    \item $\neg\alpha$
+    \item $\alpha\implies\beta$
+    \end{AutoMultiColItemize}
+\end{itemize}
+
+\begin{example}
+    We can define a first order logic with the rules above in the language $l$ as follows
+    \begin{itemize}
+    \begin{AutoMultiColItemize}
+        \item $\top := *=*$
+        \item $\alpha\wedge\beta :=(\left<\alpha,\beta\right>=\left<\top,\top\right>)$
+        \item $\alpha\iff\beta:=\alpha=\beta$
+        \item $\alpha\implies\beta:=(\alpha\wedge\beta)\iff\alpha$
+        \item $\forall x \alpha:=\{x|\alpha\}=\{x|T\}$
+        \item $\bot:=\forall w w$
+        \item $\neg\alpha:= \alpha\implies\bot$
+        \item $\alpha\vee\beta:=\forall w[(\alpha\implies w\wedge \beta\implies w)\implies w]$
+        \item $\exists x\alpha:=\forall w[\forall x(\alpha\implies w)\implies w]$
+    \end{AutoMultiColItemize}
+    \end{itemize}
+\end{example}
+
+\section{Topos Theory}
+
+\begin{definition}
+    A \textit{topos} is a category with limits having finitely many elements, exponentials and a sub-object classifier.
+\end{definition}
+
+\begin{definition}
+    a \textit{topos} is a category $\tau$ containing
+    \begin{itemize}
+        \begin{AutoMultiColItemize}
+        \item An initial object $0$
+        \item An initial object $1$
+        \item Pullbacks
+        \item Pushouts (similar idea to pullbacks)
+        \item Exponentiation 
+        \item A sub-object classifier
+         \end{AutoMultiColItemize}
+    \end{itemize}
+\end{definition}
+
+\begin{example}
+    Clearly, the category \textbf{Set} is a topos.
+\end{example}
+
+Now to show that the higher order type theory language, $l$, defined about has a representation in Category Theory we use Topoi.
+
+\begin{definition}
+    Give a topos $\tau$, the interpretation $M$ of $l$ in $\tau$ consists of the associations to each type $T\in l$, an object $T^{M}\in \tau$, to each relation symbol $R\subseteq T_1\times\cdots \times T_n$, a sub-object $R^M\subseteq T_1^M\times\cdots\times T_n^M$, to each function symbol $f:T_1\times\cdots\times T_n\to X$ an arrow $f^M:T_1^M\times\cdots\times T_n^M\to X$, to each constant $c$ of type $T$ an arrow $c^M:1^M\to T^M$, to each variable $x$ of type $T$ an arrow $x^M:T^M\to T^M$, the symbol $\Omega$ is represented by the sub-object classifier $\Omega^M$, the symbol $1$ is represented by the terminal object $1^M$
+    Everything else is defined recursively in the way one would expect.
+\end{definition}
+
+Given a term $t(x_1,\ldots,x_n)$ of type $Y$ with free variables $x_i$ of type $T_i$, $t(x_1,\ldots,x_n):T_1\times\cdots\times T_n\to Y$, we get the representative $t(x_1,\ldots,x_n)^M:T_1^M\times\cdots\times T_n^M\to Y$.
+A formula $\phi(t_1,\ldots,t_n)$ of type $\Omega$ with free variables $t_i$ of type $T_i$ is represented as an arrow $\phi(t_1,\ldots, t_n)^M:T_1^M\times\cdots\times T_n^M\to \Omega^M$.
+A term $\phi$ of type $\Omega$ with \textbf{no} free variables however is represented as $\phi^M:1^M\to\Omega^M$, these are special arrows and will be interpreted as "truth values".
+
+\begin{corollary}
+    We identify formulas with arrows with codomain $\Omega^M$ because sub-objects of a given object are in bijective correspondence with maps from that object to the sub-object classifier.
+    Formulas determine sub-objects of a given object $X$ by noting when they satisfy a particular relation.
+    In particular, given a formula $\phi(x_1,\ldots,x_n)$, each free variable $x_i$ of type $T_i$, we obtain the representation 
+    \[
+        \{(x_1,\ldots,x_n)|\phi\}^M\subseteq T_1^M\times\cdots\times T_n^M
+    \]
+    But this gets identified with the map 
+    \[
+        \{(x_1,\ldots,x_n)|\phi\}^M\subseteq T_1^M\times\cdots\times T_n^M\to \Omega^M
+    \]
+    by $\chi_{\{(x_1,\ldots,x_n)|\phi\}^M}$
+\end{corollary}
+
+\begin{corollary}
+    Consider the formula $t(x_1,\ldots,x_n)=t'(x_1,\ldots,x_n)$. The first term gets identified with the arrow $t^M:T_1^M\times\cdots\times T_n^M\to Y^M$ and similarly the second arrow is identified with $t'^M:T_1^M\times\cdots\times T_n^M\to Y^M$.
+    Note that these arrows have the same domain and codomain, they are called \textit{parallel}.
+    The representation of the equality formula is the monic arrow $t(x_1,\ldots,x_n)=t'(x_1,\ldots,x_n)$ is then $\{x_1,\ldots,x_n|t=t'\}\to T_1^M\times\cdots\times T_n^M\to Y^M$.
+\end{corollary}
+
+\begin{corollary}
+    Consider the relation $R(t_1,\ldots,t_n)$ with terms $t_i$ of type $Y_i$ and variables $x_j$ of type $T_j$.
+    The formula of this relation, $\{(x_1,\ldots,x_n)|R(t_1,\ldots,t_n)\}$, would be represented by a pull-back of the sub-object $R^M\subseteq Y_1^M\times\cdots\times Y_n^M$.
+    This sub-object is the representation of relation.
+    The pullback occurs along the term arrow $\left<t_1^M,\ldots,t_n^M\right>:T_1^M\times\cdots\times T_n^M\to Y_1^M\times\cdots\times Y_n^M$.
+    This is drawn as the diagram:
+    \begin{center}
+        \begin{tikzcd}[sep=15mm]
+            \{(x_1,\ldots,x_n)|R(t_1,\ldots,t_n)\}^M \arrow[r] \arrow[d] & R^M \arrow[d]\\
+            T_1^M\times\cdots\times T_n^M \arrow[r,"{\left<t_1^M,\ldots,t_n^M\right>}"] & Y_1^M\times\cdots\times Y_n^M
+        \end{tikzcd}
+    \end{center}
+\end{corollary}
+
+The atomics $\top$ and $\bot$ are represented as the maximal and minimal sub-objects of any object,
+$\{x_1\ldots x_n|\top\}^M=T_1^M\times\cdots\times T_n^M$, $\{x_1\ldots x_n|\bot\}^M=\emptyset^M$ (this makes sense by considering Heyting Algebras).\\
+
+Let $\phi$ and $\rho$ be formulas of type $\Omega$ with free variables $x_1$ and $x_2$ of types $T_1$ and $T_2$ respectively.
+Logical connectives are represented as follows:\begin{itemize}
+    \item \begin{tikzcd}[sep=5mm]
+               (\phi\wedge \rho)^M:T_1^M\times T_2^M\arrow[r,"{\left<\phi,\rho\right>}"] & \Omega^M\times\Omega^M\arrow[r,"\wedge"] & \Omega^M
+          \end{tikzcd}
+    \item \begin{tikzcd}
+                (\phi\vee \rho)^M:T_1^M\times T_2^M\arrow[r,"{\left<\phi,\rho\right>}"] & \Omega^M\times\Omega^M\arrow[r,"\vee"] & \Omega^M
+            \end{tikzcd}
+    \item   \begin{tikzcd}
+                (\phi\implies\rho)^M:T_1^M\times T_2^M\arrow[r,"{\left<\phi,\rho\right>}"]& \Omega^M\times\Omega^M\arrow[r,"\implies"] & \Omega^M
+            \end{tikzcd}
+     \item   \begin{tikzcd}
+               (\neg\phi)^M:T_1^M\arrow[r,"\rho"]& \Omega^M\arrow[r,"\neg"] & \Omega^M
+            \end{tikzcd}
+\end{itemize}
+
+\begin{definition}
+    A model of a theory is a representation $M$ in which all axioms of the theory are valid.
+    The axioms will be represented by the arrow $true:1\to\Omega$.
+\end{definition}
+
+\begin{definition}
+    The \textit{internal language} of a category can be thought of as the logic constructed by interpreting objects as collections of a type, morphisms as terms of type the codomain and free variables of type the domain, sub-objects as propositions (collection of things of type codomain for which the sub-object is true), and logical operations as constructions on sub-objects.
+    This is a particularly complex construction, but it can be thought of simpler as a functor.
+    Given the category $\CC$, its \textit{internal type theory}, Lang($\CC$), is the theory with types the objects of $\CC$, functions symbols the morphisms, relations symbols the sub-objects and axioms containments in $\CC$
+    The functor is $Lang:$ Categories $\to$ Theories.
+\end{definition}
+
+\end{document}

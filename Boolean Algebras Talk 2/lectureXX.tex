@@ -1,0 +1,282 @@
+\documentclass[12pt]{article}
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{scribe}
+\usepackage{listings}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\newcommand{\comp}{\overline{\phantom{A}}}
+\setlength{\tabcolsep}{12pt}
+%\Scribe{}
+%\Lecturer{}
+%\LectureNumber{}
+%\LectureDate{}
+%\LectureTitle{Boolean Algebras: Definitions, Examples and the Stone Representation Theorem}
+
+\title{Boolean Algebras: Definition, Examples and Completeness}
+
+\lstset{style=mystyle}
+
+\begin{document}
+	%\MakeScribeTop
+\maketitle
+%#############################################################
+%#############################################################
+%#############################################################
+%#############################################################
+
+I will define a Boolean algebra and give some examples.
+I will also give examples of different Boolean algebras commonly encountered and how to convert between them and the corresponding Boolean algebra.
+Then an overview of Stone's Representation Theorem and a proof of a bijection between the completion of a theory and subsets of its Boolean algebra and the completeness theorem for propositional logic with Boolean algberas.
+
+\section{Definitions}
+
+\begin{definition}
+A \textit{Boolean algebra} is a structure $\left(A,+,\cdot,-,0,1 \right)$ with 2 binary operations, $+$ and $\cdot$, a unary operation $-$, and 2 elements $0$ and $1$ that satisfy the following axioms:
+
+\begin{tabular}{l    l  l}
+\textbf{B1} $\; x+(y+z)=(x+y)+z$ & \textbf{B1'} $\;x\cdot(y\cdot z)=(x\cdot y)\cdot z $ & (Associativity)\\
+\textbf{B2} $\; x+y=y+x$ & \textbf{B2'} $\; x\cdot y=y\cdot x$ & (Commutativity)\\
+\textbf{B3} $\; x+(x\cdot y)=x$ & \textbf{B3'} $\; x\cdot(x+y)=x$ & (Absorption)\\
+\textbf{B4} $\; x\cdot(y+z)=(x\cdot y)+(x\cdot z)$ & \textbf{B4'} $\; x+(y\cdot z)=(x+y)\cdot(x_z)$ & (Distributivity)\\
+\textbf{B5} $\; x+(-x)=1$ & \textbf{B5'} $\; x\cdot(-x)=0$ & (Complementation)
+\end{tabular}
+\end{definition}
+
+Clearly the \textbf{B'} axioms are very similar to the \textbf{B} axioms, and really they are the same just with $+$ and $\cdot$ exchanged and $0$ and $1$ exchanged.
+We call statements that are the achieved by systematically exchanging each $+$ and $\cdot$ and each $0$ and $1$ in another statement the dual of our base statement.
+The duality principle states that if a statement holds in a Boolean algebra, then so does its dual, this allows us to prove just one statement and know its dual also holds. 
+I will also sometimes refer to $+$ as union or the connective $\vee$, $\cdot$ as intersection  or the connective $\wedge$ and $-$ as complement or negation, as Boolean algebras appear in many fields of math there are many ways of interpreting the operations.
+
+\begin{definition}
+A \textit{homomorphism} of Boolean algebras is a map $f: A\longrightarrow B$ that satisfies the following for all $x,y\in A$
+\begin{enumerate}
+    \item[] $f(0)=0\;$ and $\;f(1)=1$
+    \item[] $f(x+y)=f(x)+f(y)\;$ and $\;f(x\cdot y)=f(x)\cdot f(y)$
+    \item[] $f(-x)=-f(x)$
+\end{enumerate}
+\end{definition}
+An isomorphism is then a bijective homomorphism.
+
+\section{Examples}
+
+\begin{example}
+Power set algebra. Let $X$ be any set and $\mathcal{P}(X)$ its power set, then the structure $\left(\mathcal{P}(X),\bigcup,\bigcap,-,\emptyset,X\right)$, where $-a:=X\setminus a$, is a Boolean algebra.
+\end{example}
+
+\begin{example}
+The set $\{0,1\}$ forms a Boolean algebra, and in particular forms the logic over which we do truth tables. The operations for this algebra are
+\end{example}
+
+\begin{tabular}{c c | c c c}
+$x$ & $y$ & $x+y$ & $x\cdot y$ & $-x$\\
+\hline
+$0$ & $0$ & $0$ &$0$&$1$\\
+$0$&$1$&$1$&$0$&$1$\\
+$1$&$0$&$1$&$0$&$0$\\
+$1$&$1$&$1$&$1$&$0$
+\end{tabular}
+
+Clearly, by treating $0$ as $\bot$ and $1$ as $\top$ then $+$ is conjunction and $\cdot$ is disjunction.
+
+\begin{example}
+Lindebaum-Tarski algebra: Let L be a language for first order logic and T a theory in L. For formulas, $\alpha$ and $\beta$ of L, define
+$$
+\alpha \sim \beta \text{\;  if and only if \; } T\vdash \alpha \iff \beta
+$$
+Then $\sim$ defines an equivalence relation on the set of formulas, denote $[\alpha]$ to be the equivalence class containing $\alpha$.
+The set $B(T)=\{[\alpha]: \alpha \text{\; is a formula of L\;}\}$ forms a Boolean algebra with the following operations
+\begin{align*}
+&[\alpha]+[\beta]=[\alpha\vee\beta]\\
+&[\alpha]\cdot[\beta]=[\alpha\wedge\beta]\\
+-&[\alpha]=[\neg\alpha]\\
+&1=[\alpha_0\vee\neg\alpha_0]\\
+&0=[\alpha_0\wedge\neg\alpha_0]
+\end{align*}
+Note that for any formula $\alpha$, $[\alpha]=1$ if and only if $T\vdash \alpha$, and so not every formula is derivable from $T$ if and only if $B(T)$ is not the trivial Boolean algebra, $\{1\}$.
+\\
+The subalgebra $\{[\alpha]:\alpha\;\text{ is a sentence in L}\}\subseteq B(T)$ is the Lindenbaum-Tarski algebra.
+\end{example}
+
+\section{Lattices}
+
+\begin{definition}
+A \textit{partially ordered set} is a tuple $(P,\le)$ where $\le$ is a binary operation on $P$ that is reflexive, transitive and antisymmetric.
+\end{definition}
+
+\begin{definition}
+Given a partial order $(P,\le)$, for $M\subseteq P$ and $a\in P$, we call $a$ a \textit{lower (upper) bound} of $M$ if $a\le m (m\le a)$ for every $m\in M$. We also call $a$ a \textit{greatest lower (least upper) bound} of $M$ if $a$ is a lower (upper) bound of $M$ and $a'\le a (a\le a')$ holds for each lower (upper) bound of $M$. $(P,\le)$ is called a \textit{lattice} if for all $x,y\in P$, glb\{$x,y$\} and lub\{$x,y$\} exist.
+\end{definition}
+
+\begin{lemma}
+For a Boolean algebra $A$, define $\le$ by $x\le y$ if and only if $x+y=y$ which is equivalent to $x\cdot y=x$. This defines a partial order $(A,\le)$ where $\text{glb}\{x,y\}=x\cdot y$ and $\text{lub}\{x,y\}=x+y$, and so every Boolean algebra is a lattice.
+\end{lemma}
+Conversely, lattices that satisfy the distributive law and contain complements of each element are in turn Boolean algebras.
+
+\begin{definition}
+We call a Boolean algebra, $A$, \textit{complete} if for each $M\subseteq A$, lub($M$) and glb($M$) exist in the partial order $(A,\le)$.
+\end{definition}
+
+\begin{definition}
+A subalgebra $A$ of a Boolean algebra $B$ is called \textit{dense} if for any $b\in B\setminus\{0\}$, there is an $a\in A\setminus\{0\}$ such that $0<a\le b$.
+\end{definition}
+
+\begin{definition}
+A \textit{completion} of a Boolean algebra $A$ is a Boolean algebra $B$ such that $A$ is a dense subalgebra in $B$.
+\end{definition}
+
+\begin{lemma}
+$x\le y$ if and only if $x\cdot -y = 0$.
+\end{lemma}
+
+\begin{example}
+In $B(T)$ as defined in Example 2.3, the ordering on equivalence classes corresponds to $[\alpha]\le[\beta]\iff[\alpha]\cdot[\beta]=[\alpha\wedge\beta]=[\beta]\iff\alpha\implies\beta$.
+\end{example}
+
+\section{Atoms}
+
+\begin{definition}
+Let $A$ be a Boolean algebra. We call an element $a\in A$ an \textit{atom} of $A$ if $0<a$ but there is no $x\in A$ such that $0<x<a$. Define the set $\text{At} A=\{a\in A:a\text{\; is an atom}\}$. We call $A$ \textit{atomless} if it has no atoms and \textit{atomic} if for each nonzero element $x\in A$, there is an atom $a$ such that $a\le x$.
+\end{definition}
+
+\begin{example}
+The power set algebra $\mathcal{P}(x)$ is atomic where the singletons $\{x\}$ form the atoms.
+\end{example}
+
+\begin{theorem}
+For any Boolean algebra $A$, the map $f:A\to \mathcal{P}\{\text{At}A\}$ defined by \\$f(x)=\{a\in \text{At}A : a\le x\}$ is a homomorphism and is 1-1 when $A$ is atomic and onto when $A$ is complete.
+\end{theorem}
+
+\begin{proof}
+Clearly $f(0)=\emptyset$ and $f(1)=\text{At}A$.
+\[
+f(-x)=\{a\in \text{At}A:a\le -x\}=\text{At}A\setminus\{a\in \text{At}A:a\le x\}=\text{At}A\setminus f(x)
+\]
+\[
+f(x+y)=\{a\in\text{At}A:a\le x+y\}=\{a\in\text{At}A:a\le x \text{\; or\;} a\le y\} =\{a\in\text{At}A:a\le x\}\cup\{a\in\text{At}A:a\le y\}
+\]
+The same argument shows $f(x\cdot y)=f(x)\cap f(y)$.\\
+Suppose $A$ is atomic and $x\neq y$ are elements of $A$, without loss of generality suppose $x\not\le y$.
+\\Then $x\cdot -y\neq 0$ and there is an $a\in \text{At}A$ such that $a\le x\cdot -y$ as $A$ is atomic and $x\cdot -y$ is not 0.
+It follows that $a\in f(x)$ and $a\not\in f(y)$, so $f(x)\neq f(y)$ and $f$ is one-to-one.\\
+Now suppose $A$ is complete, let $Y\subseteq \text{At}A$ and let $s=\text{lub}(Y)$.
+If $a\in Y$, then $a\le s$ and so $a\in f(s)$. 
+If $a\in \text{At}A\setminus Y$, then for any $y\in Y$, $a$ and $y$ are distinct atoms of $A$, so $a\not\le y$.
+So we have that $a\le -y$ and $a\cdot y=0$.
+Then, $a\cdot s=a\cdot \text{lub}\{y:y\in Y\}=\text{lub}\{a\cdot y:y\in Y\}=\text{lub}(0)=0$, so $a\not\in f(s)$.
+Therefore, $Y=f(s)$, so $f$ is onto.
+\end{proof}
+
+\begin{corollary}
+Every atomic Boolean algebra is isomorphic to an algebra of sets ($f$ is injective), every complete and atomic Boolean algebra is isomorphic to a power set algebra ($f$ is bijective).
+\end{corollary}
+
+\section{Ultrafilters and Stone's Theorem}
+
+\begin{definition}
+A \textit{filter} in a Boolean algebra $A$ is a subset $p$ of $A$ that satisfies 
+\begin{equation*}
+    1\in p
+\end{equation*}
+\begin{equation*}
+    \text{if\;} x\in p, y\in A \text{\;and\;} x\le y, \text{\;then\;} y\in p
+\end{equation*}
+\begin{equation*}
+    \text{if\;} x\in p\text{\;and\;}y\in p, \text{\;then\;} x\cdot y\in p
+\end{equation*}
+\end{definition}
+
+\begin{example}
+For any $a\in A$, the set $\{x\in A: a\le x\}$ is a filter.
+\end{example}
+
+\begin{definition}
+A subset $E$ of a Boolean algebra is said to have the \textit{finite intersection property} if for any $n\in\omega$ and $e_1,\dots,e_n\in E$, we have that $e_1\cdot\ldots\cdot e_n>0$.
+\end{definition}
+
+\begin{definition}
+A filter $p$ of $A$ is called an \textit{ultrafilter} if, for each $x\in A$, we have that $x\in p$ or $-x\in p$ but not both.
+\end{definition}
+
+\begin{theorem}[Boolean Prime Ideal theorem]
+A subset of a Boolean algebra is in an ultrafilter if and only if it has the finite intersection property.
+\end{theorem}
+
+The proof of this requires Zorn's lemma.
+
+\begin{lemma}
+An element $a\in A$ is contained in an ultrafilter if and only if $a>0$.
+\end{lemma}
+
+\begin{theorem}
+For a Boolean algebra $A$, define the set Ult$A$=$\{p\subseteq A: p \text{\; is an ultrafilter of \;} A\}$ of ultrafilters of $A$.
+The map $s: A\to \mathcal{P}(\text{Ult}A)$ defined by $s(x)=\{p\in \text{Ult}A: x\in p\}$ is the \textit{Stone map} of $A$ and is an injective homomorphism.
+\end{theorem}
+\begin{proof}
+The proof that this is a homomorphism is the same as in the proof of the weaker version, utilizing some properties of ultrafilters not described here (being prime and maximal).
+Let $x\neq y$ be elements of $A$, without loss of generality suppose $x\not\le y$. 
+Then, $x\cdot -y>0$, so there is an ultrafilter $\p$ that contains $x\cdot -y$.
+Hence, $x\in p$ and $y\not\in p$ so $p\in s(x)$ and $p\not\in s(y)$, and so $s$ is one-to-one.
+\end{proof}
+This mapping is one-to-one, so any Boolean algebra is isomorphic to an algebra of sets \\$s(A)\subseteq \mathcal{P}(\text{Ult}A)$.
+
+\section{Completeness}
+
+Let $L$ be a first order language and fix a theory $T$ in $L$. 
+Then define the Lindenbaum-Tarski algebra $A=\{[\alpha]:\alpha \text{ is a sentence of L}\}$.
+As well, denote the completion of $T$ as $T^*$ so that $T\subseteq T^*$ and $T^*$ is maximally consistent.
+
+\begin{lemma}
+The set $B=\{[\alpha]:\alpha\in T^*\}$ is an ultrafilter of $A$
+\end{lemma}
+\begin{proof}
+Clearly $\top=\alpha\vee \neg \alpha\in T^*$.
+Suppose that $[\alpha]\in B$, $[\beta] \in A$ and $[\alpha]\le[\beta]$.
+Note that the first two premises are that $\alpha\in T^*$ and $\beta \in T$.
+The latter premise is equivalent to $[\alpha]+[\beta]=[\alpha\vee\beta]=[\beta]$, which is in turn equivalent to $\alpha\implies\beta$.
+Then $\alpha\in T^*$ and $\alpha\implies\beta\in T^*$, so by modus ponens, $\beta\in T^*$.
+Hence, $[\beta]\in B$.
+Now if $[\alpha],[\beta]\in B$, we get that $[\alpha]\cdot[\beta]=[\alpha\wedge\beta]\in B$ by applying modus ponens on the theorem $\alpha\implies(\beta\implies\alpha\wedge\beta)$.
+Therefore, $B$ is a filter of $A$.
+Then as $T*$ is the completion of $T$, clearly for any sentence $\alpha$ of $L$, either $\alpha\in T^*$ or $\neg\alpha\in T^*$, so $[\alpha]\in B$ or $-[\alpha]\in B$ but not both.
+Thus, $B$ is in particular an ultrafilter of $A$.
+\end{proof}
+
+\begin{lemma}
+The map from completions of $T$ to $Ult$ A defined by $T^*\to \{[\alpha]:\alpha\in T^*\}$ is a bijection.
+\end{lemma}
+\begin{proof}
+By Lemma $6.1$, the map is injective, so it just remains to show surjectivity.
+Define $\mathcal{P}=\bigcup_{[\alpha]\in p} \{\alpha_0:\alpha_0\in [\alpha]\}$.
+Then define the theory $T^*=T\bigcup \mathcal{P}$; clearly $T^*\subseteq T$.
+For the sake of contradiction, suppose that $\exists \alpha_0\in T^*$ such that $\neg\alpha_0\in T^*$, then $[\alpha_0]\in p$ and $[\neg\alpha_0]\in p$, a contradiction.
+As well, $0=[\bot]\not\in p$ as $p$ is an ultrafilter, so $\bot\not\in T^*$.
+Hence, we have Con($T^*$).
+Now let $F\supsetneq T^*$ be a consistent theory in $L$.
+Then $\exists \beta\in F$ such that 
+\[
+\beta\not\in T^*\implies \beta\not\in \mathcal{P}\implies [\beta]\not\in p\implies [\neg\beta]\in p\implies \neg\beta\in T^*\implies \neg\beta\wedge\beta\in F\implies\neg\text{Con}(F)
+\]
+So we have a contradiction, no such theory $F\supsetneq T^*$ can exist and be consistent.
+Therefore, $T^*$ is maximally consistent and $T^*$ is a completion of $T$.
+By construction, $T^*\mapsto p$ under the map $T^*\to \{[\alpha]:\alpha\in T^*\}$, hence, the map is bijective.
+\end{proof}
+
+\begin{theorem}
+[Completeness]
+Let $L$ be a language for propositional logic, $V$ its set of propositional variables and $T$ a consistent theory in $L$,
+Then $T$ has a model.
+\end{theorem}
+\begin{proof}
+Consider $B(T)=\{[\alpha]:\alpha \;\text{ is a formula in L}\}$, as $T$ is consistent, $T\not\vdash \bot$, and so in particular for any set of formulas $\alpha_0,\ldots,\alpha_n\in T$, $[\alpha_0]\dot\ldots[\alpha_n]=[\alpha_0\wedge\alpha_n]\neq[\bot]=0$. 
+Hence, $\{[\alpha]:\alpha\in T\}$ has the finite intersection property and so is contained in an ultrafilter $p\in Ult$A.
+Define a map $h:V\to 2$ by 
+\[h(v)= \begin{cases}
+1 & v\in p\\
+0 & v\not\in p
+\end{cases}\]
+Then, if $\alpha$ is a formula in $L$, $\alpha$ evaluates to $\top$ under $h$ if and only if $[\alpha]\in p$, and in particular every formula in $T$ evaluates to $\top$.
+\end{proof}
+
+\end{document}

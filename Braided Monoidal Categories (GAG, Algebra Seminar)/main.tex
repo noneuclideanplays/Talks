@@ -1,0 +1,225 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{listings}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsmath,amsthm}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{layout}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage{bussproofs}
+\usepackage{stackengine}[2013-09-11]
+\usetikzlibrary{positioning}
+\usepackage{etoolbox,refcount,multicol}
+\newcommand{\comp}{\overline{\phantom{A}}}
+\setlength{\tabcolsep}{12pt}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{definition}[theorem]{Definition}
+\newcommand\NN{\mathbb{N}} 
+\newcommand\RR{\mathbb{R}}
+\newcommand\CR{\mathcal{R}}
+\newcommand\ZZ{\mathbb{Z}}
+\newcommand\AL{\mathcal{A}}
+\newcommand\MM{\mathcal{M}}
+\newcommand\BB{\mathcal{B}}
+\newcommand\BBB{\mathfrak{B}}
+\newcommand\CC{\mathcal{C}}
+\newcommand\CCC{\mathfrak{C}}
+\newcommand\BC{\mathbb{C}}
+\newcommand\DD{\mathcal{D}}
+\newcommand\FF{\mathcal{F}}
+\newcommand\GG{\mathcal{G}}
+\newcommand\HH{\mathcal{H}}
+\newcommand\JJ{\mathcal{J}}
+\newcommand\PP{\mathcal{P}}
+\newcommand\QQ{\mathbb{Q}}
+\newcommand\CS{\mathcal{S}}
+\newcommand\TT{\mathcal{T}}
+\newcommand\BT{\mathbb{T}}
+\newcommand\OO{\mathcal{O}}
+\newcommand\UU{\mathcal{U}}
+\newcommand\VV{\mathcal{V}}
+\newcommand\PPT{\mathcal{P}^{*}}
+\newcommand\CST{\Sigma^{*}}
+\newcommand\RX{\mathsf{X}}
+\newcommand\XX{\mathcal{X}}
+
+%multi-col itemize
+\newcounter{countitems}
+\newcounter{nextitemizecount}
+\newcommand{\setupcountitems}{%
+  \stepcounter{nextitemizecount}%
+  \setcounter{countitems}{0}%
+  \preto\item{\stepcounter{countitems}}%
+}
+\makeatletter
+\newcommand{\computecountitems}{%
+  \edef\@currentlabel{\number\c@countitems}%
+  \label{countitems@\number\numexpr\value{nextitemizecount}-1\relax}%
+}
+\newcommand{\nextitemizecount}{%
+  \getrefnumber{countitems@\number\c@nextitemizecount}%
+}
+\newcommand{\previtemizecount}{%
+  \getrefnumber{countitems@\number\numexpr\value{nextitemizecount}-1\relax}%
+}
+\makeatother    
+\newenvironment{AutoMultiColItemize}{%
+\ifnumcomp{\nextitemizecount}{>}{3}{\begin{multicols}{2}}{}%
+\setupcountitems\begin{itemize}}%
+{\end{itemize}%
+\unskip\computecountitems\ifnumcomp{\previtemizecount}{>}{3}{\end{multicols}}{}}
+
+%\voffset=-1truein		% LaTeX has too much space at page top
+\addtolength{\textheight}{0.3truein}
+\addtolength{\textheight}{\topmargin}
+\addtolength{\topmargin}{-\topmargin}
+\textwidth  6.0in		% LaTeX article default 360pt=4.98''
+%\oddsidemargin 0pt	% \oddsidemargin  .35in   % default is 21.0 pt
+%\evensidemargin 0pt	% \evensidemargin .35in   % default is 59.0 pt
+%\marginparwidth=0pt
+% decrease margins on sides and top/bottom
+\geometry{
+bottom=20mm,
+margin=20mm
+}
+\title{Braided Monoidal Categories and ?}
+\date{}
+\begin{document}%\layout
+	%\MakeScribeTop
+	
+
+	
+\maketitle
+
+\begin{abstract}
+We will define Braided Monoidal Categories and describe their relation to the Braid Group.
+\end{abstract}
+
+\section{Braids}
+
+\begin{definition}
+    
+\end{definition}
+
+
+\section{Categories}
+
+As we are attempting, in a way, to form Category Theory as a foundation of math, we will define things in a metamathematical sense.
+
+\begin{definition}
+A \textit{category} $\mathcal{ C}$ is a collection of objects, $\text{Ob}\mathcal{C}$, and arrows (morphisms) and operations:
+\begin{itemize}
+\begin{AutoMultiColItemize}
+    \item Domain: assigns each arrow an object, $\text{dom}f=a$
+    \item Codomain: assigns each arrow an object, $\text{cod}f=b$
+    \item Identity: assigns each object an arrow, $\text{id}_a=1_a:a\to a$
+    \item Composition: assigns to each pair of arrows $\left<f,g\right>$ with $\text{dom}f=\text{cod}g$ an arrow $g\circ f$
+\end{AutoMultiColItemize}
+\end{itemize}
+The operations are given certain restrictions:
+\begin{itemize}
+    \item Associativity: For objects $a,b,c$ and $d$ and arrows $f:a\to b$, $g:b\to c$, $k:c\to d$, we have the equality $k\circ(g\circ f)=(k\circ g)\circ f$. Represented as a commuting diagaram:\\
+    \begin{center}
+    \begin{tikzcd}[sep = 20mm]
+       a \arrow[rr,"k\circ(g\circ f)=(k\circ g)\circ f"]
+         \arrow[d,"f"]
+         \arrow[drr,"g\circ f" near start]
+         & & d \\ b \arrow[urr,"k\circ g" near start]
+                    \arrow[rr,"g"] & &  c \arrow[u,"k"]
+    \end{tikzcd}
+    \end{center}
+    \item Unit Law: For all arrows $f:a\to b$ and $g:b\to c$, composition with identity arrows $1_b$ gives $1_b\circ f=f$ and $g\circ 1_b=g$. Represented as a commuting diagram:\\
+    \begin{center}
+    \begin{tikzcd}[sep = 15 mm]
+        a \arrow[r,"f"] \arrow[dr,"f"] & b \arrow[d,"1_b"] \arrow[dr,"g"] & \\
+                                       & b \arrow[r,"g"]                  & c
+    \end{tikzcd}
+    \end{center}
+\end{itemize}
+\end{definition}
+
+\begin{example}
+The category of sets, \textbf{Set}, has as its objects all sets and its arrows all functions between sets. 
+Note that the collection of objects is never given to be a set, interpreted in set theory it can be a proper class. 
+In the category of sets, we have identity function $1_X:X\to X$ defined by $x\mapsto x$. 
+We also have composition, if $f:X\to Y$ and $g: Y\to Z$ then $g\circ f:X\to Z$ is defined by $g(f(x))$, and this composition is well-known to be associative.
+\end{example}
+
+\begin{example}
+    The collection of groups and group homomorphisms forms the category $\textbf{Grp}$.
+    There also is the category \textbf{Ab} of abelian groups and group homomorphisms.
+\end{example}
+
+\begin{example}
+    \begin{tikzcd}
+        {\bullet} \arrow[loop]
+    \end{tikzcd}
+    \begin{tikzcd}
+        {\bullet} \ar[loop left] \ar[r] & {\bullet} \ar[loop right]
+    \end{tikzcd}
+Are both vacuously categories.
+\end{example}
+
+\begin{definition}
+    A \textit{functor} is a "morphism of categories". 
+    Specifically, if we have to categories $\mathcal{C}$ and $\mathcal{B}$, a functor $T:\CC\to\BB$ consists of two functions: the \textit{object function} $T$ assigns each object $c\in\CC$ an object $Tc\in\BB$, and the \textit{arrow function} $T$ assigning each arrow $f:c\to c'$ of $\CC$ an arrow $Tf:Tc\to Tc'$ of $\BB$.
+    The functor must respect the structure of the categories, $T(1_c)=1_{Tc}$ and $T(g\circ f)=Tg\circ Tf$.
+\end{definition}
+
+\begin{example}
+    Let $\textbf{Set}$ be the category of sets, a simple example of a functor is the power set $\PP:\textbf{Set}\to\textbf{Set}$.
+    Each set $X$ is assigned a set $\PP(X)$ and each arrow $f:X\to Y$ gets assigned a map $\PP f:\PP(X)\to\PP(Y)$.
+\end{example}
+
+\begin{example}
+    A group, $G$ can be considered a category in itself with only one object, the group, and an arrow for each element of the group.
+    A functor from $G$ to \textbf{Set} is then a group action of $G$ on a set.
+    Similarly, if a functor maps $G$ to $\textbf{Vect}_K$, the category of vector spaces over $K$, is a linear representation of $G$.
+\end{example}
+
+\begin{definition}
+    Given two functors $S,T:\CC\to\BB$, a \textit{natural transformation}, "morphism of functors", $\tau:S\to T$ is a function which assigns to each object $c$ of $\CC$ an arrow $\tau c:Sc\to Tc$ of $\BB$ in such a way that every arrow $f:c\to c'$ in $\CC$ yields a commuting diagram\\
+    \begin{center}
+    \begin{tikzcd}[sep=15mm]
+        c\arrow[d,"f"] & Sc \arrow[r,"\tau c"] \arrow[d,"Sf"] & Tc \arrow[d,"Tf"]\\
+        c'             & Sc'\arrow[r,"\tau c'"]               & Tc'
+    \end{tikzcd}
+    \end{center}
+\end{definition}
+
+ The natural transformation can be thought of as translating the image under $S$ to the image under $T$.
+ While one of the harder concepts to intuit, this is one of the most important notions in Category Theory.
+
+ \begin{example}
+     Let $\textbf{Grp}$ be the category of groups and $\textbf{CRng}$ be the category of commutative rings.
+     There is a functor $GL_n:\textbf{CRng}\to\textbf{Grp}$ defined by taking a commutative ring $K$ to the group of invertible $n\times n$ matrices $GL_n(K)$.
+     We also have a functor ${}^*:\textbf{CRng}\to\textbf{Grp}$ defined by sending a commutative ring $K$ to its group of units $K^*$.
+     Between these functors is a natural transformation, $det:GL_n\to{}^*$.
+     \begin{center}
+         \begin{tikzcd}[sep=15mm]
+            GL_n K \arrow[r,"det_K"] \arrow[d,"GL_n f"] & K^* \arrow[d,"f^*"]\\
+            GL_n K' \arrow[r,"det_{K'}"]                & K^{'*}
+         \end{tikzcd}
+     \end{center}   
+ \end{example}
+
+
+
+\end{document}

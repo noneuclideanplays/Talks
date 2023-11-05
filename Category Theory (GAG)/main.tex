@@ -1,0 +1,356 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{listings}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsmath,amsthm}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{layout}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage{bussproofs}
+\usepackage{stackengine}[2013-09-11]
+\usetikzlibrary{positioning}
+\usepackage{etoolbox,refcount,multicol}
+\newcommand{\comp}{\overline{\phantom{A}}}
+\setlength{\tabcolsep}{12pt}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{definition}[theorem]{Definition}
+\newcommand\NN{\mathbb{N}} 
+\newcommand\RR{\mathbb{R}}
+\newcommand\CR{\mathcal{R}}
+\newcommand\ZZ{\mathbb{Z}}
+\newcommand\AL{\mathcal{A}}
+\newcommand\MM{\mathcal{M}}
+\newcommand\BB{\mathcal{B}}
+\newcommand\BBB{\mathfrak{B}}
+\newcommand\CC{\mathcal{C}}
+\newcommand\CCC{\mathfrak{C}}
+\newcommand\BC{\mathbb{C}}
+\newcommand\DD{\mathcal{D}}
+\newcommand\FF{\mathcal{F}}
+\newcommand\GG{\mathcal{G}}
+\newcommand\HH{\mathcal{H}}
+\newcommand\JJ{\mathcal{J}}
+\newcommand\PP{\mathcal{P}}
+\newcommand\QQ{\mathbb{Q}}
+\newcommand\CS{\mathcal{S}}
+\newcommand\TT{\mathcal{T}}
+\newcommand\BT{\mathbb{T}}
+\newcommand\OO{\mathcal{O}}
+\newcommand\UU{\mathcal{U}}
+\newcommand\VV{\mathcal{V}}
+\newcommand\PPT{\mathcal{P}^{*}}
+\newcommand\CST{\Sigma^{*}}
+\newcommand\RX{\mathsf{X}}
+\newcommand\XX{\mathcal{X}}
+
+%multi-col itemize
+\newcounter{countitems}
+\newcounter{nextitemizecount}
+\newcommand{\setupcountitems}{%
+  \stepcounter{nextitemizecount}%
+  \setcounter{countitems}{0}%
+  \preto\item{\stepcounter{countitems}}%
+}
+\makeatletter
+\newcommand{\computecountitems}{%
+  \edef\@currentlabel{\number\c@countitems}%
+  \label{countitems@\number\numexpr\value{nextitemizecount}-1\relax}%
+}
+\newcommand{\nextitemizecount}{%
+  \getrefnumber{countitems@\number\c@nextitemizecount}%
+}
+\newcommand{\previtemizecount}{%
+  \getrefnumber{countitems@\number\numexpr\value{nextitemizecount}-1\relax}%
+}
+\makeatother    
+\newenvironment{AutoMultiColItemize}{%
+\ifnumcomp{\nextitemizecount}{>}{3}{\begin{multicols}{2}}{}%
+\setupcountitems\begin{itemize}}%
+{\end{itemize}%
+\unskip\computecountitems\ifnumcomp{\previtemizecount}{>}{3}{\end{multicols}}{}}
+
+%\voffset=-1truein		% LaTeX has too much space at page top
+\addtolength{\textheight}{0.3truein}
+\addtolength{\textheight}{\topmargin}
+\addtolength{\topmargin}{-\topmargin}
+\textwidth  6.0in		% LaTeX article default 360pt=4.98''
+%\oddsidemargin 0pt	% \oddsidemargin  .35in   % default is 21.0 pt
+%\evensidemargin 0pt	% \evensidemargin .35in   % default is 59.0 pt
+%\marginparwidth=0pt
+% decrease margins on sides and top/bottom
+\geometry{
+bottom=20mm,
+margin=20mm
+}
+\title{The Sets and Arrows of Outrageous Fortune}
+\date{}
+\begin{document}%\layout
+	%\MakeScribeTop
+	
+
+	
+\maketitle
+
+\begin{abstract}
+We will define and describe the basic properties of Category Theory.
+Then we will develop the necessary tools for, and provide a proof of, Yoneda's Lemma.
+Finally, we will discuss monoids with a view towards higher-order category theory.
+\end{abstract}
+\section{Categories}
+
+As we are attempting, in a way, to form Category Theory as a foundation of math, we will define things in a metamathematical sense.
+
+\begin{definition}
+A \textit{category} $\mathcal{ C}$ is a collection of objects, $\text{Ob}\mathcal{C}$, and arrows (morphisms) and operations:
+\begin{itemize}
+\begin{AutoMultiColItemize}
+    \item Domain: assigns each arrow an object, $\text{dom}f=a$
+    \item Codomain: assigns each arrow an object, $\text{cod}f=b$
+    \item Identity: assigns each object an arrow, $\text{id}_a=1_a:a\to a$
+    \item Composition: assigns to each pair of arrows $\left<f,g\right>$ with $\text{dom}f=\text{cod}g$ an arrow $g\circ f$
+\end{AutoMultiColItemize}
+\end{itemize}
+The operations are given certain restrictions:
+\begin{itemize}
+    \item Associativity: For objects $a,b,c$ and $d$ and arrows $f:a\to b$, $g:b\to c$, $k:c\to d$, we have the equality $k\circ(g\circ f)=(k\circ g)\circ f$. Represented as a commuting diagaram:\\
+    \begin{center}
+    \begin{tikzcd}[sep = 20mm]
+       a \arrow[rr,"k\circ(g\circ f)=(k\circ g)\circ f"]
+         \arrow[d,"f"]
+         \arrow[drr,"g\circ f" near start]
+         & & d \\ b \arrow[urr,"k\circ g" near start]
+                    \arrow[rr,"g"] & &  c \arrow[u,"k"]
+    \end{tikzcd}
+    \end{center}
+    \item Unit Law: For all arrows $f:a\to b$ and $g:b\to c$, composition with identity arrows $1_b$ gives $1_b\circ f=f$ and $g\circ 1_b=g$. Represented as a commuting diagram:\\
+    \begin{center}
+    \begin{tikzcd}[sep = 15 mm]
+        a \arrow[r,"f"] \arrow[dr,"f"] & b \arrow[d,"1_b"] \arrow[dr,"g"] & \\
+                                       & b \arrow[r,"g"]                  & c
+    \end{tikzcd}
+    \end{center}
+\end{itemize}
+\end{definition}
+
+\begin{example}
+The category of sets, \textbf{Set}, has as its objects all sets and its arrows all functions between sets. 
+Note that the collection of objects is never given to be a set, interpreted in set theory it can be a proper class. 
+In the category of sets, we have identity function $1_X:X\to X$ defined by $x\mapsto x$. 
+We also have composition, if $f:X\to Y$ and $g: Y\to Z$ then $g\circ f:X\to Z$ is defined by $g(f(x))$, and this composition is well-known to be associative.
+\end{example}
+
+\begin{example}
+    The collection of groups and group homomorphisms forms the category $\textbf{Grp}$.
+    There also is the category \textbf{Ab} of abelian groups and group homomorphisms.
+\end{example}
+
+\begin{example}
+    \begin{tikzcd}
+        {\bullet} \arrow[loop]
+    \end{tikzcd}
+    \begin{tikzcd}
+        {\bullet} \ar[loop left] \ar[r] & {\bullet} \ar[loop right]
+    \end{tikzcd}
+Are both vacuously categories.
+\end{example}
+
+\begin{definition}
+    Inside a specific category we define the \textit{Hom-set} between objects $a$ and $b$ as $\hom(a,b)=\{f|f\in \mathcal{C},\text{dom}f=a,\text{cod}f=b\}$.
+    Note that in arbitrary categories, $\hom(a,b)$ need not be a set, it could be a proper class. 
+    When all the "Hom-sets" are sets, the category is called locally small.
+    For our purposes, the distinction is unecessary.
+\end{definition}
+
+\begin{definition}
+    A \textit{functor} is a "morphism of categories". 
+    Specifically, if we have to categories $\mathcal{C}$ and $\mathcal{B}$, a functor $T:\CC\to\BB$ consists of two functions: the \textit{object function} $T$ assigns each object $c\in\CC$ an object $Tc\in\BB$, and the \textit{arrow function} $T$ assigning each arrow $f:c\to c'$ of $\CC$ an arrow $Tf:Tc\to Tc'$ of $\BB$.
+    The functor must respect the structure of the categories, $T(1_c)=1_{Tc}$ and $T(g\circ f)=Tg\circ Tf$.
+\end{definition}
+
+\begin{example}
+    Let $\textbf{Set}$ be the category of sets, a simple example of a functor is the power set $\PP:\textbf{Set}\to\textbf{Set}$.
+    Each set $X$ is assigned a set $\PP(X)$ and each arrow $f:X\to Y$ gets assigned a map $\PP f:\PP(X)\to\PP(Y)$.
+\end{example}
+
+\begin{example}
+    A group, $G$ can be considered a category in itself with only one object, the group, and an arrow for each element of the group.
+    A functor from $G$ to \textbf{Set} is then a group action of $G$ on a set.
+    Similarly, if a functor maps $G$ to $\textbf{Vect}_K$, the category of vector spaces over $K$, is a linear representation of $G$.
+\end{example}
+
+\begin{example}
+    A very common type of functor is called \textit{forgetful}.
+    This is a functor that applies to an object and "forgets" some amount of structure of the object.
+    For instance, there is a forgetful functor $U:\textbf{Grp}\to\textbf{Set}$ assigning to each group $G$ the set $UG$ of elements of $G$, and each morphism $f:G\to G'$ a function $Uf:UG\to UG'$ which is the same as $f$ but not simply regarded as a function of sets.
+    Forgetful functors do not have to forget all structure though, there is a forgetful functor $U:\textbf{Rng}\to \textbf{Ab}$ assigning each ring $R$ its additive group $UR$ and each ring homomorphism $f:R\to R'$ a group homomorphism $Uf:UR\to UR'$, which is the same as $f$ but now only regarded as a group homomorphism.
+\end{example}
+
+\begin{definition}
+    Given two functors $S,T:\CC\to\BB$, a \textit{natural transformation}, "morphism of functors", $\tau:S\to T$ is a function which assigns to each object $c$ of $\CC$ an arrow $\tau c:Sc\to Tc$ of $\BB$ in such a way that every arrow $f:c\to c'$ in $\CC$ yields a commuting diagram\\
+    \begin{center}
+    \begin{tikzcd}[sep=15mm]
+        c\arrow[d,"f"] & Sc \arrow[r,"\tau c"] \arrow[d,"Sf"] & Tc \arrow[d,"Tf"]\\
+        c'             & Sc'\arrow[r,"\tau c'"]               & Tc'
+    \end{tikzcd}
+    \end{center}
+\end{definition}
+
+ The natural transformation can be thought of as translating the image under $S$ to the image under $T$.
+ While one of the harder concepts to intuit, this is one of the most important notions in Category Theory.
+
+ \begin{example}
+     Let $\textbf{Grp}$ be the category of groups and $\textbf{CRng}$ be the category of commutative rings.
+     There is a functor $GL_n:\textbf{CRng}\to\textbf{Grp}$ defined by taking a commutative ring $K$ to the group of invertible $n\times n$ matrices $GL_n(K)$.
+     We also have a functor ${}^*:\textbf{CRng}\to\textbf{Grp}$ defined by sending a commutative ring $K$ to its group of units $K^*$.
+     Between these functors is a natural transformation, $det:GL_n\to{}^*$.
+     \begin{center}
+         \begin{tikzcd}[sep=15mm]
+            GL_n K \arrow[r,"det_K"] \arrow[d,"GL_n f"] & K^* \arrow[d,"f^*"]\\
+            GL_n K' \arrow[r,"det_{K'}"]                & K^{'*}
+         \end{tikzcd}
+     \end{center}   
+ \end{example}
+
+\begin{definition}
+    If $\CC$ is a category, we define the opposite category, $\CC^\text{op}$, by keeping the same objects, and an arrow $f:y\to x$ in $\CC^\text{op}$ is the arrow $f:x\to y$ in $\CC$.
+    The opposite functor and natural transformation can be defined similarly.
+\end{definition}
+
+\begin{definition}
+    Let $\AL$ and $\mathcal{X}$ be two categories.
+    An \textit{adjunction} from $\XX$ to $\AL$ is a triple $\left<F,G,\phi\right>:\XX\to\AL$ where $F:\XX\to\AL$ and $G:\AL\to\XX$ are functors and $\phi$ is a function assigning to each pair of objects $x\in\XX$ and $a\in\AL$ a bijection of hom-sets 
+    \[
+    \phi=\phi_{x,a}:\AL(Fx,a)\cong\XX(x,Ga)
+    \]
+    which is natural in $x$ and $a$.   
+\end{definition}
+
+\begin{definition}
+    An adjunction may also be thought of as a bijection assigning to each arrow $f:Fx\to a$ an arrow $\phi f=\text{rad}f:x\to Ga$, the \textit{right adjunct of } $f$, in such a way to make $\phi$ natural, 
+    \[
+    \phi(k\circ f)=Gk\circ\phi f \;\;\;\; \phi(f\circ Fh)=\phi f\circ h
+    \]
+    for all $f$ and all arrows $h:x'\to x$ and $k:a\to a'$.
+\end{definition}
+
+\begin{definition}
+    Given such and adjunction, the functor $F$ is said to be a \textit{left adjoint} for $G$, and $G$ is a \textit{right adjoint} of $F$.
+\end{definition}
+
+\begin{example}
+    Consider the forgetful functor $U:\textbf{Grp}\to\textbf{Set}$, this has the left adjoint $G:\textbf{Set}\to\textbf{Grp}$ defined by $X\mapsto Free(X)$ where $Free(X)$ is the free group with generators $x\in X$. 
+\end{example}
+
+\begin{definition}
+    Let $S:\DD\to\CC$ be a functor, $c$ a $\CC$-object, then a \textit{universal arrow} from $c$ to $S$ is a pair $<r,u>$ consisting of an object $r$ of $\DD$ and an arrow $u:c\to Sr$ of $\CC$
+    such that to every pair $<d,f>$ with $d$ a $\DD$-object and $f:c\to Sd$ a $\CC$-arrow, there is a unique arrow $f':r\to d$ of $D$ with $Sf'\circ u=f$. 
+    In other words, any arrow $f$ that maps $c\to Sd$ must factor uniquely through the universal arrow $u:c\to Sr$.
+    \begin{center}
+        \begin{tikzcd}[sep=20mm]
+            c \ar[r,"u"] \ar[d,equals] & Sr \ar[d,dashrightarrow,"Sf'"] & r \ar[d,dashrightarrow,"f'"]\\
+            c \ar[r,"f"]               & Sd                             & d
+        \end{tikzcd}
+    \end{center}
+\end{definition}
+
+
+\begin{definition}
+    Let $\CC$ be a (locally small category), for any object $c\in\CC$ we define the hom-functor $\hom(c,-):\CC\to\textbf{Set}$.
+    If $c'$ is an object in $\CC$, then $c'$ gets mapped to $\hom(c,c')$, the hom-set between $c$ and $c'$.
+    If $f:a\to b$ is an arrow in $\CC$, it gets mapped to the arrow, in \textbf{Set}, $\hom(c,f):\hom(c,a)\to\hom(c,b)$ given by $g\mapsto f\circ g$.
+\end{definition}
+
+\begin{lemma}[Yoneda]
+    Let $\CC$ be a (locally small) category, if $K:\CC\to\textbf{Set}$ is a functor and $c$ a $\CC$-object, then there is an isomorphism
+    \[
+        \text{Nat}(\hom(c,-),K)\cong Kc
+    \]
+    where Nat$(\hom(c,-),K)$ is the collection of natural transformations from the hom-set $\hom(c,-)$ to $K$.
+    This isomorphism sends each natural transformation $\alpha:\hom(c,-)\to K$ to $\alpha_c 1_c$, the image of the identity $1_c:c\to c$.
+    Every object $x\in Kc$ corresponds to the natural transformation $\alpha_x(f)=K(f)(u)$ which assigns a morphism $f:c\to x$ a value of $Kx$.
+\end{lemma}
+
+\begin{proof}
+    Let $\alpha\in\text{Nat}(\hom(c,-),K)$, we get the commutative diagram
+\[ 
+\stackinset{l}{12ex}{b}{8ex}{%
+\scalebox{.8}
+{% 
+\begin{tikzcd}[row sep=8ex, column sep = 8ex, ampersand replacement=\&]
+1_c
+    \arrow[mapsto]{r}
+    \arrow[mapsto]{d}
+\& f 
+    \arrow[mapsto]{d}  \\
+u 
+    \arrow[mapsto]{r} 
+\& (Kf)u=\alpha_x(f)
+\end{tikzcd}
+} 
+}{% 
+\begin{tikzcd}[row sep = 20ex, column sep = 20ex, ampersand replacement=\&]
+\hom(c,c) 
+    \arrow{r}{\hom(c,f)} 
+    \arrow[swap]{d}{\alpha_c}
+\& \hom(c,x) 
+    \arrow{d}{\alpha_x}  \\
+Kc
+    \arrow[swap]{r}{Kf} 
+\& Kx
+\end{tikzcd}
+}
+\]
+
+The lemmma follows by chasing the identity element $1_c$.
+The key fact is that the naturality of $\alpha:\hom(c,-)\to K$ implies that it is determined by the value of $\alpha_c(1_c)\in Kc$.
+And any such value also extends to a natural transformation.
+\end{proof}
+
+The point of Yoneda's lemma is that instead studying a category $\CC$, one should study the category formed by functors of $\CC$ into $\textbf{Set}$.
+Similarly to groups, one studies group actions, or instead of studying rings, one studies the modules over the ring.
+Yoneda's lemma says a functor $K:\CC\to\textbf{Set}$ is a 'representation' of the category $\CC$ as in terms of the well-known structures of sets.
+
+\begin{definition}
+    As described before, a functor can be thought of as a 'morphism of morphisms', and so higher category theory is the study of what happens when we include these into our definition.
+    A natural transformation can also be thought of as a 'morphism of functors' or a 'morphism of morphisms of morphisms'. 
+    This gets reduced to the notation $3$-morphism.
+    And so, in an $n$-category, we get $0$-morphisms (objects), $1$-morphisms (arrows), $2$-morphisms (functors), and so on up to $n$-morphisms such that associativity and unitality hold in the ways we would want.
+\end{definition}
+
+\begin{example}
+    There is a periodic table of higher-categories, written originally by Baez and Dolan, in particular with $k$-tuply monoidal categories (ie. $k$ many tensor products, althought it is ill-defined). The following table is a snippet of the periodic table with $n$ across and $k$ down.
+    \begin{center}
+    \begin{tabular} {|c | c | c | c|}
+        \hline
+        & 0 & 1 & 2\\
+        \hline
+        0 & set & category & $2$-category\\
+        \hline
+        1 & monoid & monoidal category & monoidal $2$-category\\
+        \hline
+        2 & abelian monoid & braided monoidal category & braided monoidal $2$-category\\
+        \hline
+        3 & abelian monoid & symmetric monoidal category & sylleptic monoidal $2$-category\\
+        \hline
+    \end{tabular}
+    \end{center}
+\end{example}
+
+\end{document}
