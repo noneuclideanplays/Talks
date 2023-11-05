@@ -1,0 +1,25 @@
+\frametitle{Hopf Algebra Actions}
+
+Let $H$ be a Hopf alg and $A$ an alg with a map $\alpha:H\otimes A\to A$. Then we say $H$ acts on $A$ by $\alpha$ if the following the diagrams commute:
+
+\begin{itemize}
+    \item[]<2->\begin{tikzcd}[color=lightred]
+H\otimes H\otimes A \arrow[r, "\bigtriangledown\otimes id"] \arrow[d, "id\otimes \alpha"] & H\otimes A \arrow[d, "\alpha"] \\
+H\otimes A \arrow[r, "\alpha"]                                                         & A
+\end{tikzcd}
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbAABwnAlgFyxMJZABgBpiBdUkANwEMAbAAxiRAB12BrLziPALbwABADUQAX1LpMufIRQBGclAqMWbABJ9BI8AJnY8BIssWr6zAohD7AMKAHN4RUADMAThAFIyIHBBIympWbJwwOHQ6WEJwwlhQktIgnt6+1AFIAEzUlho2ALwg1Ax0AEYwDAAKssYKIB5YjgAWOEnuXj6IwZmIOSH5HOyMaM10khQSQA
+        \begin{tikzcd}[color=darkgreen]
+\mathbb{C}\otimes A \arrow[r, "\eta\otimes id"] \arrow[rd, "="'] & H\otimes A \arrow[d, "\alpha"] \\
+                                                          & A
+\end{tikzcd}
+    \item[]<3-> \begin{tikzcd}[color=darkblue]
+H\otimes A\otimes A \arrow[r, "\bigtriangledown"] \arrow[d, "\triangle\otimes id\otimes id"'] & H\otimes A \arrow[r, "\alpha"] & A & A\otimes A \arrow[l, "\bigtriangledown"']                         \\
+H\otimes H\otimes A\otimes A \arrow[rrr, "id\otimes\tau\otimes id"]                        &                                &   & H\otimes A\otimes H\otimes A \arrow[u, "\alpha\otimes\alpha"']
+\end{tikzcd}
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAAkQBfU9TXfIRQBGclVqMWbADrSA1nO68QGbHgJEATGOr1mrRCACCSvmsFEyw8XqmH2siHgC28AAQmu4mFADm8IlAAMwAnCGckMhAcCCRRCX0ZaXoQmDRsBg0eYLCIxHiYpG0EuxBZGBw6UxBQ8MjqQsQAZl1JAzLpCqrsmtykFujYxGLbdtlGNAALboouIA
+    \item[]<4-> \begin{center}\begin{tikzcd}[color=darkgreen]
+H \arrow[r, "\varepsilon"] \arrow[d, "\eta"'] & \mathbb{C} \arrow[r, "\eta"] & A \\
+H\otimes A \arrow[rru, "\alpha"']             &                       &
+\end{tikzcd}\end{center}
+\end{itemize}
+
