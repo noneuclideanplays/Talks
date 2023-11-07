@@ -5,12 +5,6 @@
 \usepackage{ulem}
 \usepackage{multicol}
 
-\usepackage[backend=biber,style=numeric-comp,sorting=none]{biblatex}
-\setbeamertemplate{bibliography entry title}{}
-\setbeamertemplate{bibliography entry location}{}
-\setbeamertemplate{bibliography entry note}{}
-\addbibresource{bibliography.bib}
-
 \usepackage{untgreen}
 \UNTGpalette
 \usetheme{Warsaw}
@@ -25,69 +19,12 @@
 
 \title{Hopf Algebra Actions on Quantum Planes}
 \author{Brandon Mather}
-\institute{University of North Texas}
-\date{GAS November 2023}
+\date{Algebra Seminar November 2023}
 
 
 \begin{document}
 
 \maketitle
-
-\begin{frame}{History}
-
-\begin{itemize}
-    \item (1939) Heinz Hopf works on homology of a compact Lie group leading to Hopf algs.
-    \item (1969) Moss Sweedler writes seminal book ``Hopf Algebras".
-    \item (1986) Vladimir Drinfeld gives an address at ICM popularizing quantum groups.
-    \item (1992) Susan Montogomery writes seminal book \\``Hopf Algebras and Their Actions on Rings".
-    \item (Modern Day) Researchers work towards classification problems and actions of Hopf algs.
-\end{itemize}
- \vspace{2ex}
-\begin{block}{Goal}
-  Understand actions of Hopf algs on noncommutative algs.
-\end{block}
-\end{frame}
-
-\begin{frame}{Quantum Polynomial Ring}
-\begin{definition}
-    Let $Q=(q_{ij})$ be an $n\times n$ matrix, \\each entry $q_{ij}$ a root of unity and $q_{ii}=q_{ij}q_{ji}=1$.\\ A \textbf{quantum polynomial ring} is a ring \begin{center}$\mathbb{C}_Q[x_1,
-    \ldots,x_n]=\mathbb{C}[x_1,\ldots,x_n]/\langle x_jx_i-q_{ij}x_ix_j\rangle$.\end{center}
-\end{definition}
-
-For example, $\mathbb{C}_{-1}[u,v]=\mathbb{C}[u,v]/\langle uv+vu\rangle$
-\end{frame}
-
-
-\begin{frame}{Sweedler's Hopf Algebra}
-
-The unique 4-dim'l non-commutative, non-cocommutative Hopf alg given by Moss Sweedler in ``Hopf Algebras" (1969): \newline
-
-$H_4=\Big\langle g,x\;\vert\;g^2=1,x^2=0,xg=-gx\Big\rangle$ with operations
-
-\vspace{2ex}
-
-\begin{itemize}
-\setlength{\itemsep}{2ex}
-    \item[]<2-> $\triangle(g)=g\otimes g,\ \triangle(x)=x\otimes 1+g\otimes x$,
-    \item[]<3-> $\varepsilon(g)=1,\  \varepsilon(x)=0$,
-    \item[]<4-> $S(g)=g^{-1},\ S(x)=-x$.
-\end{itemize}
-
-
-\end{frame}
-
-\begin{frame}{Actions of Sweedler's Algebra}
-
-$H_4$ acts on the quantum plane $\mathbb{C}_{-1}[u,v]$ by 
-\[
-g\cdot u=u, \;\;\; g\cdot v=-v,\;\;\; x\cdot u=0,\;\;\;x\cdot v=u
-\]
-giving the representation 
-\[
-g\mapsto \begin{bmatrix} 1 & 0\\ 0&-1\end{bmatrix}, \;\;\;\;\;\; x\mapsto \begin{bmatrix} 0&1\\0&0\end{bmatrix}.
-\]
-
-\end{frame}
 
 \begin{frame}{Kac-Paljutkin Algebra}
 
@@ -144,6 +81,43 @@ g\mapsto \begin{bmatrix} 1 & 0\\ 0&-1\end{bmatrix}, \;\;\;\;\;\; x\mapsto \begin
 \end{itemize}
 \end{frame}
 
+\begin{frame}{$16$-dim Hopf Algebra}
+    The $16$-dimensionl semisimple Hopf algebras have been classified by Kashina.
+    One such example is
+    \[
+    H_{16}=\Big\langle x,y,z\;\vert\; x^4=y^2=z^2=1,\ xy=yx,\ zx=xyz,\ zy=yz\Big\rangle    
+    \]
+    with operations:
+    \vspace{2ex}
+    \begin{itemize}
+    \setlength{\itemsep}{2ex}
+    \item[]<2->
+    $\triangle(x)=x\otimes x,\;\triangle(y)=y\otimes y,$
+    \vspace{2ex}
+    
+    $\triangle(z)=\tfrac{1}{2}(1\otimes 1+1\otimes x^2+y\otimes 1-y\otimes x^2 )(z\otimes z),\;$
+    
+    \item[]<3->$
+    \varepsilon(x)=\varepsilon(y)=\varepsilon(z)=1,$
+
+    \item[]<4->$ S(x)=x^3,\; S(y)=y,\; S(z)=\tfrac{1}{2}(1+x^2+y-x^2y)z.$ 
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Action of $H_{16}$}
+    $H_{16}$ acts on the algebra 
+    \[
+    \mathbb{C}[t,u,v,w]/(tw+wt,uw+wu)    
+    \]
+    by the representation
+    \[
+    x\mapsto \begin{bmatrix}i&0&0&0\\0&-i&0&0\\0&0&1&0\\0&0&0&-1\end{bmatrix},\; y\mapsto\begin{bmatrix}-1&0&0&0\\0&-1&0&0\\0&0&-1&0\\0&0&0&-1\end{bmatrix},
+    \]
+    \[
+    z\mapsto\begin{bmatrix} 0&1&0&0\\1&0&0&0\\0&0&0&1\\0&0&1&0\end{bmatrix}.
+    \]
+\end{frame}
+
 \begin{frame}{Quantized Universal Enveloping Algebra}
 
 Described by Piotr Kulish and Nicolai Reshetikhin in``Quantum linear problem for the sine-Gordon equation and highest weight representations" (1983), leading Vladimir Drinfeld to quantum groups\newline
@@ -180,7 +154,7 @@ K\mapsto\begin{bmatrix}q&0\\0&q^{-1}\end{bmatrix} \;\;\;\; K^{-1}\mapsto \begin{
 
 \begin{frame}[fragile]{Hopf Algebra}
 
-A Hopf algebra is a bialgebra $H$ over a field with an antipode \\\;\;\;\;\;\;\;\;$\color{darkblue}S:H\to H$ \;\;\;where the bialgebra operations are 
+A \textbf{Hopf algebra} is a bialgebra $H$ over a field with an antipode \\\;\;\;\;\;\;\;\;$\color{darkblue}S:H\to H$ \;\;\;where the bialgebra operations are 
 \vspace{-2ex}
 \begin{multicols}{2}
 \begin{itemize}
@@ -257,7 +231,7 @@ H\otimes H \arrow[rr, "S\otimes id"]                                      &     
 
 \begin{frame}[fragile]{Hopf Algebra Actions}
 
-Let $H$ be a Hopf alg and $A$ an alg with a map $\alpha:H\otimes A\to A$. Then we say $H$ acts on $A$ by $\alpha$ if the following the diagrams commute:
+Let $H$ be a Hopf alg and $A$ an alg with a map $\alpha:H\otimes A\to A$. Then we say $H$ \textbf{acts} on $A$ by $\alpha$ if the following the diagrams commute:
 
 \begin{itemize}
     \item[]<2->\begin{tikzcd}[color=lightred]
@@ -269,41 +243,21 @@ H\otimes A \arrow[r, "\alpha"]                                                  
 \mathbb{C}\otimes A \arrow[r, "\eta\otimes id"] \arrow[rd, "="'] & H\otimes A \arrow[d, "\alpha"] \\
                                                           & A                                                                       
 \end{tikzcd}
-    \item[]<3-> \begin{tikzcd}[color=darkblue]
+\vspace{1.5ex}
+\end{itemize}
+\pause \pause $A$ is called an $H$-\textbf{module algebra} if the following also commute:
+\begin{itemize}
+\item[]<4-> \begin{tikzcd}[color=darkblue]
 H\otimes A\otimes A \arrow[r, "\bigtriangledown"] \arrow[d, "\triangle\otimes id\otimes id"'] & H\otimes A \arrow[r, "\alpha"] & A & A\otimes A \arrow[l, "\bigtriangledown"']                         \\
 H\otimes H\otimes A\otimes A \arrow[rrr, "id\otimes\tau\otimes id"]                        &                                &   & H\otimes A\otimes H\otimes A \arrow[u, "\alpha\otimes\alpha"']
-\end{tikzcd}
+\end{tikzcd}.\
 % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAAkQBfU9TXfIRQBGclVqMWbADrSA1nO68QGbHgJEATGOr1mrRCACCSvmsFEyw8XqmH2siHgC28AAQmu4mFADm8IlAAMwAnCGckMhAcCCRRCX0ZaXoQmDRsBg0eYLCIxHiYpG0EuxBZGBw6UxBQ8MjqQsQAZl1JAzLpCqrsmtykFujYxGLbdtlGNAALboouIA
-    \item[]<4-> \begin{center}\begin{tikzcd}[color=darkgreen]
+    \item[]<5->
+     \begin{center}\begin{tikzcd}[color=darkgreen]
 H \arrow[r, "\varepsilon"] \arrow[d, "\eta"'] & \mathbb{C} \arrow[r, "\eta"] & A \\
 H\otimes A \arrow[rru, "\alpha"']             &                       &  
 \end{tikzcd}\end{center}
 \end{itemize}
-
-\end{frame}
-
-
-\begin{frame}{Questions}
-
-\begin{itemize}
-    \item<1-> Which actions on algs by Hopf algs factor through a group action?
-    \item<2-> Which Hopf algs act on AS-regular algs?
-    \item<3-> When are the invariant subrings from Hopf alg actions Artin-Schelter Gorenstein?
-    \item<4-> If $H$ is semisimple and finite dimensional and $A$ a semiprime alg, is $A\#H$ semiprime?
-    \item<5-> If $B$ is a Koszul alg, are there nontrivial PBW deformations of $B\# U_q(\mathfrak{sl_n})$?
-\end{itemize}
-
-\end{frame}
-
-\begin{frame}{}
-  \centering \Large
-  \emph{Thank You!}
-\end{frame}
-
-\begin{frame}[allowframebreaks]{References}
-
-        \nocite{*}                        %print out bibliography without needing to cite anything
-        \printbibliography[heading=none]                %Need for biblatex, heading=none removes References heading from top of each slide
 
 \end{frame}
 
