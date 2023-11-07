@@ -1,13 +1,13 @@
 # Fdb version 3
-["biber main"] 1699223742 "main.bcf" "main.bbl" "main" 1699223757
+["biber main"] 1699223742 "main.bcf" "main.bbl" "main" 1699224916
   "bibliography.bib" 1699241734 4265 7a737f11f6c2ff2b0b96b2cea5b98fb4 ""
-  "main.bcf" 1699223757 106336 1b250867d0617dfe7cc0e98604523c72 "pdflatex"
+  "main.bcf" 1699224915 106336 1b250867d0617dfe7cc0e98604523c72 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
-["pdflatex"] 1699223753 "/home/bam0430/Documents/LaTeX/Talks/Hopf Algebras Talk (GAS)/main.tex" "main.pdf" "main" 1699223757
+["pdflatex"] 1699224909 "/home/bam0430/Documents/LaTeX/Talks/Hopf Algebras Talk (GAS)/main.tex" "main.pdf" "main" 1699224916
   "/etc/texmf/web2c/texmf.cnf" 1692894484 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/bam0430/Documents/LaTeX/Talks/Hopf Algebras Talk (GAS)/main.tex" 1699241734 15198 53477c6f0b5befe07f6888ff0b36bd91 ""
+  "/home/bam0430/Documents/LaTeX/Talks/Hopf Algebras Talk (GAS)/main.tex" 1699224909 15198 d93b87689321805b18d8e0f9e41fb0bd ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -259,13 +259,13 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1644012257 39432 7155514e09a3d69036fac785183a21c2 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1698867455 4379155 98693266ff65f58d9f98aff394de12d2 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1698867495 2801854 2bf5428b3efc71761612c059941151d2 ""
-  "main.aux" 1699223757 3729 e505c69bbc4d4d62c5638bfbd512e253 "pdflatex"
+  "main.aux" 1699224915 3729 e505c69bbc4d4d62c5638bfbd512e253 "pdflatex"
   "main.bbl" 1699223743 10850 8e21eee658647e1c0a94a47e6fcd824d "biber main"
-  "main.nav" 1699223757 1681 223651a464c0fddedb31298be7201241 "pdflatex"
-  "main.out" 1699223754 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "main.run.xml" 1699223757 2348 e48e2c7089d179f54136b9872e2b9faf "pdflatex"
-  "main.tex" 1699241734 15198 53477c6f0b5befe07f6888ff0b36bd91 ""
-  "main.vrb" 1699223756 1965 82481bb6ac8ae3f61f70b28397472764 "pdflatex"
+  "main.nav" 1699224915 1681 223651a464c0fddedb31298be7201241 "pdflatex"
+  "main.out" 1699224910 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "main.run.xml" 1699224915 2348 e48e2c7089d179f54136b9872e2b9faf "pdflatex"
+  "main.tex" 1699224909 15198 d93b87689321805b18d8e0f9e41fb0bd ""
+  "main.vrb" 1699224914 1965 82481bb6ac8ae3f61f70b28397472764 "pdflatex"
   "untgreen.sty" 1699241734 1214 306cd3f379275d84f93e660d65f634f8 ""
   (generated)
   "main.aux"
