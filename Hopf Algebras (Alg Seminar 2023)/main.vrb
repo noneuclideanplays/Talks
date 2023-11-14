@@ -14,7 +14,7 @@ H\otimes A \arrow[r, "\alpha"]                                                  
 \end{tikzcd}
 \vspace{1.5ex}
 \end{itemize}
-\pause \pause $A$ is called an $H$-\textbf{module algebra} if the following also commute:
+\pause \pause $A$ is called a \textbf{module algebra} if the following also commute:
 \begin{itemize}
 \item[]<4-> \begin{tikzcd}[color=darkblue]
 H\otimes A\otimes A \arrow[r, "\bigtriangledown"] \arrow[d, "\triangle\otimes id\otimes id"'] & H\otimes A \arrow[r, "\alpha"] & A & A\otimes A \arrow[l, "\bigtriangledown"']                         \\
