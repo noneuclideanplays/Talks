@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.11.1)  14 NOV 2023 15:07
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.11.1)  15 NOV 2023 09:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -881,53 +881,43 @@ Overfull \hbox (20.93398pt too wide) detected at line 82
 
 [8
 
-] [9
-
-] [10
-
-] [11
-
-] [12
-
-] [13
-
 ]
-LaTeX Font Info:    Trying to load font information for U+euf on input line 139.
+LaTeX Font Info:    Trying to load font information for U+euf on input line 102.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 )
-Overfull \hbox (3.2089pt too wide) detected at line 139
+Overfull \hbox (3.2089pt too wide) detected at line 102
 []\OT1/mathkerncmss/m/sl/10.95 E\OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 F\OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 K\OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 K[] \OMS/cmsy/m/n/10.95 j \OT1/mathkerncmss/m/sl/10.95 EF \OMS/cmsy/m/n/10.95 ^^@ \OT1/mathkerncmss/m/sl/10.95 FE \OT1/cmss/m/n/10.95 = (\OT1/mathkerncmss/m/sl/10.95 q \OMS/cmsy/m/n/10.95 ^^@ \OT1/mathkerncmss/m/sl/10.95 q[]\OT1/cmss/m/n/10.95 )[] [] \OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 KEK[] \OT1/cmss/m/n/10.95 = \OT1/mathkerncmss/m/sl/10.95 q[]E\OML/cmm/m/it/10.95 ;
  []
 
-[14
+[9
 
 ]
-Overfull \hbox (3.2089pt too wide) detected at line 139
+Overfull \hbox (3.2089pt too wide) detected at line 102
 []\OT1/mathkerncmss/m/sl/10.95 E\OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 F\OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 K\OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 K[] \OMS/cmsy/m/n/10.95 j \OT1/mathkerncmss/m/sl/10.95 EF \OMS/cmsy/m/n/10.95 ^^@ \OT1/mathkerncmss/m/sl/10.95 FE \OT1/cmss/m/n/10.95 = (\OT1/mathkerncmss/m/sl/10.95 q \OMS/cmsy/m/n/10.95 ^^@ \OT1/mathkerncmss/m/sl/10.95 q[]\OT1/cmss/m/n/10.95 )[] [] \OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 KEK[] \OT1/cmss/m/n/10.95 = \OT1/mathkerncmss/m/sl/10.95 q[]E\OML/cmm/m/it/10.95 ;
  []
 
-[15
+[10
 
 ]
-Overfull \hbox (3.2089pt too wide) detected at line 139
+Overfull \hbox (3.2089pt too wide) detected at line 102
 []\OT1/mathkerncmss/m/sl/10.95 E\OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 F\OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 K\OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 K[] \OMS/cmsy/m/n/10.95 j \OT1/mathkerncmss/m/sl/10.95 EF \OMS/cmsy/m/n/10.95 ^^@ \OT1/mathkerncmss/m/sl/10.95 FE \OT1/cmss/m/n/10.95 = (\OT1/mathkerncmss/m/sl/10.95 q \OMS/cmsy/m/n/10.95 ^^@ \OT1/mathkerncmss/m/sl/10.95 q[]\OT1/cmss/m/n/10.95 )[] [] \OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 KEK[] \OT1/cmss/m/n/10.95 = \OT1/mathkerncmss/m/sl/10.95 q[]E\OML/cmm/m/it/10.95 ;
  []
 
-[16
+[11
 
 ]
-Overfull \hbox (3.2089pt too wide) detected at line 139
+Overfull \hbox (3.2089pt too wide) detected at line 102
 []\OT1/mathkerncmss/m/sl/10.95 E\OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 F\OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 K\OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 K[] \OMS/cmsy/m/n/10.95 j \OT1/mathkerncmss/m/sl/10.95 EF \OMS/cmsy/m/n/10.95 ^^@ \OT1/mathkerncmss/m/sl/10.95 FE \OT1/cmss/m/n/10.95 = (\OT1/mathkerncmss/m/sl/10.95 q \OMS/cmsy/m/n/10.95 ^^@ \OT1/mathkerncmss/m/sl/10.95 q[]\OT1/cmss/m/n/10.95 )[] [] \OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 KEK[] \OT1/cmss/m/n/10.95 = \OT1/mathkerncmss/m/sl/10.95 q[]E\OML/cmm/m/it/10.95 ;
  []
 
-[17
+[12
 
-] [18
+] [13
 
-] [19
+] [14
 
-] [20
+] [15
 
 ]
 \openout4 = `main.vrb'.
@@ -947,7 +937,7 @@ Overfull \hbox (4.35902pt too wide) in paragraph at lines 39--46
 [][][][][][]  
  []
 
-) [21
+) [16
 
 ] (./main.vrb
 Overfull \hbox (45.99724pt too wide) in paragraph at lines 18--23
@@ -964,7 +954,7 @@ Overfull \hbox (4.35902pt too wide) in paragraph at lines 39--46
 [][][][][][]  
  []
 
-) [22
+) [17
 
 ] (./main.vrb
 Overfull \hbox (45.99724pt too wide) in paragraph at lines 18--23
@@ -981,7 +971,7 @@ Overfull \hbox (4.35902pt too wide) in paragraph at lines 39--46
 [][][][][][]  
  []
 
-) [23
+) [18
 
 ] (./main.vrb
 Overfull \hbox (45.99724pt too wide) in paragraph at lines 18--23
@@ -998,7 +988,7 @@ Overfull \hbox (4.35902pt too wide) in paragraph at lines 39--46
 [][][][][][]  
  []
 
-) [24
+) [19
 
 ] (./main.vrb
 Overfull \hbox (45.99724pt too wide) in paragraph at lines 18--23
@@ -1015,16 +1005,16 @@ Overfull \hbox (4.35902pt too wide) in paragraph at lines 39--46
 [][][][][][][]  
  []
 
-) [25
+) [20
 
 ]
 \openout4 = `main.vrb'.
 
- (./main.vrb) [26
+ (./main.vrb) [21
 
-] (./main.vrb) [27
+] (./main.vrb) [22
 
-] (./main.vrb) [28
+] (./main.vrb) [23
 
 ]
 \openout4 = `main.vrb'.
@@ -1035,10 +1025,10 @@ Overfull \hbox (16.12082pt too wide) in paragraph at lines 22--24
  []
 
 )
-Overfull \vbox (3.58855pt too high) detected at line 262
+Overfull \vbox (3.58855pt too high) detected at line 225
  []
 
-[29
+[24
 
 ] (./main.vrb
 Overfull \hbox (16.12082pt too wide) in paragraph at lines 22--24
@@ -1046,10 +1036,10 @@ Overfull \hbox (16.12082pt too wide) in paragraph at lines 22--24
  []
 
 )
-Overfull \vbox (3.58855pt too high) detected at line 262
+Overfull \vbox (3.58855pt too high) detected at line 225
  []
 
-[30
+[25
 
 ] (./main.vrb
 Overfull \hbox (16.12082pt too wide) in paragraph at lines 22--24
@@ -1057,10 +1047,10 @@ Overfull \hbox (16.12082pt too wide) in paragraph at lines 22--24
  []
 
 )
-Overfull \vbox (3.58855pt too high) detected at line 262
+Overfull \vbox (3.58855pt too high) detected at line 225
  []
 
-[31
+[26
 
 ] (./main.vrb
 Overfull \hbox (16.12082pt too wide) in paragraph at lines 22--24
@@ -1068,10 +1058,10 @@ Overfull \hbox (16.12082pt too wide) in paragraph at lines 22--24
  []
 
 )
-Overfull \vbox (3.58855pt too high) detected at line 262
+Overfull \vbox (3.58855pt too high) detected at line 225
  []
 
-[32
+[27
 
 ] (./main.vrb
 Overfull \hbox (16.12082pt too wide) in paragraph at lines 22--24
@@ -1079,10 +1069,10 @@ Overfull \hbox (16.12082pt too wide) in paragraph at lines 22--24
  []
 
 )
-Overfull \vbox (3.58855pt too high) detected at line 262
+Overfull \vbox (3.58855pt too high) detected at line 225
  []
 
-[33
+[28
 
 ]
 \tf@nav=\write6
@@ -1099,18 +1089,18 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 28585 strings out of 478287
- 598845 string characters out of 5849289
- 860499 words of memory out of 5000000
- 46142 multiletter control sequences out of 15000+600000
+ 28571 strings out of 478287
+ 598718 string characters out of 5849289
+ 860242 words of memory out of 5000000
+ 46138 multiletter control sequences out of 15000+600000
  481929 words of font info for 75 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,18n,122p,547b,1317s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (33 pages, 206032 bytes).
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on main.pdf (28 pages, 189012 bytes).
 PDF statistics:
- 329 PDF objects out of 1000 (max. 8388607)
- 246 compressed objects within 3 object streams
- 67 named destinations out of 1000 (max. 500000)
+ 291 PDF objects out of 1000 (max. 8388607)
+ 215 compressed objects within 3 object streams
+ 57 named destinations out of 1000 (max. 500000)
  103 words of extra memory for PDF output out of 10000 (max. 10000000)
 

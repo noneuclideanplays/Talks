@@ -17,9 +17,9 @@
 \definecolor{darkred}{RGB}{162,17,17}
 \definecolor{darkblue}{RGB}{30,30,187}
 
-\title{Hopf Algebra Actions on Quantum Planes}
+\title{Quantum Symmetry of Hopf Actions}
 \author{Brandon Mather}
-\date{Algebra Seminar November 2023}
+\date{Algebra Seminar, November 2023}
 
 
 \begin{document}
@@ -53,12 +53,12 @@
 \begin{frame}{Actions of Kac-Paljutkin Algebra}
 
 \begin{itemize}
-    \item[]<1->$H_8$ acts on $\mathbb{C}_q[x,y]$ where $q^2=-1$ by 
+    \item[]<1->$H_8$ acts on $\mathbb{C}_q[u,v]$ where $q^2=-1$ by 
     \[
     x\mapsto \begin{bmatrix}-1 & 0\\0 & 1\end{bmatrix} \;\; y\mapsto \begin{bmatrix} 1 & 0\\ 0 & -1\end{bmatrix} \;\; z\mapsto\begin{bmatrix} 0 & 1\\ 1 & 0\end{bmatrix}.
     \]
     \item[]<2-> \hrule
-    \item[]<2->And on $\mathbb{C}_Q[x_1,x_2,x_3,x_4]$ for 
+    \item[]<2->And on $\mathbb{C}_Q[v_1,v_2,v_3,v_4]$ for 
    
     \vspace{1ex}
     $q_{12}=q_{34}^{-1},\;\;q_{13}=q_{24}^{-1},\;\;q_{14}^2=1,\;\;q_{23}^2=-1$ by
@@ -79,43 +79,6 @@
     x\mapsto \begin{bmatrix}0&1\\1&0\end{bmatrix}\;\; y\mapsto\begin{bmatrix}0&-1\\-1&0\end{bmatrix}\;\; z\mapsto\begin{bmatrix}1&0\\0&-1\end{bmatrix}.
     \]
 \end{itemize}
-\end{frame}
-
-\begin{frame}{$16$-dim Hopf Algebra}
-    The $16$-dimensionl semisimple Hopf algebras have been classified by Kashina.
-    One such example is
-    \[
-    H_{16}=\Big\langle x,y,z\;\vert\; x^4=y^2=z^2=1,\ xy=yx,\ zx=xyz,\ zy=yz\Big\rangle    
-    \]
-    with operations:
-    \vspace{2ex}
-    \begin{itemize}
-    \setlength{\itemsep}{2ex}
-    \item[]<2->
-    $\triangle(x)=x\otimes x,\;\triangle(y)=y\otimes y,$
-    \vspace{2ex}
-    
-    $\triangle(z)=\tfrac{1}{2}(1\otimes 1+1\otimes x^2+y\otimes 1-y\otimes x^2 )(z\otimes z),\;$
-    
-    \item[]<3->$
-    \varepsilon(x)=\varepsilon(y)=\varepsilon(z)=1,$
-
-    \item[]<4->$ S(x)=x^3,\; S(y)=y,\; S(z)=\tfrac{1}{2}(1+x^2+y-x^2y)z.$ 
-    \end{itemize}
-\end{frame}
-
-\begin{frame}{Action of $H_{16}$}
-    $H_{16}$ acts on the algebra 
-    \[
-    \mathbb{C}[t,u,v,w]/(tw+wt,uw+wu)    
-    \]
-    by the representation
-    \[
-    x\mapsto \begin{bmatrix}i&0&0&0\\0&-i&0&0\\0&0&1&0\\0&0&0&-1\end{bmatrix},\; y\mapsto\begin{bmatrix}-1&0&0&0\\0&-1&0&0\\0&0&-1&0\\0&0&0&-1\end{bmatrix},
-    \]
-    \[
-    z\mapsto\begin{bmatrix} 0&1&0&0\\1&0&0&0\\0&0&0&1\\0&0&1&0\end{bmatrix}.
-    \]
 \end{frame}
 
 \begin{frame}{Quantized Universal Enveloping Algebra}
@@ -140,7 +103,7 @@ with operations:
 
 \begin{frame}{Actions of $\mathcal{U}_q(\mathfrak{sl}_2)$}
 
-$\mathcal{U}_q(\mathfrak{sl}_2)$ acts on $\mathbb{C}_q[x,y]$ with $q^2=-1$ by the representation
+$\mathcal{U}_q(\mathfrak{sl}_2)$ acts on $\mathbb{C}_q[u,v]$ by the representation
 \begin{itemize}
 \item[]<2->\[
 E\mapsto \begin{bmatrix} 0&1\\0&0\end{bmatrix}\;\;\;\; F\mapsto \begin{bmatrix} 1&0\\0&0\end{bmatrix}
