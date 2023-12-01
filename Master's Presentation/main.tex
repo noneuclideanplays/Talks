@@ -1,0 +1,237 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{tikz-cd}
+\usepackage{ulem}
+\usepackage{multicol}
+
+\usepackage{untgreen}
+\UNTGpalette
+\usetheme{Warsaw}
+\setbeamertemplate{navigation symbols}{}%remove navigation symbols
+
+\usepackage{xcolor}
+\definecolor{lightgreen}{RGB}{32, 165, 32}
+\definecolor{darkgreen}{RGB}{0,105,0}
+\definecolor{lightred}{RGB}{209,27,27}
+\definecolor{darkred}{RGB}{162,17,17}
+\definecolor{darkblue}{RGB}{30,30,187}
+
+\title{Quantum Symmetry of Hopf Actions}
+\author{Brandon Mather}
+\date{Algebra Seminar, November 2023}
+
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}{History}
+    \begin{itemize}
+        \item (1939) Heinz Hopf works on homology of sphere groups
+        \item (1969) Moss Sweedler writes seminal book "Hopf Algebras"
+        \item (1986) Vladimir Drinfeld gives ICM address on quantum groups
+        \item (1992) Susan Montogomery writes "Hopf Algebras and Their Actions on Rings"
+    \end{itemize}
+    \begin{beamer
+\end{frame}
+
+\begin{frame}{Kac-Paljutkin Algebra}
+
+ The unique $8$-dim'l non-commutative, non-cocommutative Hopf alg given by G.\ Kac and V.\ Paljutkin in``Finite Ring Groups" (1966):\newline
+
+    $H_8=$
+    \[\Big\langle x,y,z\;\vert\; x^2=y^2=1,xy=yx,zx=yz,zy=xz,z^2=\tfrac{1}{2}(1+x+y-xy)\Big\rangle\]
+    with operations
+    \vspace{2ex}
+    \begin{itemize}
+    \setlength{\itemsep}{2ex}
+    \item[]<2->
+    $\triangle(x)=x\otimes x,\; \triangle(y)=y\otimes y,\;$ 
+    
+    \vspace{2ex}
+    
+    $\triangle(z)=\tfrac{1}{2}(1\otimes 1+1\otimes x+y\otimes 1-y\otimes x)(z\otimes z),\;$
+    
+    \item[]<3->$
+    \varepsilon(x)=\varepsilon(y)=\varepsilon(z)=1,$
+
+    \item[]<4->$ S(x)=x,\;S(y)=y,\;S(z)=z.$ 
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Actions of Kac-Paljutkin Algebra}
+
+\begin{itemize}
+    \item[]<1->$H_8$ acts on $\mathbb{C}_q[u,v]$ where $q^2=-1$ by 
+    \[
+    x\mapsto \begin{bmatrix}-1 & 0\\0 & 1\end{bmatrix} \;\; y\mapsto \begin{bmatrix} 1 & 0\\ 0 & -1\end{bmatrix} \;\; z\mapsto\begin{bmatrix} 0 & 1\\ 1 & 0\end{bmatrix}.
+    \]
+    \item[]<2-> \hrule
+    \item[]<2->And on $\mathbb{C}_Q[v_1,v_2,v_3,v_4]$ for 
+   
+    \vspace{1ex}
+    $q_{12}=q_{34}^{-1},\;\;q_{13}=q_{24}^{-1},\;\;q_{14}^2=1,\;\;q_{23}^2=-1$ by
+
+%Try 
+%$\left[
+%\begin{smallmatrix} 1&0&0&0\\0&-1&0&0\\0&0&1&0\\0&0&0&1\end{smallmatrix}
+%\right]$
+
+    
+    \[
+    x\mapsto \begin{bmatrix} 1&0&0&0\\0&-1&0&0\\0&0&1&0\\0&0&0&1\end{bmatrix} \;\; y\mapsto \begin{bmatrix} 1&0&0&0\\0&1&0&0\\0&0&-1&0\\0&0&0&1\end{bmatrix}\;\; z\mapsto\begin{bmatrix}0&0&0&1\\0&0&1&0\\0&1&0&0\\1&0&0&0\end{bmatrix}.
+    \]
+    
+    \item[]<3->\hrule
+    \item[]<3-> And on $\mathbb{C}_{-1}[u,v]$ by 
+    \[
+    x\mapsto \begin{bmatrix}0&1\\1&0\end{bmatrix}\;\; y\mapsto\begin{bmatrix}0&-1\\-1&0\end{bmatrix}\;\; z\mapsto\begin{bmatrix}1&0\\0&-1\end{bmatrix}.
+    \]
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Quantized Universal Enveloping Algebra}
+
+Described by Piotr Kulish and Nicolai Reshetikhin in``Quantum linear problem for the sine-Gordon equation and highest weight representations" (1983), leading Vladimir Drinfeld to quantum groups\newline
+
+$\mathcal{U}_q(\mathfrak{sl}
+_2)=$
+\[
+\Big\langle E,F,K,K^{-1}\;\vert\;EF-FE=(q-q^{-1})^{-1}\left(K-K^{-1}\right), KEK^{-1}=q^2 E, \]\[\hspace{4ex}KFK^{-1}=q^{-2}F, KK^{-1}=K^{-1}K=1\Big\rangle
+\]
+with operations:
+\vspace{0.5ex}
+\begin{itemize}
+\setlength{\itemsep}{1.5ex}
+    \item[]<2-> $\triangle(E)=E\otimes 1+K\otimes E,\; \triangle(F)=F\otimes K^{-1}+ 1\otimes F$, \item[]<2-> $\triangle(K)=K\otimes K,\; \triangle(K^{-1})=K^{-1}\otimes K^{-1}$,
+    \item[]<3-> $\varepsilon(E)=\varepsilon(F)=0,\; \varepsilon(K)=\varepsilon(K^{-1})=1$,
+    \item[]<4-> $S(E)=-K^{-1}E,\; S(F)=-F K, \;S(K)=K^{-1},\; S(K^{-1})=K$.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Actions of $\mathcal{U}_q(\mathfrak{sl}_2)$}
+
+$\mathcal{U}_q(\mathfrak{sl}_2)$ acts on $\mathbb{C}_q[u,v]$ by the representation
+\begin{itemize}
+\item[]<2->\[
+E\mapsto \begin{bmatrix} 0&1\\0&0\end{bmatrix}\;\;\;\; F\mapsto \begin{bmatrix} 1&0\\0&0\end{bmatrix}
+\]
+\item[]<3->\[
+K\mapsto\begin{bmatrix}q&0\\0&q^{-1}\end{bmatrix} \;\;\;\; K^{-1}\mapsto \begin{bmatrix}q^{-1}&0\\0&q\end{bmatrix}
+\]
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Hopf Algebra}
+
+A \textbf{Hopf algebra} is a bialgebra $H$ over a field with an antipode \\\;\;\;\;\;\;\;\;$\color{darkblue}S:H\to H$ \;\;\;where the bialgebra operations are 
+\vspace{-2ex}
+\begin{multicols}{2}
+\begin{itemize}
+\item[]<2->$\color{lightred}\bigtriangledown:H\otimes H\to H$, 
+\item[]<3->$\color{lightgreen}\;\eta:\mathbb{C}\to H$, 
+\item[]<4->$\color{darkred}\triangle:H\to H\otimes H$, 
+\item[]<5->$\color{darkgreen}\;\varepsilon:H\to\mathbb{C}$
+\end{itemize}
+\end{multicols}
+\vspace{-2ex}
+\pause so that the following commute:
+
+\begin{minipage}[t]{0.3\textwidth}
+\begin{itemize}
+    \item[]<2->\text{Associativity:}
+\begin{tikzcd}[color=lightred,cramped]
+H\otimes H\otimes H \arrow[d, "id\otimes \bigtriangledown"'] \arrow[r, "\bigtriangledown\otimes id"] & H\otimes H \arrow[d, "\bigtriangledown"] \\
+H\otimes H \arrow[r, "\bigtriangledown"']                                                         & H                                    
+\end{tikzcd}
+\item[]<3->\text{Unit:}
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBoAGAXVJADcBDAGwFcYkQBBAHS4jwFt4AAg4gAvqXSZc+QinKli1Ok1bseAaw08+WQXBHjJIDNjwEiZAEzKGLNok5GpZ2USuLbqh5x0DhmhriyjBQAObwRKAAZgBOEPxIZCA4EEgKKvbqXDA49H56wlhQziBxCUgAzDSp6TR2ao7FBfo8ufQgNIz0AEYwjAAK0uZyILFYYQAWOKXliYjJtYgemY0gALydIN19g8NujuNTMxIx8fPVKWnL9d7sm6dl53VXSCsNPjw44-RgYYyhCAAd0IYkoYiAA
+\begin{tikzcd}[cramped,sep=small,color=lightgreen]
+& H\otimes H \arrow[dd, "\bigtriangledown"] &                                                         \\
+\mathbb{C}\otimes H \arrow[ru, "\eta\otimes id"] \arrow[rd, "="'] &                    & H\otimes \mathbb{C} \arrow[lu, "id\otimes\eta"'] \arrow[ld, "="] 
+                \\
+& H &                                                    
+\end{tikzcd}
+\end{itemize}
+\end{minipage}~\hspace{1.5cm}\begin{minipage}[t]{0.48\linewidth}
+    \begin{itemize}
+        \item[] <4->\text{Coassociativity:} % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAAkQBfU9TXfIRQBGclVqMWbdgB0ZEPAFt4AAk48+2PASJlh4+s1aIOchVmVw13XiAxbBRUfuqGpJ2fKWrP5y9a5xGCgAc3giUAAzACcIRSQyEBwIJFEJIzY5HGisOjAQhlYNEBi4hOpkpAAmV0ljECycvIKi21L4xBqklMQAZlqMk0bc-MKQajgACyxInATi9tSKnv709waZbJGWs28rLChuCi4gA
+\begin{tikzcd}[color=darkred,cramped]%[sep=small]
+H \arrow[r, "\triangle"] \arrow[d, "\triangle"'] & H\otimes H \arrow[d, "\triangle\otimes id"] \\
+H\otimes H \arrow[r, "id\otimes\triangle"']               & H\otimes H\otimes H        
+\end{tikzcd}
+        \item[]<5->\text{Counit:}
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZATikZ package - Overleaf, Online LaTeX EditorBgBoBGAXVJADcBDAGwFcYkQAdDga264jwBbeAAIAEiAC+pdJlz5CKcqWLU6TVuwnTZ2PASIAmCmoYs2iEGP5D4XXlJkgMehUWWHTGi1ZtZhcOJSajBQAObwRKAAZgBOEIJIAMw0OBBIZOrm7FwMsTBo2IwEfgEiWFCOMfGJiMogaRk0ZpqWALwgNIz0AEYwjAAKcvqKILFYYQAWOFUgcQlI9Y2IxlmtIB06czXJqekrzd7sFaV2HHkFRQZdvf1DrgaW41MzW-O1S-spaz5cOOP0MBhRhsSSUSRAA
+\begin{tikzcd}[cramped,sep=small,color=darkgreen]
+             & H \arrow[ld, "="'] \arrow[rd, "="] \arrow[dd, "\triangle"]                         &             \\
+\mathbb{C}\otimes H &                                                                                    & H\otimes\mathbb{C} \\
+             & H\otimes H \arrow[lu, "\varepsilon\otimes id"] \arrow[ru, "id\otimes\varepsilon"']&            
+\end{tikzcd}
+    \end{itemize}
+\end{minipage}
+
+\end{frame}
+
+\begin{frame}[fragile]{Hopf Algebra Diagrams}
+
+\begin{itemize}
+\item[]<1->\text{Product and Coproduct compatibility:}
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAAkAdTiPAW3gACdiAC+pdJlz5CKAIzkqtRizYjxk7HgJEATIur1mrRB268sAuMLESQGLTKJk5So6tNce-IV4tXhcx9rdTsHaR0UfVdDFRMzb0tfIKSQlID1JRgoAHN4IlAAMwAnCD4kMhAcCCQAZljjNm4cYqw6MByGGHT4Ztb2ztYNEBKyuupqpAAWBo8QLCgeuGa6JiXBBdsi0vLESsnEBWVG0z62jq6oCAB3QmHR3aOD-WO5s4GurZGd6YmaxBe7ni7wu2RuYCWIMGV1uYgooiAA
+\begin{tikzcd}[color=lightred]
+H\otimes H \arrow[d, "\triangle\otimes\triangle"'] \arrow[r, "\bigtriangledown"] & H \arrow[r, "\triangle"] & H\otimes H                                                                  \\
+H\otimes H\otimes H\otimes H \arrow[rr, "id\otimes\tau\otimes id"']           &                          & H\otimes H\otimes H\otimes H \arrow[u, "\bigtriangledown\otimes\bigtriangledown"']
+\end{tikzcd}
+\item[]<2->\text{Unit and Counit compatibility:}
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12BbOnACwBGA4AGEAviDGl0mXPkIoAjOSq1GLNgAlJ0kBmx4CRZYtX1mrRCE2cIeLvAAE2qTIPyiAJhXVzGqy66+nJGKN6mvuqW1rb2ToFuIQrIAMw+ahZsnDz8QqISYqowUADm8ESgAGYAThBcSGQgOBBIyhn+HOwwOHQ6VbX1iI3NSN4gDHQCMAwACrKGCiDVWCV8OCCRmVac3XSxWA5wOz19IDV1rdQjiGN+0Zw4y3RgJQys1HB8WJXriG0TU1m8w8VjeP1O50GABYri1EGl2vd2I8sM9XqxXGcBkgEdcAKybDqcejVGBobAMIyYyFIGFNOEExFZdgkskUozUAHTObuUJLFZrSQUMRAA
+%\begin{center}
+\begin{tikzcd}[color=darkgreen]
+\mathbb{C} \arrow[r, "\eta"] \arrow[rd, "\eta\otimes\eta"'] & H \arrow[d, "\triangle"] & \phantom{a} & H \arrow[r, "\varepsilon"]                                   & \mathbb{C} \\
+                                                            & H\otimes H                            & \phantom{a} & H\otimes H \arrow[u, "\bigtriangledown"] \arrow[ru, "\varepsilon\otimes\varepsilon"'] &           
+\end{tikzcd}
+%\end{center}
+\item[]<3->\text{Antipode:}
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoBGAXVJADcBDAGwFcYkQAJEAX1PU1z5CKchWp0mrdgB1pAazk8+IDNjwEiAJjE0GLNok5L+aoUTKbxeqYY6yIeALbwABF14nBGlNsu7JBpz2Tq7uyqpewiSkxFYB7HbSDljOcG7GKgLqUdqx-voJwSmhPOIwUADm8ESgAGYAThCOSGQgOBBIAKz5NiCyOPVY9GAVjGweIA1NXTTtSABsPYFYUEWpLgDKGVPNiIttHYjaEgWG-YPDo+UQAO6EEzsts4cAzEsy0gNDI2MgNIz0ABGMEYAAUsmZDIMKgALHDbRq7N4HJAAFnehg2a1cKwR00Q6JRRwxfU+Fx+1zueN2rTmiFEJ16sgY9RgaGwjA0D0RSAZdOO1kCshgOHopW4QA
+\begin{tikzcd}[color=darkblue]
+H\otimes H \arrow[rr, "id\otimes S"]                                      &                       & H\otimes H \arrow[d, "\bigtriangledown"] \\
+H \arrow[u, "\triangle"] \arrow[d, "\triangle"'] \arrow[r, "\varepsilon"] & \mathbb{C} \arrow[r, "\eta"] & H                                     \\
+H\otimes H \arrow[rr, "S\otimes id"]                                      &                       & H\otimes H \arrow[u, "\bigtriangledown"']
+\end{tikzcd}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Hopf Algebra Actions}
+
+Let $H$ be a Hopf alg and $A$ an alg with a map $\alpha:H\otimes A\to A$. Then we say $H$ \textbf{acts} on $A$ by $\alpha$ if the following the diagrams commute:
+
+\begin{itemize}
+    \item[]<2->\begin{tikzcd}[color=lightred]
+H\otimes H\otimes A \arrow[r, "\bigtriangledown\otimes id"] \arrow[d, "id\otimes \alpha"] & H\otimes A \arrow[d, "\alpha"] \\
+H\otimes A \arrow[r, "\alpha"]                                                         & A                             
+\end{tikzcd}
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbAABwnAlgFyxMJZABgBpiBdUkANwEMAbAAxiRAB12BrLziPALbwABADUQAX1LpMufIRQBGclAqMWbABJ9BI8AJnY8BIssWr6zAohD7AMKAHN4RUADMAThAFIyIHBBIympWbJwwOHQ6WEJwwlhQktIgnt6+1AFIAEzUlho2ALwg1Ax0AEYwDAAKssYKIB5YjgAWOEnuXj6IwZmIOSH5HOyMaM10khQSQA  
+        \begin{tikzcd}[color=darkgreen]
+\mathbb{C}\otimes A \arrow[r, "\eta\otimes id"] \arrow[rd, "="'] & H\otimes A \arrow[d, "\alpha"] \\
+                                                          & A                                                                       
+\end{tikzcd}
+\vspace{1.5ex}
+\end{itemize}
+\pause \pause $A$ is called a \textbf{module algebra} if the following also commute:
+\begin{itemize}
+\item[]<4-> \begin{tikzcd}[color=darkblue]
+H\otimes A\otimes A \arrow[r, "\bigtriangledown"] \arrow[d, "\triangle\otimes id\otimes id"'] & H\otimes A \arrow[r, "\alpha"] & A & A\otimes A \arrow[l, "\bigtriangledown"']                         \\
+H\otimes H\otimes A\otimes A \arrow[rrr, "id\otimes\tau\otimes id"]                        &                                &   & H\otimes A\otimes H\otimes A \arrow[u, "\alpha\otimes\alpha"']
+\end{tikzcd}.\
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAAkQBfU9TXfIRQBGclVqMWbADrSA1nO68QGbHgJEATGOr1mrRCACCSvmsFEyw8XqmH2siHgC28AAQmu4mFADm8IlAAMwAnCGckMhAcCCRRCX0ZaXoQmDRsBg0eYLCIxHiYpG0EuxBZGBw6UxBQ8MjqQsQAZl1JAzLpCqrsmtykFujYxGLbdtlGNAALboouIA
+    \item[]<5->
+     \begin{center}\begin{tikzcd}[color=darkgreen]
+H \arrow[r, "\varepsilon"] \arrow[d, "\eta"'] & \mathbb{C} \arrow[r, "\eta"] & A \\
+H\otimes A \arrow[rru, "\alpha"']             &                       &  
+\end{tikzcd}\end{center}
+\end{itemize}
+
+\end{frame}
+
+\end{document}
