@@ -4,7 +4,8 @@
 \usepackage{tikz-cd}
 \usepackage{ulem}
 \usepackage{multicol}
-
+\usepackage{comment}
+\usepackage{mathtools}
 \usepackage{untgreen}
 \UNTGpalette
 \usetheme{Warsaw}
@@ -17,7 +18,7 @@
 \definecolor{darkred}{RGB}{162,17,17}
 \definecolor{darkblue}{RGB}{30,30,187}
 
-\title{Quantum Symmetry of Hopf Actions}
+\title{}
 \author{Brandon Mather}
 \date{Algebra Seminar, November 2023}
 
@@ -33,8 +34,54 @@
         \item (1986) Vladimir Drinfeld gives ICM address on quantum groups
         \item (1992) Susan Montogomery writes "Hopf Algebras and Their Actions on Rings"
     \end{itemize}
-    
+    \begin{block}{Goal}
+        To understand the actions of Hopf algebras on other algebras
+    \end{block}
 \end{frame}
+
+\begin{frame}{Quantum Plane}
+    Notation: $\mathbb{C}[x_1,\ldots,x_n]=\mathbb{C}\left\langle x_1,\ldots,x_n\right\rangle/(x_jx_i-x_ix_j)$
+    \begin{block}{Quantum Polynomial Ring}
+        Let $Q=(q_{ij})$ be an $n\times n$ matrix of roots of unity where $q_{ii}=1=q_{ji}q_{ij}$.
+        \\$\mathbb{C}_Q[x_1,\ldots,x_n]=\mathbb{C}\left\langle x_1,\ldots,x_n\right\rangle/(x_jx_i-q_{ij}x_ix_j)$
+        is called a \textbf{quantum polynomial ring}.
+    \end{block}
+    Example: $\mathbb{C}_{-1}[u,v]=\mathbb{C}\left\langle u,v\right\rangle/(uv+vu)$
+\end{frame}
+
+\begin{frame}{Swwedler's Algebra}
+    The unique $4$-dim'l non-commutative, non-cocommutative Hopf alg given by Moss Sweedler (1969):\\
+    $H_4=$
+    \[
+      \Big\langle g,x\;\vert\; g^2=1,x^2=0,gx=-xg\Big\rangle  
+    \]
+    \onslide<2->{with operations}
+\begin{align*}
+    \onslide<2->{\triangle(g)=g\otimes g,&&\triangle(x)=x\otimes 1+1\otimes x \\}
+    \onslide<3->{&&\\}
+    \onslide<3->{\varepsilon(g)=1,&&\varepsilon(x)=0\\}
+    \onslide<4->{&&\\}
+    \onslide<4->{S(g)=g^{-1},&&S(x)=-x\\}
+    \onslide<5->{\rule{2cm}{0.4pt}&&\rule{2cm}{0.4pt}\\}
+    \onslide<5->{\text{"Group-like"}&&\text{"Lie-like"}}
+\end{align*}
+\onslide<6->{
+Let $\tau$ be the 'flip' over the tensor product, so $\tau(u\otimes v)=v\otimes u$.\\
+Note that $\tau\circ\triangle(g)=\triangle(g)$ but $\tau\circ\triangle(x)\neq\triangle(x)$, this is what is called non-cocommutativity.}
+\end{frame}
+
+\begin{frame}{Actions of Sweedler's Algebra}
+    $H_4$ acts on $\mathbb{C}_{-1}[u,v]$ by 
+    \[
+      g\cdot u=u,\; g\cdot v=-v,\; x\cdot u=0,\; x\cdot v=u.  
+    \]
+    \pause
+    Giving the representation on the vector space $\mathbb{C}_{-1}[u,v]$
+    \[
+    g\mapsto \begin{bmatrix}1&0\\0&-1\end{bmatrix},\; x\mapsto\begin{bmatrix}0&1\\0&0\end{bmatrix}.    
+    \]
+\end{frame}
+
 
 \begin{frame}{Kac-Paljutkin Algebra}
 
@@ -232,6 +279,52 @@ H\otimes A \arrow[rru, "\alpha"']             &                       &
 \end{tikzcd}\end{center}
 \end{itemize}
 
+\end{frame}
+
+\begin{frame}{Semidirect Product}
+    Let $G$ and $G'$ be groups where $G'$ acts on $G$ by automorphisms. 
+    Then one can define the semidirect product group, $G\rtimes G'$.\\
+    The action can be extended to the group algebras, $\mathbb{C}G$ and $\mathbb{C}G'$.
+    This will give the group algebra 
+    \[
+    \mathbb{C}(G\rtimes G')=\mathbb{C}G\#\mathbb{C}G'    
+    \]
+    with product $g'g=(g'\cdot g)g'$.\\
+    \begin{block}{Smash Product Algebra}
+        If $H$ is a Hopf algebra and $A$ an $H$-module algebra, then $A\#H$ is the smash product algebra defined as $A\otimes H$ as a vector space and with product
+        \[
+        ha=\sum_{i} (g_i\cdot a)k_i 
+        \]
+        where $a\in A$, $h\in H$ and $\triangle(h)=\sum_i g_i\otimes k_i$.
+    \end{block}
+\end{frame}
+
+\begin{frame}{Smash Product Algebra}
+    \begin{block}{"Group-like" and "Lie-like"}
+        Let $H$ be a Hopf algebra, define $G(H)=\{h\in H\;\vert\; \triangle(h)=h\otimes h\}$ and $P(H)=\{h\in H\;\vert\; \triangle(h)=h\otimes 1+1\otimes h\}$.\\
+        $G(H)$ is the set of grouplike elements of $H$ and forms a group under the product.\\
+        $P(H)$ is the set of primitive elements of $H$ and forms a Lie algebra under the commutator bracket.
+    \end{block}
+    \begin{block}{Cartier-Kostant-Milnor-Moore Theorem}
+        Let $H$ be a cocommutative Hopf algebra over $\mathbb{C}$, then 
+        \[
+            H\cong \mathcal{U}(P(H))\# \mathbb{C}G(H)
+        \]
+        as Hopf algebras.
+    \end{block}
+    As a corollary, any finite-dimensional Hopf algebra over $\mathbb{C}$ is isomorpihc to a group algebra.
+\end{frame}
+
+\begin{frame}{Research Directions}
+    \begin{itemize}
+    \setlength{\itemsep}{2ex}
+        \item<1-> Which actions on algebras by Hopf algebras factor through a group action?
+                    If the action does not factor through a group action, it is said to have "quantum symmetry".
+        \item<2-> Which Hopf Algebras act on AS-regular algebras?
+        \item<3-> When are the invariant subrings from Hopf actions AS-Gorenstein?
+        \item<4-> If $H$ is semisimple and finite-dimensional, and $A$ is semiprime, is $A\#H$ semiprime?
+        \item<5-> If $B$ is a Koszul algebra, are there nontrivial PBW deformations of $B\# \mathcal{U}_q(\mathfrak{sl_2})$?
+    \end{itemize}
 \end{frame}
 
 \end{document}
