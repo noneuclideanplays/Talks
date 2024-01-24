@@ -18,9 +18,9 @@
 \definecolor{darkred}{RGB}{162,17,17}
 \definecolor{darkblue}{RGB}{30,30,187}
 
-\title{}
+\title{Hopf Module Algebras}
 \author{Brandon Mather}
-\date{Algebra Seminar, November 2023}
+\date{}
 
 
 \begin{document}
@@ -46,7 +46,7 @@
         \\$\mathbb{C}_Q[x_1,\ldots,x_n]=\mathbb{C}\left\langle x_1,\ldots,x_n\right\rangle/(x_jx_i-q_{ij}x_ix_j)$
         is called a \textbf{quantum polynomial ring}.
     \end{block}
-    Example: $\mathbb{C}_{-1}[u,v]=\mathbb{C}\left\langle u,v\right\rangle/(uv+vu)$
+    Example: $\mathbb{C}_{-1}[v_1,v_2]=\mathbb{C}\left\langle v_1,v_2\right\rangle/(v_1 v_2+v_2 v_1)$
 \end{frame}
 
 \begin{frame}{Swwedler's Algebra}
@@ -57,7 +57,7 @@
     \]
     \onslide<2->{with operations}
 \begin{align*}
-    \onslide<2->{\triangle(g)=g\otimes g,&&\triangle(x)=x\otimes 1+1\otimes x \\}
+    \onslide<2->{\triangle(g)=g\otimes g,&&\triangle(x)=x\otimes 1+g\otimes x \\}
     \onslide<3->{&&\\}
     \onslide<3->{\varepsilon(g)=1,&&\varepsilon(x)=0\\}
     \onslide<4->{&&\\}
@@ -71,12 +71,12 @@ Note that $\tau\circ\triangle(g)=\triangle(g)$ but $\tau\circ\triangle(x)\neq\tr
 \end{frame}
 
 \begin{frame}{Actions of Sweedler's Algebra}
-    $H_4$ acts on $\mathbb{C}_{-1}[u,v]$ by 
+    $H_4$ acts on $\mathbb{C}_{-1}[v_1,v_2]$ by 
     \[
-      g\cdot u=u,\; g\cdot v=-v,\; x\cdot u=0,\; x\cdot v=u.  
+      g\cdot v_1=v_1,\; g\cdot v_2=-v_2,\; x\cdot v_1=0,\; x\cdot v_2=v_1.  
     \]
     \pause
-    Giving the representation on the vector space $\mathbb{C}_{-1}[u,v]$
+    Giving the representation on the vector space $\mathbb{C}_{-1}[v_1,v_2]$
     \[
     g\mapsto \begin{bmatrix}1&0\\0&-1\end{bmatrix},\; x\mapsto\begin{bmatrix}0&1\\0&0\end{bmatrix}.    
     \]
@@ -110,7 +110,7 @@ Note that $\tau\circ\triangle(g)=\triangle(g)$ but $\tau\circ\triangle(x)\neq\tr
 \begin{frame}{Actions of Kac-Paljutkin Algebra}
 
 \begin{itemize}
-    \item[]<1->$H_8$ acts on $\mathbb{C}_q[u,v]$ where $q^2=-1$ by 
+    \item[]<1->$H_8$ acts on $\mathbb{C}_q[v_1,v_2]$ where $q^2=-1$ by 
     \[
     x\mapsto \begin{bmatrix}-1 & 0\\0 & 1\end{bmatrix} \;\; y\mapsto \begin{bmatrix} 1 & 0\\ 0 & -1\end{bmatrix} \;\; z\mapsto\begin{bmatrix} 0 & 1\\ 1 & 0\end{bmatrix}.
     \]
@@ -131,7 +131,7 @@ Note that $\tau\circ\triangle(g)=\triangle(g)$ but $\tau\circ\triangle(x)\neq\tr
     \]
     
     \item[]<3->\hrule
-    \item[]<3-> And on $\mathbb{C}_{-1}[u,v]$ by 
+    \item[]<3-> And on $\mathbb{C}_{-1}[v_1,v_2]$ by 
     \[
     x\mapsto \begin{bmatrix}0&1\\1&0\end{bmatrix}\;\; y\mapsto\begin{bmatrix}0&-1\\-1&0\end{bmatrix}\;\; z\mapsto\begin{bmatrix}1&0\\0&-1\end{bmatrix}.
     \]
@@ -160,10 +160,10 @@ with operations:
 
 \begin{frame}{Actions of $\mathcal{U}_q(\mathfrak{sl}_2)$}
 
-$\mathcal{U}_q(\mathfrak{sl}_2)$ acts on $\mathbb{C}_q[u,v]$ by the representation
+$\mathcal{U}_q(\mathfrak{sl}_2)$ acts on $\mathbb{C}_q[v_1,v_2]$ by the representation
 \begin{itemize}
 \item[]<2->\[
-E\mapsto \begin{bmatrix} 0&1\\0&0\end{bmatrix}\;\;\;\; F\mapsto \begin{bmatrix} 1&0\\0&0\end{bmatrix}
+E\mapsto \begin{bmatrix} 0&1\\0&0\end{bmatrix}\;\;\;\; F\mapsto \begin{bmatrix} 0&0\\1&0\end{bmatrix}
 \]
 \item[]<3->\[
 K\mapsto\begin{bmatrix}q&0\\0&q^{-1}\end{bmatrix} \;\;\;\; K^{-1}\mapsto \begin{bmatrix}q^{-1}&0\\0&q\end{bmatrix}
