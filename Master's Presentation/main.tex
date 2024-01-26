@@ -20,7 +20,7 @@
 
 \title{Hopf Module Algebras}
 \author{Brandon Mather}
-\date{}
+\date{UNT Master's}
 
 
 \begin{document}
@@ -40,33 +40,43 @@
 \end{frame}
 
 \begin{frame}{Quantum Plane}
-    Notation: $\mathbb{C}[x_1,\ldots,x_n]=\mathbb{C}\left\langle x_1,\ldots,x_n\right\rangle/(x_jx_i-x_ix_j)$
+    Notation: $\mathbb{C}[v_1,\ldots,v_n]=\mathbb{C}\left\langle v_1,\ldots,v_n\;\vert\; v_jv_i-v_iv_j\right\rangle$
     \begin{block}{Quantum Polynomial Ring}
         Let $Q=(q_{ij})$ be an $n\times n$ matrix of roots of unity where $q_{ii}=1=q_{ji}q_{ij}$.
-        \\$\mathbb{C}_Q[x_1,\ldots,x_n]=\mathbb{C}\left\langle x_1,\ldots,x_n\right\rangle/(x_jx_i-q_{ij}x_ix_j)$
+        \\$\mathbb{C}_Q[v_1,\ldots,v_n]=\mathbb{C}\left\langle v_1,\ldots,v_n \;\vert\; v_jv_i-q_{ij}v_iv_j\right\rangle$
         is called a \textbf{quantum polynomial ring}.
     \end{block}
-    Example: $\mathbb{C}_{-1}[v_1,v_2]=\mathbb{C}\left\langle v_1,v_2\right\rangle/(v_1 v_2+v_2 v_1)$
+    Example: $\mathbb{C}_{-1}[v_1,v_2]=\mathbb{C}\left\langle v_1,v_2\;\vert\; v_1 v_2+v_2 v_1\right\rangle$
+\end{frame}
+
+\begin{frame}{Motivation}
+\begin{enumerate}
+    \item<1-> When a grp $G$ acts on a space $V$ by automorphism, the action can be extended to $V\otimes V$ by $g\in G$ acting as $g\otimes g=\triangle(g)$, this is called group-like
+    \item<2-> When a Lie alg $\mathfrak{g}$ acts on a space $V$, the action can be extended to $V\otimes V$ by $x\in\mathfrak{g}$ acting as $x\otimes 1+1\otimes x=\triangle(x)$, this is called primitve
+\end{enumerate}
+\onslide<3->{This notion is dual to an algebra, creating a colagebra structure, $C$, with coproduct $\triangle:C\to C\otimes C$ and counit $\varepsilon:C\to\mathbb{C}$.\\}
+\vspace{0.5cm}
+\onslide<4->{These motivating examples generalize to a Hopf alg, $H$, a structure that is both an alg and a coalg with an antipode $S:H\to H$.
+We also require the alg and coalg structures of $H$ to be compatible, so $\triangle$ and $\varepsilon$ are alg homomorphisms.
+As well, S will be forced to be an alg antihomomorphism.}
 \end{frame}
 
 \begin{frame}{Sweedler's Algebra}
-    The unique $4$-dim'l non-commutative, non-cocommutative Hopf alg given by Moss Sweedler (1969):\\
-    $H_4=$
+    The unique $4$-dim'l non-commutative, non-cocommutative Hopf alg given by M. Sweedler (1969):\\
     \[
-      \Big\langle g,x\;\vert\; g^2=1,x^2=0,gx=-xg\Big\rangle  
+        H_4=\Big\langle g,x\;\vert\; g^2=1,x^2=0,gx=-xg\Big\rangle  
     \]
     \onslide<2->{with operations}
 \begin{align*}
-    \onslide<2->{\triangle(g)=g\otimes g,&&\triangle(x)=x\otimes 1+g\otimes x \\}
-    \onslide<3->{&&\\}
-    \onslide<3->{\varepsilon(g)=1,&&\varepsilon(x)=0\\}
-    \onslide<4->{&&\\}
-    \onslide<4->{S(g)=g^{-1},&&S(x)=-x\\}
-    \onslide<5->{\rule{2cm}{0.4pt}&&\rule{2cm}{0.4pt}\\}
-    \onslide<5->{\text{``Group-like"}&&\text{``Lie-like"}}
+    \onslide<2->{\triangle(g) & =g\otimes g, & \triangle(x)= & \ x\otimes 1+g\otimes x \\}
+    \onslide<3->{\\}
+    \onslide<3->{\varepsilon(g) & =1, & \varepsilon(x)= &\ 0\\}
+    \onslide<4->{\\}
+    \onslide<4->{S(g) & =g^{-1}, & S(x)= & \ -x\\}
+    \onslide<5->{\rule{2cm}{0.4pt} & \rule{2cm}{0.4pt} & \rule{2cm}{0.4pt} & \rule{3cm}{0.4pt}\\}
+    \onslide<5->{\text{Group-like} & & \text{Primitive}}
 \end{align*}
-\onslide<6->{
-Let $\tau$ be the `flip' over the tensor product, so $\tau(u\otimes v)=v\otimes u$.\\
+\onslide<6->{Let $\tau$ be the `flip' over the tensor product, so $\tau(u\otimes v)=v\otimes u$.\\
 Note that $\tau\circ\triangle(g)=\triangle(g)$ but $\tau\circ\triangle(x)\neq\triangle(x)$, this is what is called non-cocommutativity.}
 \end{frame}
 
@@ -76,7 +86,7 @@ Note that $\tau\circ\triangle(g)=\triangle(g)$ but $\tau\circ\triangle(x)\neq\tr
       g\cdot v_1=v_1,\; g\cdot v_2=-v_2,\; x\cdot v_1=0,\; x\cdot v_2=v_1.  
     \]
     \pause
-    Giving the representation on the vector space $\mathbb{C}_{-1}[v_1,v_2]$
+   We can express this action on the generators as
     \[
     g\mapsto \begin{bmatrix}1&0\\0&-1\end{bmatrix},\; x\mapsto\begin{bmatrix}0&1\\0&0\end{bmatrix}.    
     \]
@@ -140,7 +150,7 @@ Note that $\tau\circ\triangle(g)=\triangle(g)$ but $\tau\circ\triangle(x)\neq\tr
 
 \begin{frame}{Quantized Universal Enveloping Algebra}
 
-Described by Piotr Kulish and Nicolai Reshetikhin in``Quantum linear problem for the sine-Gordon equation and highest weight representations" (1983), leading Vladimir Drinfeld to quantum groups\newline
+Described by P. Kulish and N. Reshetikhin in``Quantum linear problem..." (1983), leading Vladimir Drinfeld to quantum groups
 
 $\mathcal{U}_q(\mathfrak{sl}
 _2)=$
@@ -155,20 +165,28 @@ with operations:
     \item[]<3-> $\varepsilon(E)=\varepsilon(F)=0,\; \varepsilon(K)=\varepsilon(K^{-1})=1$,
     \item[]<4-> $S(E)=-K^{-1}E,\; S(F)=-F K, \;S(K)=K^{-1},\; S(K^{-1})=K$.
 \end{itemize}
-
+Note: You can recover $\mathcal{U}(\mathfrak{sl_2})$ by limiting $q\to 1$.
 \end{frame}
 
 \begin{frame}{Actions of $\mathcal{U}_q(\mathfrak{sl}_2)$}
 
 $\mathcal{U}_q(\mathfrak{sl}_2)$ acts on $\mathbb{C}_q[v_1,v_2]$ by the representation
-\begin{itemize}
-\item[]<2->\[
-E\mapsto \begin{bmatrix} 0&1\\0&0\end{bmatrix}\;\;\;\; F\mapsto \begin{bmatrix} 0&0\\1&0\end{bmatrix}
-\]
-\item[]<3->\[
-K\mapsto\begin{bmatrix}q&0\\0&q^{-1}\end{bmatrix} \;\;\;\; K^{-1}\mapsto \begin{bmatrix}q^{-1}&0\\0&q\end{bmatrix}
-\]
-\end{itemize}
+\begin{columns}[T]
+\begin{column}{0.5\textwidth}
+\begin{align*}
+\onslide<2->{
+E & \mapsto \begin{bmatrix} 0&1\\0&0\end{bmatrix}\\} 
+\onslide<3->{
+K & \mapsto\begin{bmatrix}q&0\\0&q^{-1}\end{bmatrix}} 
+\end{align*}
+\end{column}
+\begin{column}{0.5\textwidth}
+\begin{align*}
+\onslide<2->{F & \mapsto \begin{bmatrix} 0&0\\1&0\end{bmatrix}\\}
+\onslide<3->{K^{-1} & \mapsto \begin{bmatrix}q^{-1}&0\\0&q\end{bmatrix}}
+\end{align*}
+\end{column}
+\end{columns}
 
 \end{frame}
 
@@ -194,6 +212,7 @@ A \textbf{Hopf algebra} is a bialgebra $H$ over a field with an antipode \\\;\;\
 H\otimes H\otimes H \arrow[d, "id\otimes \bigtriangledown"'] \arrow[r, "\bigtriangledown\otimes id"] & H\otimes H \arrow[d, "\bigtriangledown"] \\
 H\otimes H \arrow[r, "\bigtriangledown"']                                                         & H                                    
 \end{tikzcd}
+\rule{10cm}{0.4pt}
 \item[]<3->\text{Unit:}
 % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBoAGAXVJADcBDAGwFcYkQBBAHS4jwFt4AAg4gAvqXSZc+QinKli1Ok1bseAaw08+WQXBHjJIDNjwEiZAEzKGLNok5GpZ2USuLbqh5x0DhmhriyjBQAObwRKAAZgBOEPxIZCA4EEgKKvbqXDA49H56wlhQziBxCUgAzDSp6TR2ao7FBfo8ufQgNIz0AEYwjAAK0uZyILFYYQAWOKXliYjJtYgemY0gALydIN19g8NujuNTMxIx8fPVKWnL9d7sm6dl53VXSCsNPjw44-RgYYyhCAAd0IYkoYiAA
 \begin{tikzcd}[cramped,sep=small,color=lightgreen]
@@ -203,7 +222,7 @@ H\otimes H \arrow[r, "\bigtriangledown"']                                       
 & H &                                                    
 \end{tikzcd}
 \end{itemize}
-\end{minipage}~\hspace{1.5cm}\begin{minipage}[t]{0.48\linewidth}
+\end{minipage}~\hspace{2.2cm}\hfill\vline\hfill\begin{minipage}[t]{0.48\linewidth}
     \begin{itemize}
         \item[] <4->\text{Coassociativity:} % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAAkQBfU9TXfIRQBGclVqMWbdgB0ZEPAFt4AAk48+2PASJlh4+s1aIOchVmVw13XiAxbBRUfuqGpJ2fKWrP5y9a5xGCgAc3giUAAzACcIRSQyEBwIJFEJIzY5HGisOjAQhlYNEBi4hOpkpAAmV0ljECycvIKi21L4xBqklMQAZlqMk0bc-MKQajgACyxInATi9tSKnv709waZbJGWs28rLChuCi4gA
 \begin{tikzcd}[color=darkred,cramped]%[sep=small]
@@ -251,7 +270,7 @@ H\otimes H \arrow[rr, "S\otimes id"]                                      &     
 
 \begin{frame}[fragile]{Hopf Algebra Actions}
 
-Let $H$ be a Hopf alg and $A$ an alg with a map $\alpha:H\otimes A\to A$. Then we say $H$ \textbf{acts} on $A$ by $\alpha$ if the following the diagrams commute:
+Let $H$ be a Hopf alg and $A$ an alg with a map $\alpha:H\otimes A\to A$. Then we say $H$ \textbf{acts} on $A$ by $\alpha$ if the following diagrams commute:
 
 \begin{itemize}
     \item[]<2->\begin{tikzcd}[color=lightred]
@@ -278,6 +297,18 @@ H \arrow[r, "\varepsilon"] \arrow[d, "\eta"'] & \mathbb{C} \arrow[r, "\eta"] & A
 H\otimes A \arrow[rru, "\alpha"']             &                       &  
 \end{tikzcd}\end{center}
 \end{itemize}
+\end{frame}
+
+\begin{frame}{Hopf Alebra Actions}
+In words, $H$ acts on $A$, iff
+\[
+(hh')(a)=h(h'(a)),\;\;\; 1_h(a)=a. 
+\]
+And $A$ is an $H$-module alg iff $H$ acts on $A$ and
+\[
+h(aa')=\sum h_i(a)\cdot h_j(a),\;\;\; h(1_A)=\varepsilon(h)1_A    
+\]
+where $\triangle(h)=\sum h_i\otimes h_j$.
 
 \end{frame}
 
@@ -312,7 +343,7 @@ H\otimes A \arrow[rru, "\alpha"']             &                       &
         \]
         as Hopf algebras.
     \end{block}
-    As a corollary, any finite-dimensional Hopf algebra over $\mathbb{C}$ is isomorpihc to a group algebra.
+    As a corollary, any finite-dimensional Hopf algebra over $\mathbb{C}$ is isomorphic to a group algebra.
 \end{frame}
 
 \begin{frame}{Research Directions}

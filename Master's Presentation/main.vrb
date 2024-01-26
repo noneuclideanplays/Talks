@@ -1,6 +1,6 @@
 \frametitle{Hopf Algebra Actions}
 
-Let $H$ be a Hopf alg and $A$ an alg with a map $\alpha:H\otimes A\to A$. Then we say $H$ \textbf{acts} on $A$ by $\alpha$ if the following the diagrams commute:
+Let $H$ be a Hopf alg and $A$ an alg with a map $\alpha:H\otimes A\to A$. Then we say $H$ \textbf{acts} on $A$ by $\alpha$ if the following diagrams commute:
 
 \begin{itemize}
     \item[]<2->\begin{tikzcd}[color=lightred]
@@ -27,4 +27,3 @@ H \arrow[r, "\varepsilon"] \arrow[d, "\eta"'] & \mathbb{C} \arrow[r, "\eta"] & A
 H\otimes A \arrow[rru, "\alpha"']             &                       &
 \end{tikzcd}\end{center}
 \end{itemize}
-
