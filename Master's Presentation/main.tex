@@ -42,24 +42,23 @@
 \begin{frame}{Quantum Plane}
     Notation: $\mathbb{C}[v_1,\ldots,v_n]=\mathbb{C}\left\langle v_1,\ldots,v_n\;\vert\; v_jv_i-v_iv_j\right\rangle$
     \begin{block}{Quantum Polynomial Ring}
-        Let $Q=(q_{ij})$ be an $n\times n$ matrix of roots of unity where \[q_{ii}=1=q_{ji}q_{ij}\].
+        Let $Q=(q_{ij})$ be an $n\times n$ matrix of roots of unity where \[q_{ii}=1=q_{ji}q_{ij}.\]
         \\
-        A \textbf{quantum polynomial ring} is \[\mathbb{C}_Q[v_1,\ldots,v_n]=\mathbb{C}\left\langle v_1,\ldots,v_n \;\vert\; v_jv_i-q_{ij}v_iv_j\right\rangle\].
+        A \textbf{quantum polynomial ring} is \[\mathbb{C}_Q[v_1,\ldots,v_n]=\mathbb{C}\left\langle v_1,\ldots,v_n \;\vert\; v_jv_i-q_{ij}v_iv_j\right\rangle.\]
     \end{block}
     Example: $\mathbb{C}_{-1}[v_1,v_2]=\mathbb{C}\left\langle v_1,v_2\;\vert\; v_1 v_2+v_2 v_1\right\rangle$
 \end{frame}
 
 \begin{frame}{Motivation}
-\begin{enumerate}
-    \item<1-> When a grp $G$ acts on a space $V$ by automorphisms, the action can be extended to $V\otimes V$ by $g\in G$ acting as \[g\otimes g=\triangle(g).\] 
+\begin{enumerate}\setlength{\itemindent}{-2ex}
+    \item<1-> When a grp $G$ acts on a space $V$ over $\mathbb{C}$ linearly, the action can be extended to $V\otimes V$ by $g\in G$ acting as \[g\otimes g=\triangle(g).\] 
      Then $\triangle$ defines a coproduct map \[\triangle:\mathbb{C}G\to\mathbb{C}G\otimes\mathbb{C}G.\]
-     For arbitrary coproducts, $\triangle:A\to A\otimes A$, we call $g\in A$ \textbf{grouplike} if $\triangle(g)=g\otimes g$.
-    \item<2-> When a Lie alg $\mathfrak{g}$ acts on a space $V$, the action can be extended to $V\otimes V$ by $x\in\mathfrak{g}$ acting as \[x\otimes 1+1\otimes x=\triangle(x).\]
-      Again, $\triangle$ defines a coproduct map \[\mathfrak{g}\to\mathfrak{g}\otimes\mathfrak{g}.\]
-      For arbitrary coproducts, $\triangle:A\to A\otimes A$, we call $x\in A$ \textbf{primitive} if $\triangle(x)=x\otimes 1+1\otimes x$.
+     For arbitrary coproducts, $\triangle:A\to A\otimes A$, we call\\ $g\in A$ \textbf{grouplike} if $\triangle(g)=g\otimes g$.
+    \item<2-> When a Lie alg $\mathfrak{g}$ acts on a space $V$ over $\mathbb{C}$, the action can be extended to $V\otimes V$ by $x\in\mathfrak{g}$ acting as \[x\otimes 1+1\otimes x=\triangle(x).\]
+      Again, $\triangle$ defines a coproduct map \[\triangle:\mathfrak{g}\to\mathfrak{g}\otimes\mathfrak{g}.\]
+      For arbitrary coproducts, $\triangle:A\to A\otimes A$,\\ we call $x\in A$ \textbf{primitive} if $\triangle(x)=x\otimes 1+1\otimes x$.
 \end{enumerate}
 \vspace{0.5cm}
-\onslide<3->{This notion is dual to an algebra, creating a colagebra structure, $C$, with coproduct $\triangle:C\to C\otimes C$ and counit $\varepsilon:C\to\mathbb{C}$.\\}
 \end{frame}
 
 \begin{frame}{Sweedler's Algebra}
