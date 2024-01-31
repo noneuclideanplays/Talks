@@ -51,22 +51,27 @@
 
 \begin{frame}{Motivation}
 \begin{enumerate}
-    \item<1-> When a grp $G$ acts on a space $V$ by automorphism, the action can be extended to $V\otimes V$ by $g\in G$ acting as $g\otimes g=\triangle(g)$, this is called group-like
-    \item<2-> When a Lie alg $\mathfrak{g}$ acts on a space $V$, the action can be extended to $V\otimes V$ by $x\in\mathfrak{g}$ acting as $x\otimes 1+1\otimes x=\triangle(x)$, this is called primitve
+    \item<1-> When a grp $G$ acts on a space $V$ by automorphisms, the action can be extended to $V\otimes V$ by $g\in G$ acting as $g\otimes g=\triangle(g)$. 
+     The action naturally induces an action from the grp alg, $\mathbb{C}G$, on $V$.
+     Then $\triangle$ defines a map $\mathbb{C}G\to\mathbb{C}G\otimes\mathbb{C}G$ called the coproduct.
+     For arbitrary coproducts, $\triangle:A\to A\otimes A$, we call $g\in A$ grouplike if $\triangle(g)=g\otimes g$.
+    \item<2-> When a Lie alg $\mathfrak{g}$ acts on a space $V$, the action can be extended to $V\otimes V$ by $x\in\mathfrak{g}$ acting as $x\otimes 1+1\otimes x=\triangle(x)$.
+      Again, $\triangle$ defines a map $\mathfrak{g}\to\mathfrak{g}\otimes\mathfrak{g}$.
+      For arbitrary coproducts, $\triangle:A\to A\otimes A$, we call $x\in A$ primitive if $\triangle(x)=x\otimes 1+1\otimes x$.
 \end{enumerate}
-\onslide<3->{This notion is dual to an algebra, creating a colagebra structure, $C$, with coproduct $\triangle:C\to C\otimes C$ and counit $\varepsilon:C\to\mathbb{C}$.\\}
 \vspace{0.5cm}
-\onslide<4->{These motivating examples generalize to a Hopf alg, $H$, a structure that is both an alg and a coalg with an antipode $S:H\to H$.
-We also require the alg and coalg structures of $H$ to be compatible, so $\triangle$ and $\varepsilon$ are alg homomorphisms.
-As well, S will be forced to be an alg antihomomorphism.}
+\onslide<3->{This notion is dual to an algebra, creating a colagebra structure, $C$, with coproduct $\triangle:C\to C\otimes C$ and counit $\varepsilon:C\to\mathbb{C}$.\\}
 \end{frame}
 
 \begin{frame}{Sweedler's Algebra}
+
+%From: Walton, Witherspoon "Poincare-Birkhoff-Witt deformations.." 2014
+
     The unique $4$-dim'l non-commutative, non-cocommutative Hopf alg given by M. Sweedler (1969):\\
     \[
         H_4=\Big\langle g,x\;\vert\; g^2=1,x^2=0,gx=-xg\Big\rangle  
     \]
-    \onslide<2->{with operations}
+    \onslide<2->{with operations $\triangle:H_4\to H_4\otimes H_4,\varepsilon:H_4\to\mathbb{C},S:H_4\to H_4$}
 \begin{align*}
     \onslide<2->{\triangle(g) & =g\otimes g, & \triangle(x)= & \ x\otimes 1+g\otimes x \\}
     \onslide<3->{\\}
@@ -77,7 +82,7 @@ As well, S will be forced to be an alg antihomomorphism.}
     \onslide<5->{\text{Group-like} & & \text{Primitive}}
 \end{align*}
 \onslide<6->{Let $\tau$ be the `flip' over the tensor product, so $\tau(u\otimes v)=v\otimes u$.\\
-Note that $\tau\circ\triangle(g)=\triangle(g)$ but $\tau\circ\triangle(x)\neq\triangle(x)$, this is what is called non-cocommutativity.}
+Note that $\tau\circ\triangle(x)\neq\triangle(x)$, this is called non-cocommutativity.}
 \end{frame}
 
 \begin{frame}{Actions of Sweedler's Algebra}
@@ -94,6 +99,8 @@ Note that $\tau\circ\triangle(g)=\triangle(g)$ but $\tau\circ\triangle(x)\neq\tr
 
 
 \begin{frame}{Kac-Paljutkin Algebra}
+
+%From: Kirkman, Kuzmanovich, Zhang, "Gorenstein subrings of invariants..." 2009
 
  The unique $8$-dim'l non-commutative, non-cocommutative Hopf alg given by G.\ Kac and V.\ Paljutkin in``Finite Ring Groups" (1966):\newline
 
@@ -129,12 +136,6 @@ Note that $\tau\circ\triangle(g)=\triangle(g)$ but $\tau\circ\triangle(x)\neq\tr
    
     \vspace{1ex}
     $q_{12}=q_{34}^{-1},\;\;q_{13}=q_{24}^{-1},\;\;q_{14}^2=1,\;\;q_{23}^2=-1$ by
-
-%Try 
-%$\left[
-%\begin{smallmatrix} 1&0&0&0\\0&-1&0&0\\0&0&1&0\\0&0&0&1\end{smallmatrix}
-%\right]$
-
     
     \[
     x\mapsto \begin{bmatrix} 1&0&0&0\\0&-1&0&0\\0&0&1&0\\0&0&0&1\end{bmatrix} \;\; y\mapsto \begin{bmatrix} 1&0&0&0\\0&1&0&0\\0&0&-1&0\\0&0&0&1\end{bmatrix}\;\; z\mapsto\begin{bmatrix}0&0&0&1\\0&0&1&0\\0&1&0&0\\1&0&0&0\end{bmatrix}.
@@ -149,6 +150,8 @@ Note that $\tau\circ\triangle(g)=\triangle(g)$ but $\tau\circ\triangle(x)\neq\tr
 \end{frame}
 
 \begin{frame}{Quantized Universal Enveloping Algebra}
+
+%From: Walton, Witherspoon "Poincare-Birkhoff-Witt deformations.." 2014
 
 Described by P. Kulish and N. Reshetikhin in``Quantum linear problem..." (1983), leading Vladimir Drinfeld to quantum groups
 
@@ -165,7 +168,10 @@ with operations:
     \item[]<3-> $\varepsilon(E)=\varepsilon(F)=0,\; \varepsilon(K)=\varepsilon(K^{-1})=1$,
     \item[]<4-> $S(E)=-K^{-1}E,\; S(F)=-F K, \;S(K)=K^{-1},\; S(K^{-1})=K$.
 \end{itemize}
-Note: You can recover $\mathcal{U}(\mathfrak{sl_2})$ by limiting $q\to 1$.
+\onslide<5->{Note: You can recover $\mathcal{U}(\mathfrak{sl_2})$ by limiting $q\to 1$.}
+
+%See: Brown, Goodearl, "Lectures on Algebraic Quantum Groups" 2002
+
 \end{frame}
 
 \begin{frame}{Actions of $\mathcal{U}_q(\mathfrak{sl}_2)$}
@@ -197,7 +203,7 @@ A \textbf{Hopf algebra} is a bialgebra $H$ over a field with an antipode \\\;\;\
 \begin{multicols}{2}
 \begin{itemize}
 \item[]<2->$\color{lightred}\bigtriangledown:H\otimes H\to H$, 
-\item[]<3->$\color{lightgreen}\;\eta:\mathbb{C}\to H$, 
+\item[]<3->$\color{lightgreen}\;1_H:\mathbb{C}\to H$, 
 \item[]<4->$\color{darkred}\triangle:H\to H\otimes H$, 
 \item[]<5->$\color{darkgreen}\;\varepsilon:H\to\mathbb{C}$
 \end{itemize}
@@ -217,7 +223,7 @@ H\otimes H \arrow[r, "\bigtriangledown"']                                       
 % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBoAGAXVJADcBDAGwFcYkQBBAHS4jwFt4AAg4gAvqXSZc+QinKli1Ok1bseAaw08+WQXBHjJIDNjwEiZAEzKGLNok5GpZ2USuLbqh5x0DhmhriyjBQAObwRKAAZgBOEPxIZCA4EEgKKvbqXDA49H56wlhQziBxCUgAzDSp6TR2ao7FBfo8ufQgNIz0AEYwjAAK0uZyILFYYQAWOKXliYjJtYgemY0gALydIN19g8NujuNTMxIx8fPVKWnL9d7sm6dl53VXSCsNPjw44-RgYYyhCAAd0IYkoYiAA
 \begin{tikzcd}[cramped,sep=small,color=lightgreen]
 & H\otimes H \arrow[dd, "\bigtriangledown"] &                                                         \\
-\mathbb{C}\otimes H \arrow[ru, "\eta\otimes id"] \arrow[rd, "="'] &                    & H\otimes \mathbb{C} \arrow[lu, "id\otimes\eta"'] \arrow[ld, "="] 
+\mathbb{C}\otimes H \arrow[ru, "1_H\otimes id"] \arrow[rd, "="'] &                    & H\otimes \mathbb{C} \arrow[lu, "id\otimes 1_H"'] \arrow[ld, "="] 
                 \\
 & H &                                                    
 \end{tikzcd}
@@ -250,19 +256,22 @@ H\otimes H \arrow[r, "id\otimes\triangle"']               & H\otimes H\otimes H
 H\otimes H \arrow[d, "\triangle\otimes\triangle"'] \arrow[r, "\bigtriangledown"] & H \arrow[r, "\triangle"] & H\otimes H                                                                  \\
 H\otimes H\otimes H\otimes H \arrow[rr, "id\otimes\tau\otimes id"']           &                          & H\otimes H\otimes H\otimes H \arrow[u, "\bigtriangledown\otimes\bigtriangledown"']
 \end{tikzcd}
-\item[]<2->\text{Unit and Counit compatibility:}
+
+\item[]<2->\rule{8cm}{0.4pt}
+\text{Unit and Counit compatibility:}
 % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12BbOnACwBGA4AGEAviDGl0mXPkIoAjOSq1GLNgAlJ0kBmx4CRZYtX1mrRCE2cIeLvAAE2qTIPyiAJhXVzGqy66+nJGKN6mvuqW1rb2ToFuIQrIAMw+ahZsnDz8QqISYqowUADm8ESgAGYAThBcSGQgOBBIyhn+HOwwOHQ6VbX1iI3NSN4gDHQCMAwACrKGCiDVWCV8OCCRmVac3XSxWA5wOz19IDV1rdQjiGN+0Zw4y3RgJQys1HB8WJXriG0TU1m8w8VjeP1O50GABYri1EGl2vd2I8sM9XqxXGcBkgEdcAKybDqcejVGBobAMIyYyFIGFNOEExFZdgkskUozUAHTObuUJLFZrSQUMRAA
 %\begin{center}
 \begin{tikzcd}[color=darkgreen]
-\mathbb{C} \arrow[r, "\eta"] \arrow[rd, "\eta\otimes\eta"'] & H \arrow[d, "\triangle"] & \phantom{a} & H \arrow[r, "\varepsilon"]                                   & \mathbb{C} \\
+\mathbb{C} \arrow[r, "1_H"] \arrow[rd, "1_H\otimes 1_H"'] & H \arrow[d, "\triangle"] & \phantom{a} & H \arrow[r, "\varepsilon"]                                   & \mathbb{C} \\
                                                             & H\otimes H                            & \phantom{a} & H\otimes H \arrow[u, "\bigtriangledown"] \arrow[ru, "\varepsilon\otimes\varepsilon"'] &           
 \end{tikzcd}
 %\end{center}
-\item[]<3->\text{Antipode:}
+\item[]<3->\rule{8cm}{0.4pt}\\
+\text{Antipode:}
 % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoBGAXVJADcBDAGwFcYkQAJEAX1PU1z5CKchWp0mrdgB1pAazk8+IDNjwEiAJjE0GLNok5L+aoUTKbxeqYY6yIeALbwABF14nBGlNsu7JBpz2Tq7uyqpewiSkxFYB7HbSDljOcG7GKgLqUdqx-voJwSmhPOIwUADm8ESgAGYAThCOSGQgOBBIAKz5NiCyOPVY9GAVjGweIA1NXTTtSABsPYFYUEWpLgDKGVPNiIttHYjaEgWG-YPDo+UQAO6EEzsts4cAzEsy0gNDI2MgNIz0ABGMEYAAUsmZDIMKgALHDbRq7N4HJAAFnehg2a1cKwR00Q6JRRwxfU+Fx+1zueN2rTmiFEJ16sgY9RgaGwjA0D0RSAZdOO1kCshgOHopW4QA
 \begin{tikzcd}[color=darkblue]
 H\otimes H \arrow[rr, "id\otimes S"]                                      &                       & H\otimes H \arrow[d, "\bigtriangledown"] \\
-H \arrow[u, "\triangle"] \arrow[d, "\triangle"'] \arrow[r, "\varepsilon"] & \mathbb{C} \arrow[r, "\eta"] & H                                     \\
+H \arrow[u, "\triangle"] \arrow[d, "\triangle"'] \arrow[r, "\varepsilon"] & \mathbb{C} \arrow[r, "1_H"] & H                                     \\
 H\otimes H \arrow[rr, "S\otimes id"]                                      &                       & H\otimes H \arrow[u, "\bigtriangledown"']
 \end{tikzcd}
 \end{itemize}
@@ -279,7 +288,7 @@ H\otimes A \arrow[r, "\alpha"]                                                  
 \end{tikzcd}
 % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbAABwnAlgFyxMJZABgBpiBdUkANwEMAbAAxiRAB12BrLziPALbwABADUQAX1LpMufIRQBGclAqMWbABJ9BI8AJnY8BIssWr6zAohD7AMKAHN4RUADMAThAFIyIHBBIympWbJwwOHQ6WEJwwlhQktIgnt6+1AFIAEzUlho2ALwg1Ax0AEYwDAAKssYKIB5YjgAWOEnuXj6IwZmIOSH5HOyMaM10khQSQA  
         \begin{tikzcd}[color=darkgreen]
-\mathbb{C}\otimes A \arrow[r, "\eta\otimes id"] \arrow[rd, "="'] & H\otimes A \arrow[d, "\alpha"] \\
+\mathbb{C}\otimes A \arrow[r, "1_H\otimes id"] \arrow[rd, "="'] & H\otimes A \arrow[d, "\alpha"] \\
                                                           & A                                                                       
 \end{tikzcd}
 \vspace{1.5ex}
@@ -293,18 +302,18 @@ H\otimes H\otimes A\otimes A \arrow[rrr, "id\otimes\tau\otimes id"]             
 % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAAkQBfU9TXfIRQBGclVqMWbADrSA1nO68QGbHgJEATGOr1mrRCACCSvmsFEyw8XqmH2siHgC28AAQmu4mFADm8IlAAMwAnCGckMhAcCCRRCX0ZaXoQmDRsBg0eYLCIxHiYpG0EuxBZGBw6UxBQ8MjqQsQAZl1JAzLpCqrsmtykFujYxGLbdtlGNAALboouIA
     \item[]<5->
      \begin{center}\begin{tikzcd}[color=darkgreen]
-H \arrow[r, "\varepsilon"] \arrow[d, "\eta"'] & \mathbb{C} \arrow[r, "\eta"] & A \\
+H \arrow[r, "\varepsilon"] \arrow[d, "-\otimes 1_A"'] & \mathbb{C} \arrow[r, "1_A"] & A \\
 H\otimes A \arrow[rru, "\alpha"']             &                       &  
 \end{tikzcd}\end{center}
 \end{itemize}
 \end{frame}
 
 \begin{frame}{Hopf Alebra Actions}
-In words, $H$ acts on $A$, iff
+In words, $H$ acts on $A$, iff $\forall h,h'\in H,\forall a\in A$
 \[
-(hh')(a)=h(h'(a)),\;\;\; 1_h(a)=a. 
+(hh')(a)=h(h'(a)),\;\;\; 1_H(a)=a. 
 \]
-And $A$ is an $H$-module alg iff $H$ acts on $A$ and
+And $A$ is an $H$-module alg iff $H$ acts on $A$ and $\forall h\in H,\forall a,a'\in A$
 \[
 h(aa')=\sum h_i(a)\cdot h_j(a),\;\;\; h(1_A)=\varepsilon(h)1_A    
 \]

@@ -9,7 +9,7 @@ H\otimes A \arrow[r, "\alpha"]                                                  
 \end{tikzcd}
 % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbAABwnAlgFyxMJZABgBpiBdUkANwEMAbAAxiRAB12BrLziPALbwABADUQAX1LpMufIRQBGclAqMWbABJ9BI8AJnY8BIssWr6zAohD7AMKAHN4RUADMAThAFIyIHBBIympWbJwwOHQ6WEJwwlhQktIgnt6+1AFIAEzUlho2ALwg1Ax0AEYwDAAKssYKIB5YjgAWOEnuXj6IwZmIOSH5HOyMaM10khQSQA
         \begin{tikzcd}[color=darkgreen]
-\mathbb{C}\otimes A \arrow[r, "\eta\otimes id"] \arrow[rd, "="'] & H\otimes A \arrow[d, "\alpha"] \\
+\mathbb{C}\otimes A \arrow[r, "1_H\otimes id"] \arrow[rd, "="'] & H\otimes A \arrow[d, "\alpha"] \\
                                                           & A
 \end{tikzcd}
 \vspace{1.5ex}
@@ -23,7 +23,7 @@ H\otimes H\otimes A\otimes A \arrow[rrr, "id\otimes\tau\otimes id"]             
 % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAAkQBfU9TXfIRQBGclVqMWbADrSA1nO68QGbHgJEATGOr1mrRCACCSvmsFEyw8XqmH2siHgC28AAQmu4mFADm8IlAAMwAnCGckMhAcCCRRCX0ZaXoQmDRsBg0eYLCIxHiYpG0EuxBZGBw6UxBQ8MjqQsQAZl1JAzLpCqrsmtykFujYxGLbdtlGNAALboouIA
     \item[]<5->
      \begin{center}\begin{tikzcd}[color=darkgreen]
-H \arrow[r, "\varepsilon"] \arrow[d, "\eta"'] & \mathbb{C} \arrow[r, "\eta"] & A \\
+H \arrow[r, "\varepsilon"] \arrow[d, "-\otimes 1_A"'] & \mathbb{C} \arrow[r, "1_A"] & A \\
 H\otimes A \arrow[rru, "\alpha"']             &                       &
 \end{tikzcd}\end{center}
 \end{itemize}
