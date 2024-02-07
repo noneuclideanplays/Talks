@@ -50,15 +50,29 @@
 \end{frame}
 
 \begin{frame}{Motivation}
+\begin{columns}[T]
+\begin{column}{0.5\textwidth}
 \begin{enumerate}\setlength{\itemindent}{-2ex}
     \item<1-> When a grp $G$ acts on a space $V$ over $\mathbb{C}$ linearly, the action can be extended to $V\otimes V$ by $g\in G$ acting as \[g\otimes g=\triangle(g).\] 
      Then $\triangle$ defines a coproduct map \[\triangle:\mathbb{C}G\to\mathbb{C}G\otimes\mathbb{C}G.\]
-     For arbitrary coproducts, $\triangle:A\to A\otimes A$, we call\\ $g\in A$ \textbf{grouplike} if $\triangle(g)=g\otimes g$.
-    \item<2-> When a Lie alg $\mathfrak{g}$ acts on a space $V$ over $\mathbb{C}$, the action can be extended to $V\otimes V$ by $x\in\mathfrak{g}$ acting as \[x\otimes 1+1\otimes x=\triangle(x).\]
-      Again, $\triangle$ defines a coproduct map \[\triangle:\mathfrak{g}\to\mathfrak{g}\otimes\mathfrak{g}.\]
+     For arbitrary coproducts, $\triangle:A\to A\otimes A$, \\we call $g\in A$ \textbf{grouplike} if $\triangle(g)=g\otimes g$.
+\end{enumerate}
+\end{column}
+\begin{column}{0.5\textwidth}
+\begin{enumerate}
+     \item<2-> When a Lie alg $\mathfrak{g}$ acts on a space $V$ over $\mathbb{C}$, the action can be extended to $V\otimes V$ by $x\in\mathfrak{g}$ acting as \[x\otimes 1+1\otimes x=\triangle(x).\]
+      Then $\triangle$ defines a coproduct map \[\triangle:\mathfrak{g}\to\mathfrak{g}\otimes\mathfrak{g}.\]
       For arbitrary coproducts, $\triangle:A\to A\otimes A$,\\ we call $x\in A$ \textbf{primitive} if $\triangle(x)=x\otimes 1+1\otimes x$.
 \end{enumerate}
+\end{column}
+\end{columns}
 \vspace{0.5cm}
+\end{frame}
+
+\begin{frame}{}
+    Hopf algebras combine the notions of Algebras and Coalgebras that have coproducts.
+    We are looking for actions of Hopf algebras.
+    In particular on non-commutative algebras like Quantum Polynomial Rings.
 \end{frame}
 
 \begin{frame}{Sweedler's Algebra}
@@ -77,10 +91,10 @@
     \onslide<4->{\\}
     \onslide<4->{S(g) & =g^{-1}, & S(x)= & \ -x\\}
     \onslide<5->{\rule{2cm}{0.4pt} & \rule{2cm}{0.4pt} & \rule{2cm}{0.4pt} & \rule{3cm}{0.4pt}\\}
-    \onslide<5->{\text{Group-like} & & \text{Primitive}}
+    \onslide<5->{\text{Group-like} & & & (1,g)-\text{Primitive}}
 \end{align*}
 \onslide<6->{Let $\tau$ be the `flip' over the tensor product, so $\tau(u\otimes v)=v\otimes u$.\\
-Note that $\tau\circ\triangle(x)\neq\triangle(x)$, this is called non-cocommutativity.}
+Note that $\tau\circ\triangle(x)\neq\triangle(x)$, so $H$ is non-cocommutative.}
 \end{frame}
 
 \begin{frame}{Actions of Sweedler's Algebra}
@@ -100,7 +114,7 @@ Note that $\tau\circ\triangle(x)\neq\triangle(x)$, this is called non-cocommutat
 
 %From: Kirkman, Kuzmanovich, Zhang, "Gorenstein subrings of invariants..." 2009
 
- The unique $8$-dim'l non-commutative, non-cocommutative Hopf alg given by G.\ Kac and V.\ Paljutkin in``Finite Ring Groups" (1966):\newline
+ The unique $8$-dim'l non-comm., non-cocomm. Hopf alg given by G.\ Kac and V.\ Paljutkin in``Finite Ring Groups" (1966):\newline
 
     $H_8=$
     \[\Big\langle x,y,z\;\vert\; x^2=y^2=1,xy=yx,zx=yz,zy=xz,z^2=\tfrac{1}{2}(1+x+y-xy)\Big\rangle\]
@@ -125,7 +139,10 @@ Note that $\tau\circ\triangle(x)\neq\triangle(x)$, this is called non-cocommutat
 \begin{frame}{Actions of Kac-Paljutkin Algebra}
 
 \begin{itemize}
-    \item[]<1->$H_8$ acts on $\mathbb{C}_q[v_1,v_2]$ where $q^2=-1$ by 
+
+%Need some way to make it clear x acts as matrix etc.
+
+    \item[]<1->$H_8$ acts on $\mathbb{C}_q[v_1,v_2]$ where $q^2=-1$ via the representation
     \[
     x\mapsto \begin{bmatrix}-1 & 0\\0 & 1\end{bmatrix} \;\; y\mapsto \begin{bmatrix} 1 & 0\\ 0 & -1\end{bmatrix} \;\; z\mapsto\begin{bmatrix} 0 & 1\\ 1 & 0\end{bmatrix}.
     \]
@@ -133,14 +150,14 @@ Note that $\tau\circ\triangle(x)\neq\triangle(x)$, this is called non-cocommutat
     \item[]<2->And on $\mathbb{C}_Q[v_1,v_2,v_3,v_4]$ for 
    
     \vspace{1ex}
-    $q_{12}=q_{34}^{-1},\;\;q_{13}=q_{24}^{-1},\;\;q_{14}^2=1,\;\;q_{23}^2=-1$ by
+    $q_{12}=q_{34}^{-1},\;\;q_{13}=q_{24}^{-1},\;\;q_{14}^2=1,\;\;q_{23}^2=-1$ via the rep
     
     \[
     x\mapsto \begin{bmatrix} 1&0&0&0\\0&-1&0&0\\0&0&1&0\\0&0&0&1\end{bmatrix} \;\; y\mapsto \begin{bmatrix} 1&0&0&0\\0&1&0&0\\0&0&-1&0\\0&0&0&1\end{bmatrix}\;\; z\mapsto\begin{bmatrix}0&0&0&1\\0&0&1&0\\0&1&0&0\\1&0&0&0\end{bmatrix}.
     \]
     
     \item[]<3->\hrule
-    \item[]<3-> And on $\mathbb{C}_{-1}[v_1,v_2]$ by 
+    \item[]<3-> And on $\mathbb{C}_{-1}[v_1,v_2]$ via the rep
     \[
     x\mapsto \begin{bmatrix}0&1\\1&0\end{bmatrix}\;\; y\mapsto\begin{bmatrix}0&-1\\-1&0\end{bmatrix}\;\; z\mapsto\begin{bmatrix}1&0\\0&-1\end{bmatrix}.
     \]
@@ -307,7 +324,7 @@ H\otimes A \arrow[rru, "\alpha"']             &                       &
 \end{frame}
 
 \begin{frame}{Hopf Alebra Actions}
-In words, $H$ acts on $A$, iff $\forall h,h'\in H,\forall a\in A$
+In words, $H$ acts on $A$ iff you can multiply in $H$ and then act on $A$ or act on $A$ consecutively, $\forall h,h'\in H,\forall a\in A$
 \[
 (hh')(a)=h(h'(a)),\;\;\; 1_H(a)=a. 
 \]
@@ -320,37 +337,35 @@ where $\triangle(h)=\sum h_i\otimes h_j$.
 \end{frame}
 
 \begin{frame}{Semidirect Product}
-    Let $G$ and $G'$ be groups where $G'$ acts on $G$ by automorphisms. 
-    Then one can define the semidirect product group, $G\rtimes G'$.\\
-    The action can be extended to the group algebras, $\mathbb{C}G$ and $\mathbb{C}G'$.
-    This will give the group algebra 
+    Let $G$ and $G'$ be groups where $G'$ acts on $G$ by automorphisms, giving the semidirect product group, $G\rtimes G'$.\\
+    The action can be extended to the group algebras:
     \[
     \mathbb{C}(G\rtimes G')=\mathbb{C}G\#\mathbb{C}G'    
     \]
-    with product $g'g=(g'\cdot g)g'$.\\
+    with product $g'g=g'(g)g'$.\\
     \begin{block}{Smash Product Algebra}
-        If $H$ is a Hopf algebra and $A$ an $H$-module algebra, then $A\#H$ is the smash product algebra defined as $A\otimes H$ as a vector space and with product
+        If $H$ is a Hopf algebra and $A$ an $H$-module algebra, then $A\#H$ is defined as $A\otimes H$ as a vector space and with product
         \[
-        ha=\sum_{i} (g_i\cdot a)k_i 
+        (a'\otimes h)(a\otimes h')=\sum_{i} a'h_{i_1}(a)\otimes h_{i_2}h' 
         \]
-        where $a\in A$, $h\in H$ and $\triangle(h)=\sum_i g_i\otimes k_i$.
+        where $a\in A$, $h\in H$ and $\triangle(h)=\sum_{i} h_{i_1}\otimes h_{i_2}$.
     \end{block}
 \end{frame}
 
 \begin{frame}{Smash Product Algebra}
     \begin{block}{"Group-like" and "Lie-like"}
-        Let $H$ be a Hopf algebra, define $G(H)=\{h\in H\;\vert\; \triangle(h)=h\otimes h\}$ and $P(H)=\{h\in H\;\vert\; \triangle(h)=h\otimes 1+1\otimes h\}$.\\
-        $G(H)$ is the set of grouplike elements of $H$ and forms a group under the product.\\
-        $P(H)$ is the set of primitive elements of $H$ and forms a Lie algebra under the commutator bracket.
+        For Hopf alg $H$, define \[G(H)=\{h\in H\;\vert\; \triangle(h)=h\otimes h\}=\text{grouplike elements}\] 
+        which forms a group, and define 
+        \[P(H)=\{h\in H\;\vert\; \triangle(h)=h\otimes 1+1\otimes h\}=\text{primitive elements}\]
+        which forms a Lie alg.
     \end{block}
     \begin{block}{Cartier-Kostant-Milnor-Moore Theorem}
-        Let $H$ be a cocommutative Hopf algebra over $\mathbb{C}$, then 
+        Let $H$ be a cocommutative Hopf algebra over $\mathbb{C}$, then as Hopf algebras,
         \[
-            H\cong \mathcal{U}(P(H))\# \mathbb{C}G(H)
+            H\cong \mathcal{U}\left(P(H)\right)\# \mathbb{C}G(H)
         \]
-        as Hopf algebras.
     \end{block}
-    As a corollary, any finite-dimensional Hopf algebra over $\mathbb{C}$ is isomorphic to a group algebra.
+    Cor: Any cocomm, finite-dimn'l Hopf alg over $\mathbb{C}$ is iso to a grp alg.
 \end{frame}
 
 \begin{frame}{Research Directions}
