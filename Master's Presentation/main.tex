@@ -51,16 +51,16 @@
 
 \begin{frame}{Motivation}
 \begin{columns}[T]
-\begin{column}{0.5\textwidth}
+\begin{column}{0.6\textwidth}
 \begin{enumerate}\setlength{\itemindent}{-2ex}
     \item<1-> When a grp $G$ acts on a space $V$ over $\mathbb{C}$ linearly, the action can be extended to $V\otimes V$ by $g\in G$ acting as \[g\otimes g=\triangle(g).\] 
      Then $\triangle$ defines a coproduct map \[\triangle:\mathbb{C}G\to\mathbb{C}G\otimes\mathbb{C}G.\]
      For arbitrary coproducts, $\triangle:A\to A\otimes A$, \\we call $g\in A$ \textbf{grouplike} if $\triangle(g)=g\otimes g$.
 \end{enumerate}
 \end{column}
-\begin{column}{0.5\textwidth}
+\begin{column}{0.55\textwidth}
 \begin{enumerate}
-     \item<2-> When a Lie alg $\mathfrak{g}$ acts on a space $V$ over $\mathbb{C}$, the action can be extended to $V\otimes V$ by $x\in\mathfrak{g}$ acting as \[x\otimes 1+1\otimes x=\triangle(x).\]
+     \item[2]<2-> When a Lie alg $\mathfrak{g}$ acts on a space $V$ over $\mathbb{C}$, the action can be extended to $V\otimes V$ by $x\in\mathfrak{g}$ acting as \[x\otimes 1+1\otimes x=\triangle(x).\]
       Then $\triangle$ defines a coproduct map \[\triangle:\mathfrak{g}\to\mathfrak{g}\otimes\mathfrak{g}.\]
       For arbitrary coproducts, $\triangle:A\to A\otimes A$,\\ we call $x\in A$ \textbf{primitive} if $\triangle(x)=x\otimes 1+1\otimes x$.
 \end{enumerate}
@@ -308,27 +308,27 @@ H\otimes A \arrow[r, "\alpha"]                                                  
 \end{tikzcd}
 \vspace{1.5ex}
 \end{itemize}
-\pause \pause $A$ is called a \textbf{module algebra} if the following also commute:
+\pause \pause $A$ is called an $H$-\textbf{module algebra} if the following also commute:
 \begin{itemize}
 \item[]<4-> \begin{tikzcd}[color=darkblue]
-H\otimes A\otimes A \arrow[r, "\bigtriangledown"] \arrow[d, "\triangle\otimes id\otimes id"'] & H\otimes A \arrow[r, "\alpha"] & A & A\otimes A \arrow[l, "\bigtriangledown"']                         \\
+H\otimes A\otimes A \arrow[r, "id\otimes\bigtriangledown"] \arrow[d, "\triangle\otimes id\otimes id"'] & H\otimes A \arrow[r, "\alpha"] & A & A\otimes A \arrow[l, "\bigtriangledown"']                         \\
 H\otimes H\otimes A\otimes A \arrow[rrr, "id\otimes\tau\otimes id"]                        &                                &   & H\otimes A\otimes H\otimes A \arrow[u, "\alpha\otimes\alpha"']
 \end{tikzcd}.\
 % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAAkQBfU9TXfIRQBGclVqMWbADrSA1nO68QGbHgJEATGOr1mrRCACCSvmsFEyw8XqmH2siHgC28AAQmu4mFADm8IlAAMwAnCGckMhAcCCRRCX0ZaXoQmDRsBg0eYLCIxHiYpG0EuxBZGBw6UxBQ8MjqQsQAZl1JAzLpCqrsmtykFujYxGLbdtlGNAALboouIA
     \item[]<5->
      \begin{center}\begin{tikzcd}[color=darkgreen]
-H \arrow[r, "\varepsilon"] \arrow[d, "-\otimes 1_A"'] & \mathbb{C} \arrow[r, "1_A"] & A \\
+H \arrow[r, "\varepsilon"] \arrow[d, "id \otimes 1_A"'] & \mathbb{C} \arrow[r, "1_A"] & A \\
 H\otimes A \arrow[rru, "\alpha"']             &                       &  
 \end{tikzcd}\end{center}
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Hopf Alebra Actions}
-In words, $H$ acts on $A$ iff you can multiply in $H$ and then act on $A$ or act on $A$ consecutively, $\forall h,h'\in H,\forall a\in A$
+\begin{frame}{Hopf Algebra Actions}
+In words, $H$ \textbf{acts on} $A$ iff you can multiply in $H$ and then act on $A$ or act on $A$ consecutively, $\forall h,h'\in H,\forall a\in A$
 \[
 (hh')(a)=h(h'(a)),\;\;\; 1_H(a)=a. 
 \]
-And $A$ is an $H$-module alg iff $H$ acts on $A$ and $\forall h\in H,\forall a,a'\in A$
+And $A$ is an $H$-\textbf{module alg} iff $H$ acts on $A$ and $\forall h\in H,\forall a,a'\in A$
 \[
 h(aa')=\sum h_i(a)\cdot h_j(a),\;\;\; h(1_A)=\varepsilon(h)1_A    
 \]
@@ -348,7 +348,7 @@ where $\triangle(h)=\sum h_i\otimes h_j$.
         \[
         (a'\otimes h)(a\otimes h')=\sum_{i} a'h_{i_1}(a)\otimes h_{i_2}h' 
         \]
-        where $a\in A$, $h\in H$ and $\triangle(h)=\sum_{i} h_{i_1}\otimes h_{i_2}$.
+        where $a,a'\in A$, $h,h'\in H$ and $\triangle(h)=\sum_{i} h_{i_1}\otimes h_{i_2}$.
     \end{block}
 \end{frame}
 
@@ -360,12 +360,12 @@ where $\triangle(h)=\sum h_i\otimes h_j$.
         which forms a Lie alg.
     \end{block}
     \begin{block}{Cartier-Kostant-Milnor-Moore Theorem}
-        Let $H$ be a cocommutative Hopf algebra over $\mathbb{C}$, then as Hopf algebras,
+        Let $H$ be a cocommutative Hopf algebra over $\mathbb{C}$, then as Hopf alg,
         \[
             H\cong \mathcal{U}\left(P(H)\right)\# \mathbb{C}G(H)
         \]
     \end{block}
-    Cor: Any cocomm, finite-dimn'l Hopf alg over $\mathbb{C}$ is iso to a grp alg.
+    Cor: Any cocomm, finite-dim'l Hopf alg over $\mathbb{C}$ is iso to a grp alg.
 \end{frame}
 
 \begin{frame}{Research Directions}
