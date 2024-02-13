@@ -11,6 +11,9 @@
 \usetheme{Warsaw}
 \setbeamertemplate{navigation symbols}{}%remove navigation symbols
 
+\newcommand\1{_{(1)}}
+\newcommand\2{_{(2)}}
+
 \usepackage{xcolor}
 \definecolor{lightgreen}{RGB}{32, 165, 32}
 \definecolor{darkgreen}{RGB}{0,105,0}
@@ -18,7 +21,7 @@
 \definecolor{darkred}{RGB}{162,17,17}
 \definecolor{darkblue}{RGB}{30,30,187}
 
-\title{Hopf Module Algebras}
+\title{Quantum Group Actions and Hopf Algebras}
 \author{Brandon Mather}
 \date{UNT Master's}
 
@@ -57,10 +60,10 @@
      Then $\triangle$ defines a coproduct map \[\triangle:\mathbb{C}G\to\mathbb{C}G\otimes\mathbb{C}G.\]
      For arbitrary coproducts, $\triangle:A\to A\otimes A$, \\we call $g\in A$ \textbf{grouplike} if $\triangle(g)=g\otimes g$.
 \end{enumerate}
-\end{column}
-\begin{column}{0.55\textwidth}
+\end{column}\hspace{-3ex}\begin{column}{0.58\textwidth}
 \begin{enumerate}
-     \item[2]<2-> When a Lie alg $\mathfrak{g}$ acts on a space $V$ over $\mathbb{C}$, the action can be extended to $V\otimes V$ by $x\in\mathfrak{g}$ acting as \[x\otimes 1+1\otimes x=\triangle(x).\]
+    \setcounter{enumi}{1}
+     \item<2-> When a Lie alg $\mathfrak{g}$ acts on a space $V$ over $\mathbb{C}$, the action can be extended to $V\otimes V$ by $x\in\mathfrak{g}$ acting as \[x\otimes 1+1\otimes x=\triangle(x).\]
       Then $\triangle$ defines a coproduct map \[\triangle:\mathfrak{g}\to\mathfrak{g}\otimes\mathfrak{g}.\]
       For arbitrary coproducts, $\triangle:A\to A\otimes A$,\\ we call $x\in A$ \textbf{primitive} if $\triangle(x)=x\otimes 1+1\otimes x$.
 \end{enumerate}
@@ -70,8 +73,8 @@
 \end{frame}
 
 \begin{frame}{}
-    Hopf algebras combine the notions of Algebras and Coalgebras that have coproducts.
-    We are looking for actions of Hopf algebras.
+    Hopf algebras combine the notions of Algebras with products and Coalgebras with coproducts.
+    \\We are looking for actions of Hopf algebras.
     In particular on non-commutative algebras like Quantum Polynomial Rings.
 \end{frame}
 
@@ -292,6 +295,30 @@ H\otimes H \arrow[rr, "S\otimes id"]                                      &     
 \end{itemize}
 \end{frame}
 
+\begin{frame}{Quantum Group}
+    Common philosophy holds that a \textbf{quantum group} might be defined as a Hopf alg with a bijective antipode, $S$, and an invertible element $R\in H\otimes H$ satisfying
+    \begin{align*}
+        (1) & R\left(\sum h\1\otimes h\2\right)R^{-1}=\sum h\2\otimes h\1\\
+        (2) & \triangle\otimes id(R) = R_{1,3}R_{2,3}\\
+        (3) & id\otimes\triangle(R)= R_{1,3}R_{1,2}
+    \end{align*}
+    where $R=\sum R\1\otimes R\2$, $R_{1,2}=\sum R\1\otimes R\2\otimes 1$, $R_{1,3}=\sum R\1\otimes 1\otimes R\2$, and $R_{2,3}=\sum 1\otimes R\1\otimes R\2$.
+    The element $R$ witnesses how close being cocommutative the quantum group is.
+    As well, one can show that 
+    \[
+     R_{1,2}R_{1,3}R_{2,3}=R_{2,3}R_{1,3}R_{1,2}.
+    \]
+    Hence, $R$ is a solution to the quantum Yang-Baxter equation, and so is often called a universal R-matrix.
+\end{frame}
+
+\begin{frame}{Quantum Group Examples}
+The three Hopf algs we have already discussed are all quantum groups.\\
+Sweedler's algebra, $ H_4=\Big\langle g,x\;\vert\; g^2=1,x^2=0,gx=-xg\Big\rangle$, has the universal R-matrix 
+    \[
+    R=1\otimes 1-2\tfrac{1-g}{2}\otimes\tfrac{1-g}{2}+x\otimes x+2x\tfrac{1-g}{2}\otimes x\tfrac{1-g}{2}-2x\otimes x\tfrac{1-g}{2}    
+    \]
+\end{frame}
+
 \begin{frame}[fragile]{Hopf Algebra Actions}
 
 Let $H$ be a Hopf alg and $A$ an alg with a map $\alpha:H\otimes A\to A$. Then we say $H$ \textbf{acts} on $A$ by $\alpha$ if the following diagrams commute:
@@ -365,7 +392,7 @@ where $\triangle(h)=\sum h_i\otimes h_j$.
             H\cong \mathcal{U}\left(P(H)\right)\# \mathbb{C}G(H)
         \]
     \end{block}
-    Cor: Any cocomm, finite-dim'l Hopf alg over $\mathbb{C}$ is iso to a grp alg.
+    Cor: Any cocomm, finite-dimpt'l Hopf alg over $\mathbb{C}$ is iso to a grp alg.
 \end{frame}
 
 \begin{frame}{Research Directions}
