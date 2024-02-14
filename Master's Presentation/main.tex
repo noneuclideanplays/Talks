@@ -23,8 +23,8 @@
 
 \title{Quantum Group Actions and Hopf Algebras}
 \author{Brandon Mather}
-\date{University of North Texas Master's Defense February 28th 2024\\
-Department of Mathematics}
+\date{University of North Texas Master's Defense\\
+Department of Mathematics \\February 28th 2024}
 
 
 \begin{document}
@@ -61,7 +61,7 @@ Department of Mathematics}
      Then $\triangle$ defines a coproduct map \[\triangle:\mathbb{C}G\to\mathbb{C}G\otimes\mathbb{C}G.\]
      For arbitrary coproducts, $\triangle:A\to A\otimes A$, \\we call $g\in A$ \textbf{grouplike} if $\triangle(g)=g\otimes g$.
 \end{enumerate}
-\end{column}\hspace{-3ex}\begin{column}{0.58\textwidth}
+\end{column}\hspace{-3ex}\vrule\begin{column}{0.58\textwidth}
 \begin{enumerate}
     \setcounter{enumi}{1}
      \item<2-> When a Lie alg $\mathfrak{g}$ acts on a space $V$ over $\mathbb{C}$, the action can be extended to $V\otimes V$ by $x\in\mathfrak{g}$ acting as \[x\otimes 1+1\otimes x=\triangle(x).\]
@@ -74,6 +74,12 @@ Department of Mathematics}
 \end{frame}
 
 \begin{frame}{}
+    % Add bubble about "we want an algebra combining notions of group actions and Lie actions
+    \begin{beamerboxesrounded}{}{}
+        \begin{center}
+
+        \end{center}
+    \end{beamerboxesrounded}
     \begin{beamerboxesrounded}{}{}
         \begin{center}
     Hopf algebras combine the notions of Algebras with products and Coalgebras with coproducts.
@@ -95,9 +101,9 @@ Department of Mathematics}
     \onslide<2->{with operations $\triangle:H_4\to H_4\otimes H_4,\varepsilon:H_4\to\mathbb{C},S:H_4\to H_4$}
 \begin{align*}
     \onslide<2->{\triangle(g) & =g\otimes g, & \triangle(x)= & \ x\otimes 1+g\otimes x \\}
-    \onslide<3->{\\}
+    %\onslide<3->{\\}
     \onslide<3->{\varepsilon(g) & =1, & \varepsilon(x)= &\ 0\\}
-    \onslide<4->{\\}
+    %\onslide<4->{\\}
     \onslide<4->{S(g) & =g^{-1}, & S(x)= & \ -x\\}
     \onslide<5->{\rule{2cm}{0.4pt} & \rule{2cm}{0.4pt} & \rule{2cm}{0.4pt} & \rule{3cm}{0.4pt}\\}
     \onslide<5->{\text{Group-like} & & & (1,g)-\text{Primitive}}
@@ -112,7 +118,7 @@ Note that $\tau\circ\triangle(x)\neq\triangle(x)$, so $H$ is non-cocommutative.}
       g\cdot v_1=v_1,\; g\cdot v_2=-v_2,\; x\cdot v_1=0,\; x\cdot v_2=v_1.  
     \]
     \pause
-   We can express this action on the generators as
+   We can express this action on the generators $v_1,v_2$ as
     \[
     g\mapsto \begin{bmatrix}1&0\\0&-1\end{bmatrix},\; x\mapsto\begin{bmatrix}0&1\\0&0\end{bmatrix}.    
     \]
@@ -175,7 +181,7 @@ Note that $\tau\circ\triangle(x)\neq\triangle(x)$, so $H$ is non-cocommutative.}
 
 %From: Walton, Witherspoon "Poincare-Birkhoff-Witt deformations.." 2014
 
-Described by P. Kulish and N. Reshetikhin in``Quantum linear problem..." (1983), leading Vladimir Drinfeld to quantum groups
+Described by P. Kulish and N. Reshetikhin in``Quantum linear problem..." (1983), leading Vladimir Drinfeld to quantum groups:
 
 $\mathcal{U}_q(\mathfrak{sl}
 _2)=$
@@ -198,7 +204,7 @@ with operations:
 
 \begin{frame}{Actions of $\mathcal{U}_q(\mathfrak{sl}_2)$}
 
-$\mathcal{U}_q(\mathfrak{sl}_2)$ acts on $\mathbb{C}_q[v_1,v_2]$ by the representation
+$\mathcal{U}_q(\mathfrak{sl}_2)$ acts on $\mathbb{C}_q[v_1,v_2]$ via the representation
 \begin{columns}[T]
 \begin{column}{0.5\textwidth}
 \begin{align*}
@@ -300,19 +306,19 @@ H\otimes H \arrow[rr, "S\otimes id"]                                      &     
 \end{frame}
 
 \begin{frame}{Quantum Group}
-    Common philosophy holds that a \textbf{quantum group} might be defined as a Hopf alg with a bijective antipode, $S$, and an invertible element $R\in H\otimes H$ satisfying
+    Common philosophy: A \textbf{quantum group} is a Hopf alg H with a bijective antipode, and some invertible $R\in H\otimes H$ witnessing how close $H$ is to being cocommutative and satisfying:
     \begin{align*}
         (1) & R\left(\sum h\1\otimes h\2\right)R^{-1}=\sum h\2\otimes h\1\\
         (2) & \triangle\otimes id(R) = R_{1,3}R_{2,3}\\
         (3) & id\otimes\triangle(R)= R_{1,3}R_{1,2}
     \end{align*}
-    where $R=\sum R\1\otimes R\2$, $R_{1,2}=\sum R\1\otimes R\2\otimes 1$, $R_{1,3}=\sum R\1\otimes 1\otimes R\2$, and $R_{2,3}=\sum 1\otimes R\1\otimes R\2$.
-    \\The element $R$ witnesses how close being cocommutative the quantum group is.
-    As well, one can show that 
+    % See if next line can be a display wiht = aligned
+    where $R=\sum R\1\otimes R\2$,\;\; $R_{1,2}=\sum R\1\otimes R\2\otimes 1$,\;\; $R_{1,3}=\sum R\1\otimes 1\otimes R\2$, and $R_{2,3}=\sum 1\otimes R\1\otimes R\2$.
+    \\
+    Hence, $R$ is a solution to the quantum Yang-Baxter equation, and so is often called a \textbf{universal R-matrix}.
     \[
      R_{1,2}R_{1,3}R_{2,3}=R_{2,3}R_{1,3}R_{1,2}.
     \]
-    Hence, $R$ is a solution to the quantum Yang-Baxter equation, and so is often called a \textbf{universal R-matrix}.
 \end{frame}
 
 \begin{frame}{Quantum Group Examples}
