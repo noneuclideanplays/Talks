@@ -77,7 +77,7 @@ Department of Mathematics \\February 28th 2024}
     % Add bubble about "we want an algebra combining notions of group actions and Lie actions
     \begin{beamerboxesrounded}{}{}
         \begin{center}
-
+            We want an algebra that synthesizes group actions and actions by Lie algebras.
         \end{center}
     \end{beamerboxesrounded}
     \begin{beamerboxesrounded}{}{}
@@ -100,13 +100,11 @@ Department of Mathematics \\February 28th 2024}
     \]
     \onslide<2->{with operations $\triangle:H_4\to H_4\otimes H_4,\varepsilon:H_4\to\mathbb{C},S:H_4\to H_4$}
 \begin{align*}
-    \onslide<2->{\triangle(g) & =g\otimes g, & \triangle(x)= & \ x\otimes 1+g\otimes x \\}
-    %\onslide<3->{\\}
-    \onslide<3->{\varepsilon(g) & =1, & \varepsilon(x)= &\ 0\\}
-    %\onslide<4->{\\}
+    \onslide<2->{\triangle(g) & =g\otimes g, & \triangle(x)= & \ x\otimes 1+g\otimes x \\[0.3em]}
+    \onslide<3->{\varepsilon(g) & =1, & \varepsilon(x)= &\ 0\\[0.3em]}
     \onslide<4->{S(g) & =g^{-1}, & S(x)= & \ -x\\}
     \onslide<5->{\rule{2cm}{0.4pt} & \rule{2cm}{0.4pt} & \rule{2cm}{0.4pt} & \rule{3cm}{0.4pt}\\}
-    \onslide<5->{\text{Group-like} & & & (1,g)-\text{Primitive}}
+    \onslide<5->{\text{Group-like} & & & (1,g)-\text{Primitive}}vertical spacing
 \end{align*}
 \onslide<6->{Let $\tau$ be the `flip' over the tensor product, so $\tau(u\otimes v)=v\otimes u$.\\
 Note that $\tau\circ\triangle(x)\neq\triangle(x)$, so $H$ is non-cocommutative.}
@@ -309,33 +307,48 @@ H\otimes H \arrow[rr, "S\otimes id"]                                      &     
     Common philosophy: A \textbf{quantum group} is a Hopf alg H with a bijective antipode, and some invertible $R\in H\otimes H$ witnessing how close $H$ is to being cocommutative and satisfying:
     \begin{small}
     \begin{align*}
-        (1) & R\left(\sum h\1\otimes h\2\right)R^{-1}=\sum h\2\otimes h\1\\
-        (2) & \triangle\otimes id(R) = R_{1,3}R_{2,3}\\
-        (3) & id\otimes\triangle(R)= R_{1,3}R_{1,2}
+        \onslide<2->{
+        (1) &\; R\left(\sum h\1\otimes h\2\right)R^{-1}=\sum h\2\otimes h\1\\}
+        \onslide<3->{
+        (2) &\; \triangle\otimes id(R) = R_{1,3}R_{2,3}\\}
+        \onslide<4->{
+        (3) &\; id\otimes\triangle(R)= R_{1,3}R_{1,2}}
     \end{align*}
     \end{small}
-    % See if next line can be a display wiht = aligned
-    where $R=\sum R\1\otimes R\2$,\;\; $R_{1,2}=\sum R\1\otimes R\2\otimes 1$,\;\; $R_{1,3}=\sum R\1\otimes 1\otimes R\2$, and $R_{2,3}=\sum 1\otimes R\1\otimes R\2$.
-    \\
+    % See if next line can be a display with = aligned
+    \onslide<5->{
+    \hspace{6.2em}where $R=\sum R\1\otimes R\2$ and 
+    \begin{small}
+    \begin{align*}
+        R_{1,2} & = \sum R\1\otimes R\2\otimes 1\\
+        R_{1,3} & = \sum R\1\otimes 1\otimes R\2\\
+        R_{2,3} & = \sum 1\otimes R\1\otimes R\2.
+    \end{align*}
+\end{small}}
+    \onslide<6->{
     Hence, $R$ is a solution to the quantum Yang-Baxter equation, and so is often called a \textbf{universal R-matrix}.
     \[
      R_{1,2}R_{1,3}R_{2,3}=R_{2,3}R_{1,3}R_{1,2}.
     \]
+    }
 \end{frame}
 
 \begin{frame}{Quantum Group Examples}
 The three Hopf algs examples above are all quantum groups.\\
 % itemize
-
+\begin{itemize}
+    \onslide<2->{\item
 Sweedler's algebra, $ H_4=\big\langle g,x\;\vert\; g^2=1,x^2=0,gx=-xg\big\rangle$, has the univ R-matrix 
 \begin{small}
     \[
     R=1\otimes 1-2\tfrac{1-g}{2}\otimes\tfrac{1-g}{2}+x\otimes x+2x\tfrac{1-g}{2}\otimes x\tfrac{1-g}{2}-2x\otimes x\tfrac{1-g}{2} .   
     \]
-\end{small}
-The Kac-Paljutkin algebra, \\$H_8=\big\langle x,y,z\;\vert\; x^2=y^2=1,xy=yx,zx=yz,zy=xz,z^2=\tfrac{1}{2}(1+x+y-xy)\big\rangle$, has $6$ non-iso quasitriangular structures.\\
+\end{small}}
+\onslide<3->{\item
+The Kac-Paljutkin algebra, \\$H_8=\big\langle x,y,z\;\vert\; x^2=y^2=1,xy=yx,zx=yz,zy=xz,z^2=\tfrac{1}{2}(1+x+y-xy)\big\rangle$, has $6$ non-iso quasitriangular structures.}
 And the ambiguity of what is a quantum group can be best seen with $\mathcal{U}_q(\mathfrak{sl_2})$.
 This is undoubtedly a quantum group as it was the inspiration for the concept, but its univ R-matrix exists only in a completion of the tensor product $\mathcal{U}_q(\mathfrak{sl2})\otimes\mathcal{U}_q(\mathfrak{sl2})$, and so is a formal power series of pure tensors.
+\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]{Hopf Algebra Actions}
@@ -379,10 +392,12 @@ And $A$ is an $H$-\textbf{module alg} iff $H$ acts on $A$ and $\forall h\in H,\f
 h(aa')=\sum h\1(a)\cdot h\1(a),\;\;\; h(1_A)=\varepsilon(h)1_A    
 \]
 where $\triangle(h)=\sum h\1\otimes h\2$.
+\\ This generalizes the notion of acting by automorphisms.
 
 \end{frame}
 
 \begin{frame}{Semidirect Product}
+    % possibly replace G' with K
     Let $G$ and $G'$ be groups where $G'$ acts on $G$ by automorphisms, giving the semidirect product group, $G\rtimes G'$.\\
     The action can be extended to the group algebras:
     \[
@@ -408,10 +423,10 @@ where $\triangle(h)=\sum h\1\otimes h\2$.
     \begin{block}{Cartier-Kostant-Milnor-Moore Theorem}
         Let $H$ be a cocommutative Hopf algebra over $\mathbb{C}$, then as Hopf alg,
         \[
-            H\cong \mathcal{U}\left(P(H)\right)\# \mathbb{C}G(H)
+            H\cong \mathcal{U}\left(P(H)\right)\# \;\mathbb{C}G(H)
         \]
     \end{block}
-    Cor: Any cocomm, finite-dimpt'l Hopf alg over $\mathbb{C}$ is iso to a grp alg.
+    Cor: Any cocomm, finite-dim'l Hopf alg over $\mathbb{C}$ is iso to a grp alg.
 \end{frame}
 
 \begin{frame}{Research Directions}
@@ -419,8 +434,8 @@ where $\triangle(h)=\sum h\1\otimes h\2$.
     \setlength{\itemsep}{2ex}
         \item<1-> Which actions on algebras by Hopf algebras factor through a group action?
                     If the action does not factor through a group action, it is said to have "quantum symmetry".
-        \item<2-> Which Hopf Algebras act on AS-regular algebras?
-        \item<3-> When are the invariant subrings from Hopf actions AS-Gorenstein?
+        \item<2-> Which Hopf Algebras act on pther noncommutative algebras?
+        % \item<3-> For a Hopf algebra $H$ acting on $A$, when is $A^H$?
         \item<4-> If $H$ is semisimple and finite-dimensional, and $A$ is semiprime, is $A\#H$ semiprime?
         \item<5-> If $B$ is a Koszul algebra, are there nontrivial PBW deformations of $B\# \mathcal{U}_q(\mathfrak{sl_2})$?
     \end{itemize}

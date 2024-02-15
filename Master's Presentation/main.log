@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.11.1)  14 FEB 2024 10:09
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.11.1)  14 FEB 2024 13:59
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -876,101 +876,131 @@ File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 
 ] [6
 
-] [7
+]
+Overfull \hbox (21.37392pt too wide) detected at line 111
+[]
+ []
 
-] [8
+[7
 
-] [9
+]
+Overfull \hbox (21.37392pt too wide) detected at line 111
+[]
+ []
 
-] [10
+[8
 
-] [11
+]
+Overfull \hbox (21.37392pt too wide) detected at line 111
+[]
+ []
 
-] [12
+[9
+
+]
+Overfull \hbox (21.37392pt too wide) detected at line 111
+[]
+ []
+
+[10
+
+]
+Overfull \hbox (21.37392pt too wide) detected at line 111
+[]
+ []
+
+[11
+
+]
+Overfull \hbox (21.37392pt too wide) detected at line 111
+[]
+ []
+
+[12
 
 ] [13
 
 ] [14
 
 ]
-Overfull \hbox (23.25543pt too wide) detected at line 152
+Overfull \hbox (23.25543pt too wide) detected at line 150
 []\OT1/mathkerncmss/m/sl/10.95 x\OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 y\OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 z \OMS/cmsy/m/n/10.95 j \OT1/mathkerncmss/m/sl/10.95 x[] \OT1/cmss/m/n/10.95 = \OT1/mathkerncmss/m/sl/10.95 y[] \OT1/cmss/m/n/10.95 = 1\OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 xy \OT1/cmss/m/n/10.95 = \OT1/mathkerncmss/m/sl/10.95 yx\OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 zx \OT1/cmss/m/n/10.95 = \OT1/mathkerncmss/m/sl/10.95 yz\OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 zy \OT1/cmss/m/n/10.95 = \OT1/mathkerncmss/m/sl/10.95 xz\OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 z[] \OT1/cmss/m/n/10.95 = [](1 + \OT1/mathkerncmss/m/sl/10.95 x \OT1/cmss/m/n/10.95 + \OT1/mathkerncmss/m/sl/10.95 y \OMS/cmsy/m/n/10.95 ^^@ \OT1/mathkerncmss/m/sl/10.95 xy\OT1/cmss/m/n/10.95 )[]
  []
 
 [15
 
 ]
-Overfull \hbox (23.25543pt too wide) detected at line 152
+Overfull \hbox (23.25543pt too wide) detected at line 150
 []\OT1/mathkerncmss/m/sl/10.95 x\OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 y\OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 z \OMS/cmsy/m/n/10.95 j \OT1/mathkerncmss/m/sl/10.95 x[] \OT1/cmss/m/n/10.95 = \OT1/mathkerncmss/m/sl/10.95 y[] \OT1/cmss/m/n/10.95 = 1\OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 xy \OT1/cmss/m/n/10.95 = \OT1/mathkerncmss/m/sl/10.95 yx\OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 zx \OT1/cmss/m/n/10.95 = \OT1/mathkerncmss/m/sl/10.95 yz\OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 zy \OT1/cmss/m/n/10.95 = \OT1/mathkerncmss/m/sl/10.95 xz\OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 z[] \OT1/cmss/m/n/10.95 = [](1 + \OT1/mathkerncmss/m/sl/10.95 x \OT1/cmss/m/n/10.95 + \OT1/mathkerncmss/m/sl/10.95 y \OMS/cmsy/m/n/10.95 ^^@ \OT1/mathkerncmss/m/sl/10.95 xy\OT1/cmss/m/n/10.95 )[]
  []
 
 [16
 
 ]
-Overfull \hbox (23.25543pt too wide) detected at line 152
+Overfull \hbox (23.25543pt too wide) detected at line 150
 []\OT1/mathkerncmss/m/sl/10.95 x\OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 y\OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 z \OMS/cmsy/m/n/10.95 j \OT1/mathkerncmss/m/sl/10.95 x[] \OT1/cmss/m/n/10.95 = \OT1/mathkerncmss/m/sl/10.95 y[] \OT1/cmss/m/n/10.95 = 1\OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 xy \OT1/cmss/m/n/10.95 = \OT1/mathkerncmss/m/sl/10.95 yx\OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 zx \OT1/cmss/m/n/10.95 = \OT1/mathkerncmss/m/sl/10.95 yz\OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 zy \OT1/cmss/m/n/10.95 = \OT1/mathkerncmss/m/sl/10.95 xz\OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 z[] \OT1/cmss/m/n/10.95 = [](1 + \OT1/mathkerncmss/m/sl/10.95 x \OT1/cmss/m/n/10.95 + \OT1/mathkerncmss/m/sl/10.95 y \OMS/cmsy/m/n/10.95 ^^@ \OT1/mathkerncmss/m/sl/10.95 xy\OT1/cmss/m/n/10.95 )[]
  []
 
 [17
 
 ]
-Overfull \hbox (23.25543pt too wide) detected at line 152
+Overfull \hbox (23.25543pt too wide) detected at line 150
 []\OT1/mathkerncmss/m/sl/10.95 x\OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 y\OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 z \OMS/cmsy/m/n/10.95 j \OT1/mathkerncmss/m/sl/10.95 x[] \OT1/cmss/m/n/10.95 = \OT1/mathkerncmss/m/sl/10.95 y[] \OT1/cmss/m/n/10.95 = 1\OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 xy \OT1/cmss/m/n/10.95 = \OT1/mathkerncmss/m/sl/10.95 yx\OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 zx \OT1/cmss/m/n/10.95 = \OT1/mathkerncmss/m/sl/10.95 yz\OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 zy \OT1/cmss/m/n/10.95 = \OT1/mathkerncmss/m/sl/10.95 xz\OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 z[] \OT1/cmss/m/n/10.95 = [](1 + \OT1/mathkerncmss/m/sl/10.95 x \OT1/cmss/m/n/10.95 + \OT1/mathkerncmss/m/sl/10.95 y \OMS/cmsy/m/n/10.95 ^^@ \OT1/mathkerncmss/m/sl/10.95 xy\OT1/cmss/m/n/10.95 )[]
  []
 
 [18
 
 ]
-Overfull \hbox (20.93398pt too wide) detected at line 178
+Overfull \hbox (20.93398pt too wide) detected at line 176
 \OT1/mathkerncmss/m/sl/10.95 x \OMS/cmsy/m/n/10.95 7! []   \OT1/mathkerncmss/m/sl/10.95 y \OMS/cmsy/m/n/10.95 7! []   \OT1/mathkerncmss/m/sl/10.95 z \OMS/cmsy/m/n/10.95 7! [] \OML/cmm/m/it/10.95 :
  []
 
 [19
 
 ]
-Overfull \hbox (20.93398pt too wide) detected at line 178
+Overfull \hbox (20.93398pt too wide) detected at line 176
 \OT1/mathkerncmss/m/sl/10.95 x \OMS/cmsy/m/n/10.95 7! []   \OT1/mathkerncmss/m/sl/10.95 y \OMS/cmsy/m/n/10.95 7! []   \OT1/mathkerncmss/m/sl/10.95 z \OMS/cmsy/m/n/10.95 7! [] \OML/cmm/m/it/10.95 :
  []
 
 [20
 
 ]
-Overfull \hbox (20.93398pt too wide) detected at line 178
+Overfull \hbox (20.93398pt too wide) detected at line 176
 \OT1/mathkerncmss/m/sl/10.95 x \OMS/cmsy/m/n/10.95 7! []   \OT1/mathkerncmss/m/sl/10.95 y \OMS/cmsy/m/n/10.95 7! []   \OT1/mathkerncmss/m/sl/10.95 z \OMS/cmsy/m/n/10.95 7! [] \OML/cmm/m/it/10.95 :
  []
 
 [21
 
 ]
-Overfull \hbox (3.2089pt too wide) detected at line 203
+Overfull \hbox (3.2089pt too wide) detected at line 201
 []\OT1/mathkerncmss/m/sl/10.95 E\OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 F\OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 K\OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 K[] \OMS/cmsy/m/n/10.95 j \OT1/mathkerncmss/m/sl/10.95 EF \OMS/cmsy/m/n/10.95 ^^@ \OT1/mathkerncmss/m/sl/10.95 FE \OT1/cmss/m/n/10.95 = (\OT1/mathkerncmss/m/sl/10.95 q \OMS/cmsy/m/n/10.95 ^^@ \OT1/mathkerncmss/m/sl/10.95 q[]\OT1/cmss/m/n/10.95 )[] [] \OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 KEK[] \OT1/cmss/m/n/10.95 = \OT1/mathkerncmss/m/sl/10.95 q[]E\OML/cmm/m/it/10.95 ;
  []
 
 [22
 
 ]
-Overfull \hbox (3.2089pt too wide) detected at line 203
+Overfull \hbox (3.2089pt too wide) detected at line 201
 []\OT1/mathkerncmss/m/sl/10.95 E\OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 F\OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 K\OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 K[] \OMS/cmsy/m/n/10.95 j \OT1/mathkerncmss/m/sl/10.95 EF \OMS/cmsy/m/n/10.95 ^^@ \OT1/mathkerncmss/m/sl/10.95 FE \OT1/cmss/m/n/10.95 = (\OT1/mathkerncmss/m/sl/10.95 q \OMS/cmsy/m/n/10.95 ^^@ \OT1/mathkerncmss/m/sl/10.95 q[]\OT1/cmss/m/n/10.95 )[] [] \OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 KEK[] \OT1/cmss/m/n/10.95 = \OT1/mathkerncmss/m/sl/10.95 q[]E\OML/cmm/m/it/10.95 ;
  []
 
 [23
 
 ]
-Overfull \hbox (3.2089pt too wide) detected at line 203
+Overfull \hbox (3.2089pt too wide) detected at line 201
 []\OT1/mathkerncmss/m/sl/10.95 E\OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 F\OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 K\OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 K[] \OMS/cmsy/m/n/10.95 j \OT1/mathkerncmss/m/sl/10.95 EF \OMS/cmsy/m/n/10.95 ^^@ \OT1/mathkerncmss/m/sl/10.95 FE \OT1/cmss/m/n/10.95 = (\OT1/mathkerncmss/m/sl/10.95 q \OMS/cmsy/m/n/10.95 ^^@ \OT1/mathkerncmss/m/sl/10.95 q[]\OT1/cmss/m/n/10.95 )[] [] \OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 KEK[] \OT1/cmss/m/n/10.95 = \OT1/mathkerncmss/m/sl/10.95 q[]E\OML/cmm/m/it/10.95 ;
  []
 
 [24
 
 ]
-Overfull \hbox (3.2089pt too wide) detected at line 203
+Overfull \hbox (3.2089pt too wide) detected at line 201
 []\OT1/mathkerncmss/m/sl/10.95 E\OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 F\OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 K\OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 K[] \OMS/cmsy/m/n/10.95 j \OT1/mathkerncmss/m/sl/10.95 EF \OMS/cmsy/m/n/10.95 ^^@ \OT1/mathkerncmss/m/sl/10.95 FE \OT1/cmss/m/n/10.95 = (\OT1/mathkerncmss/m/sl/10.95 q \OMS/cmsy/m/n/10.95 ^^@ \OT1/mathkerncmss/m/sl/10.95 q[]\OT1/cmss/m/n/10.95 )[] [] \OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 KEK[] \OT1/cmss/m/n/10.95 = \OT1/mathkerncmss/m/sl/10.95 q[]E\OML/cmm/m/it/10.95 ;
  []
 
 [25
 
 ]
-Overfull \hbox (3.2089pt too wide) detected at line 203
+Overfull \hbox (3.2089pt too wide) detected at line 201
 []\OT1/mathkerncmss/m/sl/10.95 E\OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 F\OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 K\OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 K[] \OMS/cmsy/m/n/10.95 j \OT1/mathkerncmss/m/sl/10.95 EF \OMS/cmsy/m/n/10.95 ^^@ \OT1/mathkerncmss/m/sl/10.95 FE \OT1/cmss/m/n/10.95 = (\OT1/mathkerncmss/m/sl/10.95 q \OMS/cmsy/m/n/10.95 ^^@ \OT1/mathkerncmss/m/sl/10.95 q[]\OT1/cmss/m/n/10.95 )[] [] \OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 KEK[] \OT1/cmss/m/n/10.95 = \OT1/mathkerncmss/m/sl/10.95 q[]E\OML/cmm/m/it/10.95 ;
  []
 
@@ -1099,19 +1129,19 @@ Overfull \hbox (4.35902pt too wide) in paragraph at lines 40--47
 \openout4 = `main.vrb'.
 
  (./main.vrb)
-Overfull \vbox (6.75711pt too high) detected at line 306
+Overfull \vbox (6.75711pt too high) detected at line 304
  []
 
 [35
 
 ] (./main.vrb)
-Overfull \vbox (6.75711pt too high) detected at line 306
+Overfull \vbox (6.75711pt too high) detected at line 304
  []
 
 [36
 
 ] (./main.vrb)
-Overfull \vbox (6.75711pt too high) detected at line 306
+Overfull \vbox (6.75711pt too high) detected at line 304
  []
 
 [37
@@ -1119,6 +1149,20 @@ Overfull \vbox (6.75711pt too high) detected at line 306
 ] [38
 
 ] [39
+
+] [40
+
+] [41
+
+] [42
+
+] [43
+
+] [44
+
+] [45
+
+] [46
 
 ]
 \openout4 = `main.vrb'.
@@ -1128,51 +1172,51 @@ Overfull \hbox (16.12082pt too wide) in paragraph at lines 22--24
 []\OT1/cmss/m/n/10.95 .  
  []
 
-) [40
+) [47
 
 ] (./main.vrb
 Overfull \hbox (16.12082pt too wide) in paragraph at lines 22--24
 []\OT1/cmss/m/n/10.95 .  
  []
 
-) [41
+) [48
 
 ] (./main.vrb
 Overfull \hbox (16.12082pt too wide) in paragraph at lines 22--24
 []\OT1/cmss/m/n/10.95 .  
  []
 
-) [42
+) [49
 
 ] (./main.vrb
 Overfull \hbox (16.12082pt too wide) in paragraph at lines 22--24
 []\OT1/cmss/m/n/10.95 .  
  []
 
-) [43
+) [50
 
 ] (./main.vrb
 Overfull \hbox (16.12082pt too wide) in paragraph at lines 22--24
 []\OT1/cmss/m/n/10.95 .  
  []
 
-) [44
-
-] [45
-
-] [46
-
-] [47
-
-] [48
-
-] [49
-
-] [50
-
-] [51
+) [51
 
 ] [52
+
+] [53
+
+] [54
+
+] [55
+
+] [56
+
+] [57
+
+] [58
+
+] [59
 
 ]
 \tf@nav=\write7
@@ -1189,18 +1233,18 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 29391 strings out of 478287
- 614621 string characters out of 5849289
- 877459 words of memory out of 5000000
+ 29405 strings out of 478287
+ 614754 string characters out of 5849289
+ 877465 words of memory out of 5000000
  46893 multiletter control sequences out of 15000+600000
  483505 words of font info for 81 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,18n,122p,536b,1328s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (52 pages, 264198 bytes).
+Output written on main.pdf (59 pages, 279019 bytes).
 PDF statistics:
- 525 PDF objects out of 1000 (max. 8388607)
- 388 compressed objects within 4 object streams
- 105 named destinations out of 1000 (max. 500000)
+ 572 PDF objects out of 1000 (max. 8388607)
+ 427 compressed objects within 5 object streams
+ 119 named destinations out of 1000 (max. 500000)
  295 words of extra memory for PDF output out of 10000 (max. 10000000)
 
