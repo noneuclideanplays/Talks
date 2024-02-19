@@ -61,7 +61,7 @@ Department of Mathematics \\February 28th 2024}
      Then $\triangle$ defines a coproduct map \[\triangle:\mathbb{C}G\to\mathbb{C}G\otimes\mathbb{C}G.\]
      For arbitrary coproducts, $\triangle:A\to A\otimes A$, \\we call $g\in A$ \textbf{grouplike} if $\triangle(g)=g\otimes g$.
 \end{enumerate}
-\end{column}\hspace{-3ex}\vrule\begin{column}{0.58\textwidth}
+\end{column}\hspace{-2ex}\vrule\begin{column}{0.58\textwidth}
 \begin{enumerate}
     \setcounter{enumi}{1}
      \item<2-> When a Lie alg $\mathfrak{g}$ acts on a space $V$ over $\mathbb{C}$, the action can be extended to $V\otimes V$ by $x\in\mathfrak{g}$ acting as \[x\otimes 1+1\otimes x=\triangle(x).\]
@@ -104,7 +104,7 @@ Department of Mathematics \\February 28th 2024}
     \onslide<3->{\varepsilon(g) & =1, & \varepsilon(x)= &\ 0\\[0.3em]}
     \onslide<4->{S(g) & =g^{-1}, & S(x)= & \ -x\\}
     \onslide<5->{\rule{2cm}{0.4pt} & \rule{2cm}{0.4pt} & \rule{2cm}{0.4pt} & \rule{3cm}{0.4pt}\\}
-    \onslide<5->{\text{Group-like} & & & (1,g)-\text{Primitive}}vertical spacing
+    \onslide<5->{\text{Group-like} & & & (1,g)-\text{Primitive}}
 \end{align*}
 \onslide<6->{Let $\tau$ be the `flip' over the tensor product, so $\tau(u\otimes v)=v\otimes u$.\\
 Note that $\tau\circ\triangle(x)\neq\triangle(x)$, so $H$ is non-cocommutative.}
@@ -202,7 +202,7 @@ with operations:
 
 \begin{frame}{Actions of $\mathcal{U}_q(\mathfrak{sl}_2)$}
 
-$\mathcal{U}_q(\mathfrak{sl}_2)$ acts on $\mathbb{C}_q[v_1,v_2]$ via the representation
+$\mathcal{U}_q(\mathfrak{sl}_2)$ acts on $\mathbb{C}_q[v_1,v_2]$, where $q^2\neq 1$, via the representation
 \begin{columns}[T]
 \begin{column}{0.5\textwidth}
 \begin{align*}
@@ -334,7 +334,7 @@ H\otimes H \arrow[rr, "S\otimes id"]                                      &     
 \end{frame}
 
 \begin{frame}{Quantum Group Examples}
-The three Hopf algs examples above are all quantum groups.\\
+The three Hopf alg examples above are all quantum groups.\\
 % itemize
 \begin{itemize}
     \onslide<2->{\item
@@ -346,8 +346,10 @@ Sweedler's algebra, $ H_4=\big\langle g,x\;\vert\; g^2=1,x^2=0,gx=-xg\big\rangle
 \end{small}}
 \onslide<3->{\item
 The Kac-Paljutkin algebra, \\$H_8=\big\langle x,y,z\;\vert\; x^2=y^2=1,xy=yx,zx=yz,zy=xz,z^2=\tfrac{1}{2}(1+x+y-xy)\big\rangle$, has $6$ non-iso quasitriangular structures.}
-And the ambiguity of what is a quantum group can be best seen with $\mathcal{U}_q(\mathfrak{sl_2})$.
-This is undoubtedly a quantum group as it was the inspiration for the concept, but its univ R-matrix exists only in a completion of the tensor product $\mathcal{U}_q(\mathfrak{sl2})\otimes\mathcal{U}_q(\mathfrak{sl2})$, and so is a formal power series of pure tensors.
+\onslide<4->{\item
+The ambiguity of what is a quantum group can be best seen with $\mathcal{U}_q(\mathfrak{sl_2})$.
+Undoubtedly a quantum group, as it was the inspiration for the concept.
+But its univ R-matrix exists only in a completion of the tensor product $\mathcal{U}_q(\mathfrak{sl2})\otimes\mathcal{U}_q(\mathfrak{sl2})$, and so is a formal power series of pure tensors.}
 \end{itemize}
 \end{frame}
 
@@ -433,11 +435,11 @@ where $\triangle(h)=\sum h\1\otimes h\2$.
     \begin{itemize}
     \setlength{\itemsep}{2ex}
         \item<1-> Which actions on algebras by Hopf algebras factor through a group action?
-                    If the action does not factor through a group action, it is said to have "quantum symmetry".
+                    %If the action does not factor through a group action, it is said to have "quantum symmetry".
         \item<2-> Which Hopf Algebras act on pther noncommutative algebras?
         % \item<3-> For a Hopf algebra $H$ acting on $A$, when is $A^H$?
-        \item<4-> If $H$ is semisimple and finite-dimensional, and $A$ is semiprime, is $A\#H$ semiprime?
-        \item<5-> If $B$ is a Koszul algebra, are there nontrivial PBW deformations of $B\# \mathcal{U}_q(\mathfrak{sl_2})$?
+        \item<3-> If $H$ is semisimple and finite-dimensional, and $A$ is semiprime, is $A\#H$ semiprime?
+        \item<4-> If $B$ is a Koszul algebra, are there nontrivial PBW deformations of $B\# \mathcal{U}_q(\mathfrak{sl_2})$?
     \end{itemize}
 \end{frame}
 
