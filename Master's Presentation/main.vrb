@@ -19,7 +19,7 @@ H\otimes A \arrow[r, "\alpha"]                                                  
 \item[]<4-> \begin{tikzcd}[color=darkblue]
 H\otimes A\otimes A \arrow[r, "id\otimes\bigtriangledown"] \arrow[d, "\triangle\otimes id\otimes id"'] & H\otimes A \arrow[r, "\alpha"] & A & A\otimes A \arrow[l, "\bigtriangledown"']                         \\
 H\otimes H\otimes A\otimes A \arrow[rrr, "id\otimes\tau\otimes id"]                        &                                &   & H\otimes A\otimes H\otimes A \arrow[u, "\alpha\otimes\alpha"']
-\end{tikzcd}.\
+\end{tikzcd}\
 % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAAkQBfU9TXfIRQBGclVqMWbADrSA1nO68QGbHgJEATGOr1mrRCACCSvmsFEyw8XqmH2siHgC28AAQmu4mFADm8IlAAMwAnCGckMhAcCCRRCX0ZaXoQmDRsBg0eYLCIxHiYpG0EuxBZGBw6UxBQ8MjqQsQAZl1JAzLpCqrsmtykFujYxGLbdtlGNAALboouIA
     \item[]<5->
      \begin{center}\begin{tikzcd}[color=darkgreen]
