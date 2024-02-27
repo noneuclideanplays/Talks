@@ -14,6 +14,14 @@
 \newcommand\1{_{(1)}}
 \newcommand\2{_{(2)}}
 
+\makeatletter
+\renewcommand*\env@matrix[1][\arraystretch]{%
+  \edef\arraystretch{#1}%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{*\c@MaxMatrixCols c}}
+\makeatother
+
 \usepackage{xcolor}
 \definecolor{lightgreen}{RGB}{32, 165, 32}
 \definecolor{darkgreen}{RGB}{0,105,0}
@@ -36,7 +44,7 @@ Department of Mathematics \\February 28th 2024}
         \item (1939) Heinz Hopf works on homology of sphere groups
         \item (1969) Moss Sweedler writes seminal book ``Hopf Algebras"
         \item (1986) Vladimir Drinfeld gives ICM address on quantum groups
-        \item (1992) Susan Montogomery writes ``Hopf Algebras and Their Actions on Rings"
+        \item (1992) Susan Montgomery writes ``Hopf Algebras and Their Actions on Rings"
     \end{itemize}
     \begin{block}{Goal}
         To understand the actions of Hopf algebras on other algebras
@@ -85,7 +93,7 @@ Department of Mathematics \\February 28th 2024}
     Hopf algebras combine the notions of Algebras with products and Coalgebras with coproducts.
         \end{center}
     \begin{center}We are looking for actions of Hopf algebras.
-    In particular on non-commutative algebras like Quantum Polynomial Rings.    
+    In particular, on non-commutative algebras like Quantum Polynomial Rings.    
         \end{center}       
     \end{beamerboxesrounded}
 \end{frame}
@@ -131,7 +139,7 @@ Note that $\tau\circ\triangle(x)\neq\triangle(x)$, so $H$ is non-cocommutative.}
 
     $H_8=$
     \[\Big\langle x,y,z\;\vert\; x^2=y^2=1,xy=yx,zx=yz,zy=xz,z^2=\tfrac{1}{2}(1+x+y-xy)\Big\rangle\]
-    with operations
+    \onslide<2->{with operations}
     \vspace{2ex}
     \begin{itemize}
     \setlength{\itemsep}{2ex}
@@ -154,24 +162,25 @@ Note that $\tau\circ\triangle(x)\neq\triangle(x)$, so $H$ is non-cocommutative.}
 \begin{itemize}
 
     \item[]<1->$H_8$ acts on $\mathbb{C}_q[v_1,v_2]$ where $q^2=-1$ via the representation
-    \[
-    x\mapsto \begin{bmatrix}-1 & 0\\0 & 1\end{bmatrix} \;\; y\mapsto \begin{bmatrix} 1 & 0\\ 0 & -1\end{bmatrix} \;\; z\mapsto\begin{bmatrix} 0 & 1\\ 1 & 0\end{bmatrix}.
-    \]
+    \begin{align*}
+   & x\mapsto \begin{bmatrix}-1 & 0\\0 & 1\end{bmatrix}, & y\mapsto \begin{bmatrix} 1 & 0\\ 0 & -1\end{bmatrix}, & & z\mapsto\begin{bmatrix} 0 & 1\\ 1 & 0\end{bmatrix}.
+    \end{align*}
     \item[]<2-> \hrule
     \item[]<2->And on $\mathbb{C}_Q[v_1,v_2,v_3,v_4]$ for 
    
     \vspace{1ex}
-    $q_{12}=q_{34}^{-1},\;\;q_{13}=q_{24}^{-1},\;\;q_{14}^2=1,\;\;q_{23}^2=-1$ via the rep
-    
-    \[
-    x\mapsto \begin{bmatrix} 1&0&0&0\\0&-1&0&0\\0&0&1&0\\0&0&0&1\end{bmatrix} \;\; y\mapsto \begin{bmatrix} 1&0&0&0\\0&1&0&0\\0&0&-1&0\\0&0&0&1\end{bmatrix}\;\; z\mapsto\begin{bmatrix}0&0&0&1\\0&0&1&0\\0&1&0&0\\1&0&0&0\end{bmatrix}.
-    \]
+    $q_{12}=q_{34}^{-1},\;\;q_{13}=q_{24}^{-1},\;\;q_{14}^2=1,\;\;q_{23}^2=-1$ via the representation
+
+
+    \begin{align*}
+     \hspace{-5ex} & x\mapsto \begin{bmatrix} 1&0&0&0\\0&-1&0&0\\0&0&1&0\\0&0&0&1\end{bmatrix}, & y\mapsto \begin{bmatrix} 1&0&0&0\\0&1&0&0\\0&0&-1&0\\0&0&0&1\end{bmatrix}, & & z\mapsto\begin{bmatrix}0&0&0&1\\0&0&1&0\\0&1&0&0\\1&0&0&0\end{bmatrix}.
+    \end{align*}
     
     \item[]<3->\hrule
     \item[]<3-> And on $\mathbb{C}_{-1}[v_1,v_2]$ via the rep
-    \[
-    x\mapsto \begin{bmatrix}0&1\\1&0\end{bmatrix}\;\; y\mapsto\begin{bmatrix}0&-1\\-1&0\end{bmatrix}\;\; z\mapsto\begin{bmatrix}1&0\\0&-1\end{bmatrix}.
-    \]
+    \begin{align*}
+   & x\mapsto \begin{bmatrix}0&1\\1&0\end{bmatrix}, & y\mapsto\begin{bmatrix}0&-1\\-1&0\end{bmatrix}, & & z\mapsto\begin{bmatrix}1&0\\0&-1\end{bmatrix}.
+    \end{align*}
 \end{itemize}
 \end{frame}
 
@@ -186,7 +195,7 @@ _2)=$
 \[
 \Big\langle E,F,K,K^{-1}\;\vert\;EF-FE=(q-q^{-1})^{-1}\left(K-K^{-1}\right), KEK^{-1}=q^2 E, \]\[\hspace{4ex}KFK^{-1}=q^{-2}F, KK^{-1}=K^{-1}K=1\Big\rangle
 \]
-with operations:
+\onslide<2->{with operations:}
 \vspace{0.5ex}
 \begin{itemize}
 \setlength{\itemsep}{1.5ex}
@@ -447,7 +456,7 @@ where $\triangle(h)=\sum h\1\otimes h\2$.
 \begin{frame}
 
     \begin{center}
-    Thank you!
+    {\Huge Thank you!}
     \end{center}
     
 \end{frame}
