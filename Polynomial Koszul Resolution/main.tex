@@ -1,0 +1,201 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{listings}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsmath,amsthm}
+\usepackage{mathtools,leftindex,tensor,mhchem}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{layout}
+\usepackage{tikz}
+\usepackage{bbm}
+\usepackage{tikz-cd}
+\usepackage{cite}
+\usetikzlibrary{positioning}
+\usepackage{latexsym,amsxtra,amscd,ifthen, amsmath,color,url}
+\newcommand{\comp}{\overline{\phantom{A}}}
+\setlength{\tabcolsep}{12pt}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{definition}[theorem]{Definition}
+\newcommand\NN{\mathbb{N}} 
+\newcommand\RR{\mathbb{R}}
+\newcommand\CR{\mathcal{R}}
+\newcommand\ZZ{\mathbb{Z}}
+\newcommand\AL{\mathcal{A}}
+\newcommand\MM{\mathcal{M}}
+\newcommand\BB{\mathcal{B}}
+\newcommand\BBB{\mathfrak{B}}
+\newcommand\CC{\mathcal{C}}
+\newcommand\CCC{\mathfrak{C}}
+\newcommand\DD{\mathcal{D}}
+\newcommand\EE{\mathbb{E}}
+\newcommand\FF{\mathcal{F}}
+\newcommand\GG{\mathcal{G}}
+\newcommand\HH{\mathcal{H}}
+\newcommand\JJ{\mathcal{J}}
+\newcommand\PP{\mathcal{P}}
+\newcommand\QQ{\mathbb{Q}}
+\newcommand\CS{\mathcal{S}}
+\newcommand\TT{\mathcal{T}}
+\newcommand\BT{\mathbb{T}}
+\newcommand\OO{\mathcal{O}}
+\newcommand\UU{\mathcal{U}}
+\newcommand\VV{\mathcal{V}}
+\newcommand{\kk}{\Bbbk}
+\newcommand\PPT{\mathcal{P}^{*}}
+\newcommand\CST{\Sigma^{*}}
+\newcommand\RX{\mathsf{X}}
+\newcommand\1{_{(1)}}
+\newcommand\2{_{(2)}}
+
+%\voffset=-1truein		% LaTeX has too much space at page top
+%\addtolength{\textheight}{0.3truein}
+%\addtolength{\textheight}{\topmargin}
+%\addtolength{\topmargin}{-\topmargin}
+%\textwidth  6.0in		% LaTeX article default 360pt=4.98''
+%\oddsidemargin 0pt	% \oddsidemargin  .35in   % default is 21.0 pt
+%\evensidemargin 0pt	% \evensidemargin .35in   % default is 59.0 pt
+%\marginparwidth=0pt
+% decrease margins on sides and top/bottom
+\geometry{
+bottom=25mm,
+top=35mm,
+left=20mm,
+right=20mm
+}
+\voffset=-0.5truein
+
+\title{Koszul Resolution of a Polynomial Ring}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section{Koszul Resolution}
+
+Let $\kk$ be a field, $A=\kk[x_1,\ldots,x_n]$, and $V=\kk x_1\oplus\cdots\oplus\kk x_n$.
+Fix a basis of \\$A^e=\kk[x_1,\ldots,x_n]\otimes\kk[x_1,\ldots,x_n]$ as a $\kk$-vector space
+\[
+\{x_1^{i_1}\ldots x_n^{i_n}\otimes x_1^{j_1}\ldots x_n^{j_n}=\vec{x}^{\,\vec{i}}\otimes\vec{x}^{\,\vec{j}}\;\vert\; \vec{i},\vec{j}\in\NN^n\}.
+\]
+Also fix a basis of $\left(A^e\right)^n$ as an $A^e$-module
+\[
+\left\{e_i=\begin{bmatrix}0\\\vdots\\1\\\vdots\\0\end{bmatrix}\;\Bigg\vert\; 0\le i\le n, \;1\text{\ in ith row}\right\}.
+\]
+Finally, fix a basis of $V$ as $\kk$-vector space
+\[
+\{x_1,\ldots,x_n\}.
+\]
+The sequence $(x_1\otimes 1-1\otimes x_1,\ldots,x_n\otimes1-1\otimes x_n)$ is clearly regular in $A^e$, so we get a free resolution from the Koszul complex
+\[
+  0\to A^e\to\bigwedge^{n-1} \left(A^e\right)^n\to\cdots\to\bigwedge^2\left(A^e\right)^n\to\left(A^e\right)^n\to A^e\to 0
+\]
+of $A^e/(x_1\otimes1-1\otimes x_1,\ldots,x_n\otimes1-1\otimes x_n)\cong A$.
+The differentials are given by
+\begin{align*}
+ \partial_k:\bigwedge^k \left(A^e\right)^k&\to\bigwedge^{k-1}\left(A^e\right)^n\\
+  \vec{x}^{\,\vec{i}}\otimes\vec{x}^{\,\vec{j}}e_{m_0}\wedge\cdots\wedge e_{m_{k-1}}&\mapsto\sum_{t=0}^{k-1} (-1)^t\vec{x}^{\,\vec{i}}\otimes\vec{x}^{\,\vec{j}}(x_{m_t}\otimes1-1\otimes x_{m_t})e_{m_0}\wedge\cdots\wedge\widehat{e_{m_t}}\wedge\cdots\wedge e_{m_{k-1}}
+\end{align*}
+where $\widehat{e_{m_t}}$ means ommitting that term.
+Note: $\bigwedge^{k}\left(A^e\right)^n$ is being taken over $A^e$, and so we are identifying $\bigwedge^n\left(A^e\right)^n\cong A^e$ and $\wedge^1\left(A^e\right)^n\cong \left(A^e\right)^n$.
+
+\section{Isomorphic Resolution}
+
+There is an isomorphism of $A^e$-modules 
+\begin{align*}
+\bigwedge^k\left(A^e\right)^n&\cong A^e\otimes\bigwedge^k V  \\
+ \vec{x}^{\,\vec{i}}\otimes\vec{x}^{\,\vec{j}}e_{m_0}\wedge\cdots\wedge e_{m_{k-1}}&\mapsto \vec{x}^{\,\vec{i}}\otimes\vec{x}^{\,\vec{j}}\otimes x_{m_1}\wedge\cdots\wedge x_{m_{k-1}}.
+\end{align*}
+ Note that $\bigwedge^k V$ is being taken over $\kk$.
+This isomorphism induces a chain map isomorphism from the Koszul resolution to the resolution
+\[
+0\to A^e\to A^e\otimes \bigwedge^{n-1}V\to\cdots\to A^e\otimes\bigwedge^2 V\to A^e\otimes V\to A^e\to 0  
+\]
+where we identify $A^e\otimes \bigwedge^n V\cong A^e$, $A^e\otimes\bigwedge^1 V\cong A^e\otimes V$.
+The induced differentials of this resolution are given by
+\begin{align*}
+  \partial'_k:A^e\otimes\bigwedge^k V&\to A^e\otimes\bigwedge^{k-1}V\\
+  \vec{x}^{\,\vec{i}}\otimes\vec{x}^{\,\vec{j}}\otimes x_{m_0}\wedge\cdots\wedge x_{m_{k-1}}&\mapsto \sum_{t=0}^{k-1}(-1)^t\vec{x}^{\,\vec{i}}\otimes\vec{x}^{\,\vec{j}}(x_{m_t}\otimes1-1\otimes x_{m_t})\otimes x_{m_0}\wedge\cdots\wedge\widehat{x_{m_t}}\wedge\cdots\wedge x_{m_{k-1}}.
+\end{align*}
+Henceforth, this resolution will be identified as the Koszul resolution of $A$.
+
+\section{Calculating Cohomology}
+
+Recall that as $A$ is a $\kk$-vector space, and so a free $\kk$-module, $HH^k(A)=Ext_{A^e}^k(A,A)$.
+This can be computed as the $k$-th homology group of the complex given by from applying the functor $Hom_{A^e}(-,A)$ to the Koszul resolution.
+This complex is
+\[
+0\to Hom_{A^e}(A^e,A)\to Hom_{A^e}(A^e\otimes V,A)\to\cdots\to Hom_{A^e}(A^e\otimes\bigwedge^{n-1}V,A)\to Hom_{A^e}(A^e,A)\to 0  
+\]
+with differentials
+\[
+  d_k:Hom_{A^e}(A^e\otimes\bigwedge^k V, A)\to Hom_{A^e}(A^e\bigwedge^{k-1}V,A)
+\]
+\[
+d_k(g)(\vec{x}^{\,\vec{i}}\otimes\vec{x}^{\,\vec{j}}\otimes x_{m_0}\wedge\cdots\wedge x_{m_k})= \sum_{t=0}^{k}(-1)^t\vec{x}^{\,\vec{i}}\otimes\vec{x}^{\,\vec{j}}(x_{m_t}\otimes1-1\otimes x_{m_t})g(1\otimes 1\otimes x_{m_1}\wedge\cdots\wedge\widehat{x_{m_t}}\wedge\cdots\wedge x_{m_k}).
+\]
+Note that we are using the fact that $g$ is $A^e$-linear to factor out $\vec{x}^{\,\vec{i}}\otimes\vec{x}^{\,\vec{j}}(x_{m_t}\otimes1-1\otimes x_{m_t})$.
+As well, $g(1\otimes 1\otimes x_{m_1}\wedge\cdots\wedge\widehat{x_{m_t}}\wedge\cdots\wedge x_{m_k})\in A=\kk[x_1,\ldots,x_n]$, so we can write it as $p(x_1,\ldots,x_n)$.
+But 
+\[
+  (x_{m_t}\otimes1-1\otimes x_{m_t})\cdot p(x_1,\ldots,x_n)=x_{m_t}p(x_1,\ldots,x_n)-p(x_1,\ldots,x_n)x_{m_t}=0
+\]
+for all $t$ and any $p(x_1,\ldots,x_n)\in A$.
+Hence, $d_k(g)=0$ for all $g\in Hom_{A^e}(A^e\otimes\bigwedge^k V, A)$ and for all $k$, so every differential is the $0$ map.
+Then, the homology groups are $Ext_{A^e}^k(A,A)=Hom_{A^e}(A^e\otimes\bigwedge^k V, A)$ for all $n\le k\le 0$.
+\\\\
+There is an isomorphism of $A^e$-modules 
+\begin{align*}
+  A\otimes \bigwedge^k V&\cong Hom_{A^e}(A^e\otimes\bigwedge^k V, A)\\
+  \vec{x}^{\,\vec{i}}\otimes x_{m_0}\wedge\cdots\wedge x_{m_{k-1}}&\mapsto
+  (1\otimes 1\otimes x_{m_0}\wedge\cdots\wedge x_{m_{k-1}}\mapsto \vec{x}^{\,\vec{i}}).
+\end{align*}
+Therefore, $HH^k(\kk[x_1,\ldots,x_n])=\kk[x_1,\ldots,x_n]\otimes\bigwedge^k\left(\kk x_1\oplus\cdots\oplus\kk x_n\right)$.
+
+\section{Calculating Homology}
+
+As with the cohomology, since $A$ is a free $\kk$-module, $HH_k(A)=Tor_k^{A^e}(A,A)$.
+This can be calculated as the $k$-th homology group of the complex given by applying the functor $-\otimes_{A^e}A$ to the Koszul resolution.
+This complex is 
+\[
+  0\to A^e\otimes_{A^e}A\to A^e\otimes\bigwedge^{n-1}V\otimes_{A^e} A\to\cdots\to A^e\otimes V\otimes_{A^e}A\to A^e\otimes_{A^e}A\to 0
+\]
+\[
+d_k':A^e\otimes\bigwedge^k V\otimes_{A^e}A\to A^e\otimes\bigwedge^{k-1}V\otimes_{A^e}A
+\]
+\begin{align*}
+&d_k'(\vec{x}^{\,\vec{i}}\otimes\vec{x}^{\,\vec{j}}\otimes x_{m_{0}}\wedge\cdots\wedge x_{m_{k-1}}\otimes_{A^e}\vec{x}^{\,\vec{l}})=\\
+&\sum_{t=0}^{k-1}(-1)^t\vec{x}^{\,\vec{i}}\otimes\vec{x}^{\,\vec{j}}(x_{m_t}\otimes1-1\otimes x_{m_t})\otimes x_{m_0}\wedge\cdots\wedge\widehat{x_{m_t}}\wedge\cdots\wedge x_{m_{k-1}}\otimes_{A^e}\vec{x}^{\,\vec{l}}.
+\end{align*}
+But as the functor $-\otimes_{A^e} A$ is tensoring over $A^e$, we can rewrite this as
+\begin{align*}
+  \sum_{t=0}^{k-1}(-1)^t\vec{x}^{\,\vec{i}}\otimes\vec{x}^{\,\vec{j}}(x_{m_t}\otimes1-1\otimes x_{m_t})\otimes x_{m_0}\wedge\cdots\wedge\widehat{x_{m_t}}\wedge\cdots\wedge x_{m_{k-1}}\otimes_{A^e}\vec{x}^{\,\vec{l}}=\\
+  \sum_{t=0}^{k-1}(-1)^t\vec{x}^{\,\vec{i}}\otimes\vec{x}^{\,\vec{j}}\otimes x_{m_0}\wedge\cdots\wedge\widehat{x_{m_t}}\wedge\cdots\wedge x_{m_{k-1}}\otimes_{A^e}(x_{m_t}\otimes1-1\otimes x_{m_t})\vec{x}^{\,\vec{l}}=\\
+  0.
+\end{align*}
+So again, all of the differentials are $0$, and hence $HH_k(A)=A^e\otimes\bigwedge^k V\otimes_{A^e}A$.
+\\\\
+As with the cohomology, there is an isomorphism of $A^e$-modules
+\begin{align*}
+  A^e\otimes\bigwedge^k V\otimes_{A^e}A&\cong A\otimes\bigwedge^k V\\
+  \vec{x}^{\,\vec{i}}\otimes\vec{x}^{\,\vec{j}}\otimes x_{m_0}\wedge\cdots\wedge x_{m_{k-1}}\otimes_{A^e}\vec{x}^{\,\vec{l}}
+  &\mapsto \vec{x}^{\,\vec{i}}\vec{x}^{\,\vec{l}}\vec{x}^{\,\vec{j}}\otimes x_{m_0}\wedge\cdots\wedge x_{m_{k-1}}.
+\end{align*}
+Therefore, $HH_k(\kk[x_1,\ldots,x_n])=\kk[x_1,\ldots,x_n]\otimes\bigwedge^k \left(\kk x_1\oplus\cdots\oplus\kk x_n\right)$.
+
+\end{document}
