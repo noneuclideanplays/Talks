@@ -1,0 +1,140 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{listings}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsmath,amsthm}
+\usepackage{mathtools,leftindex,tensor,mhchem}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{layout}
+\usepackage{tikz}
+\usepackage{bbm}
+\usepackage{tikz-cd}
+\usepackage{cite}
+\usetikzlibrary{positioning}
+\usepackage{latexsym,amsxtra,amscd,ifthen, amsmath,color,url}
+\newcommand{\comp}{\overline{\phantom{A}}}
+\setlength{\tabcolsep}{12pt}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{definition}[theorem]{Definition}
+\newcommand\NN{\mathbb{N}} 
+\newcommand\RR{\mathbb{R}}
+\newcommand\CR{\mathcal{R}}
+\newcommand\ZZ{\mathbb{Z}}
+\newcommand\AL{\mathcal{A}}
+\newcommand\MM{\mathcal{M}}
+\newcommand\BB{\mathcal{B}}
+\newcommand\BBB{\mathfrak{B}}
+\newcommand\CC{\mathcal{C}}
+\newcommand\CCC{\mathfrak{C}}
+\newcommand\DD{\mathcal{D}}
+\newcommand\EE{\mathbb{E}}
+\newcommand\FF{\mathcal{F}}
+\newcommand\GG{\mathcal{G}}
+\newcommand\HH{\mathcal{H}}
+\newcommand\JJ{\mathcal{J}}
+\newcommand\PP{\mathcal{P}}
+\newcommand\QQ{\mathbb{Q}}
+\newcommand\CS{\mathcal{S}}
+\newcommand\TT{\mathcal{T}}
+\newcommand\BT{\mathbb{T}}
+\newcommand\OO{\mathcal{O}}
+\newcommand\UU{\mathcal{U}}
+\newcommand\VV{\mathcal{V}}
+\newcommand{\kk}{\Bbbk}
+\newcommand\PPT{\mathcal{P}^{*}}
+\newcommand\CST{\Sigma^{*}}
+\newcommand\RX{\mathsf{X}}
+\newcommand\1{_{(1)}}
+\newcommand\2{_{(2)}}
+
+%\voffset=-1truein		% LaTeX has too much space at page top
+%\addtolength{\textheight}{0.3truein}
+%\addtolength{\textheight}{\topmargin}
+%\addtolength{\topmargin}{-\topmargin}
+%\textwidth  6.0in		% LaTeX article default 360pt=4.98''
+%\oddsidemargin 0pt	% \oddsidemargin  .35in   % default is 21.0 pt
+%\evensidemargin 0pt	% \evensidemargin .35in   % default is 59.0 pt
+%\marginparwidth=0pt
+% decrease margins on sides and top/bottom
+\geometry{
+bottom=25mm,
+top=35mm,
+left=20mm,
+right=20mm
+}
+\voffset=-0.5truein
+
+\title{Koszul Resolution of a Polynomial Ring}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section{Koszul Resolution}
+
+Let $\kk$ be a field, $A=\kk_q[x_1,x_2]=\kk<x_1,x_2>/(x_2x_1-qx_1x_2)$ for some $q\in\kk^*$.
+Let $A_1=\kk[x_1]$ and $A_2=\kk[x_2]$ be subalgebras of $A$ so that $A$ is the twisted tensor product $A_1\otimes^\tau A_2$ where $\tau:\ZZ^2\to\kk^*$ is the bicharacter $\tau(m,n)= q^{-mn}$.
+We consider the Koszul resolutions of $A_1$ and $A_2$
+\[
+  0\to A_1^e\xrightarrow{(x_1\otimes 1-1\otimes x_1)\cdot}A_1^e\to 0
+\]
+\[
+0\to A_2^e\xrightarrow{(x_2\otimes 1-1\otimes x_2)\cdot}A_2^e\to 0.  
+\]
+In order to use a theorem, the differentials of these resolutions need to be graded maps, to this end we shift the grading of the homological degree 1 component of both resolutions up by 1
+\begin{align*}
+0\to A_1^e(-1)\xrightarrow{(x_1\otimes 1-1\otimes x_1)\cdot}A_1^e\to 0\\
+0\to A_2^e(-1)\xrightarrow{(x_2\otimes 1-1\otimes x_2)\cdot}A_2^e\to 0.  
+\end{align*}
+Then by a theorem proved by Bergh and Oppermann, the total complex of the tensor product of these two resolutions is a projective resolution of $A$ as an $A^e$-module.
+This resolution is 
+\[
+0\to A_1^e(-1)\otimes A_2^e(-1)\xrightarrow{\partial_2}A_1^e\otimes A_2^e(-1)\oplus A_1^e(-1)\otimes A_2^e\xrightarrow{\partial_1}A_1^e\otimes A_2^e\to 0
+\]
+where the differentials are given by
+\[
+\partial_2=\begin{bmatrix}(x_1\otimes 1-1\otimes x_1)\cdot\otimes \text{id}\\\text{id}\otimes(1\otimes x_2-x_2\otimes 1)\cdot\end{bmatrix}:x_1^a\otimes x_1^b\otimes x_2^c\otimes x_2^d\mapsto\begin{bmatrix}x_1^{a+1}\otimes x_1^b\otimes x_2^c\otimes x_2^d-x_1^a\otimes x_1^{b+1}\otimes x_2^c\otimes x_2^d\\ x_1^a\otimes x_1^b\otimes x_2^c\otimes x_2^{d+1}-x_1^a\otimes x_1^b\otimes x_2^{c+1}\otimes x_2^d\end{bmatrix}
+\]
+\begin{alignat*}{2}
+\partial_1=\begin{bmatrix}\text{id}\otimes(x_2\otimes 1-1\otimes x_2)\cdot\\(x_1\otimes 1-1\otimes x_1)\cdot\otimes\text{id}\end{bmatrix}:\\
+\begin{bmatrix}x_1^a\otimes x_1^b\otimes x_2^c\otimes x_2^d\\x_1^r\otimes x_1^s\otimes x_2^u\otimes x_2^v\end{bmatrix}\mapsto &&x_1^a\otimes x_1^b\otimes x_2^{c+1}\otimes x_2^d-x_1^a\otimes x_1^b\otimes x_2^c\otimes x_2^{d+1}\\
+&& x_1^{r+1}\otimes x_1^s\otimes x_2^u\otimes x_2^v-x_1^r\otimes x_1^{s+1}\otimes x_2^u\otimes x_2^v.
+\end{alignat*}
+Of note is that the last module, $A_1^e\otimes A_2^e$, is isomorphic to $A^e$ as $A^e$-modules via the map
+\[
+x_1^a\otimes x_1^b\otimes x_2^c\otimes x_2^d\mapsto q^{bc} x_1^ax_2^c\otimes x_1^bx_2^d.  
+\]
+
+\section{Calculating Cohomology}
+Apply the functor $Hom_{A^e}(-,A)$ to this resolution to get the complex
+\[
+0\to Hom_{A^e}(A^e,A^e)\xrightarrow{d_1} Hom_{A^e}(A_1^e\otimes A_2^e(-1)\oplus A_1^e(-1)\otimes A_2^e,A)\xrightarrow{d_2}Hom_{A^e}(A_1^e(-1)\otimes A_2^e(-1),A)\to 0.  
+\]
+The differentials are given by
+\begin{alignat*}{2}
+  d_1(f)\left(\begin{bmatrix}x_1^a\otimes x_1^b\otimes x_2^c\otimes x_2^d\\ x_1^r\otimes x_1^s\otimes x_2^u\otimes x_2^v\end{bmatrix}\right)= &&f(x_1^a\otimes x_1^b\otimes x_2^{c+1}\otimes x_2^d)-f(x_1^a\otimes x_1^b\otimes x_2^c\otimes x_2^{d+1})\\
+  && f(x_1^{r+1}\otimes x_1^s\otimes  x_2^u\otimes x_2^v)-f(x_1^r\otimes x_1^{s+1}\otimes x_2^u\otimes x_2^v)
+\end{alignat*}  
+\begin{alignat*}{2}
+  d_2(f)(x_1^a\otimes x_1^b\otimes x_2^c\otimes x_2^d)=&&f(x_1^{a+1}\otimes x_1^b\otimes x_2^c\otimes x_2^d,x_1^a\otimes x_1^b\otimes x_2^c\otimes x_2^{d+1})\\
+  &&-f(x_1^a\otimes x_1^{b+1}\otimes x_2^c\otimes x_2^d,x_1^a\otimes x_1^b\otimes x_2^{c+1}\otimes x_2^d)
+\end{alignat*}
+
+
+\end{document}
