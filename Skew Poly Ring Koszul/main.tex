@@ -124,7 +124,7 @@ x_1^a\otimes x_1^b\otimes x_2^c\otimes x_2^d\mapsto q^{bc} x_1^ax_2^c\otimes x_1
 \section{Calculating Cohomology}
 Apply the functor $Hom_{A^e}(-,A)$ to this resolution to get the complex
 \[
-0\to Hom_{A^e}(A^e,A^e)\xrightarrow{d_1} Hom_{A^e}(A_1^e\otimes A_2^e(-1)\oplus A_1^e(-1)\otimes A_2^e,A)\xrightarrow{d_2}Hom_{A^e}(A_1^e(-1)\otimes A_2^e(-1),A)\to 0.  
+0\to Hom_{A^e}(A^e,A)\xrightarrow{d_1} Hom_{A^e}(A_1^e\otimes A_2^e(-1)\oplus A_1^e(-1)\otimes A_2^e,A)\xrightarrow{d_2}Hom_{A^e}(A_1^e(-1)\otimes A_2^e(-1),A)\to 0.  
 \]
 The differentials are given by
 \begin{alignat*}{2}
@@ -136,5 +136,10 @@ The differentials are given by
   &&-f(x_1^a\otimes x_1^{b+1}\otimes x_2^c\otimes x_2^d,x_1^a\otimes x_1^b\otimes x_2^{c+1}\otimes x_2^d)
 \end{alignat*}
 
+Next, there are isomorphisms as $A^e$-modules:
+\begin{align*}
+Hom_{A^e}(A^e,A)&\cong A\\
+f&\mapsto f(1\otimes 1)  
+\end{align*}
 
 \end{document}
