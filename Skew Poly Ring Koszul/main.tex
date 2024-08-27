@@ -19,6 +19,9 @@
 \newcommand{\comp}{\overline{\phantom{A}}}
 \setlength{\tabcolsep}{12pt}
 
+\DeclareMathOperator{\Hom}{Hom}
+\newcommand{\Wedge}{\textstyle\bigwedge}
+
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{claim}[theorem]{Claim}
@@ -133,31 +136,56 @@ x_1^a\otimes x_1^b\otimes x_2^c\otimes x_2^d\mapsto q^{bc} x_1^ax_2^c\otimes x_1
 \]
 
 We will show that this map is $A^e$-linear. 
-First,
+First, if we act and then map, we get
 \begin{align*}
-&x_1^rx_2^s\cdot(x_1^a\otimes x_1^b\otimes x_2^c\otimes c_2^d)\cdot x_1^tx_2^u=
-&q^{-s(a+b)-st-t(c+d)}(x_1^r\cdot(x_1^a\otimes x_1^b)\cdot x_1^t)\otimes(x_2^s\cdot())
+&x_1^rx_2^s\cdot(x_1^a\otimes x_1^b\otimes x_2^c\otimes c_2^d)\cdot x_1^tx_2^u\\
+&=q^{-s(a+b)-st-t(c+d)}(x_1^r\cdot(x_1^a\otimes x_1^b)\cdot x_1^t)\otimes(x_2^s\cdot(x_2^c\otimes x_2^d)\cdot x_2^u)\\
+&=q^{-s(a+b)-st-t(c+d)}x_1^{a+r}\otimes x_1^{b+t}\otimes x_2^{c+s}\otimes x_2^{d+u}\\
+&\mapsto q^{bc-as-dt}x_1^{a+r}x_2^{c+s}\otimes x_1^{b+t}x_2^{d+u}.
 \end{align*}
 
+Next if we instead map and then act we get
+\begin{align*}
+&x_1^rx_2^s\cdot(q^{bc}x_1^ax_2^c\otimes x_1^bx_2^d)\cdot x_1^tx_2^u\\
+&=q^{bc}x_1^rx_2^sx_1^ax_2^c\otimes x_1^bx_2^dx_1^tx_2^u\\
+&=q^{bc}\left(q^{-as}x_1^{a+r}x_2^{c+s}\right)\otimes\left(q^{-dt}x_1^{b+t}\otimes x_2^{d+u}\right)\\
+&=q^{bc-as-dt}x_1^{a+r}x_2^{c+s}\otimes x_1^{b+t}x_2^{d+u}
+\end{align*}
+
+So we see that this map is an $A^e-$module map.
+This map is clearly surjective, for any basis element $x_1^ax_2^b\otimes x_1^cx_2^d\in A^e$, the element $q^{-bc}x_1^a\otimes x_1^c\otimes x_2^b\otimes x_2^d\in A_1^e\otimes A_2^e$ is in its pre-image.
+As well, this defines an inverse of the map, so we conclude that this is in fact an isomorphism of $A^e$-modules.
+
+\newpage
+
 \section{Computing Cohomology}
-Apply the functor $Hom_{A^e}(-,A)$ to this resolution to get the complex
+Apply the functor $\Hom_{A^e}(-,A)$ to this resolution to get the complex
 \[
-0\to Hom_{A^e}(A^e,A)\xrightarrow{d_1} Hom_{A^e}(A_1^e\otimes A_2^e(-1)\oplus A_1^e(-1)\otimes A_2^e,A)\xrightarrow{d_2}Hom_{A^e}(A_1^e(-1)\otimes A_2^e(-1),A)\to 0.  
+0\to \Hom_{A^e}(A^e,A)\xrightarrow{d_1} \Hom_{A^e}(A_1^e\otimes A_2^e(-1)\oplus A_1^e(-1)\otimes A_2^e,A)\xrightarrow{d_2}\Hom_{A^e}(A_1^e(-1)\otimes A_2^e(-1),A)\to 0.  
 \]
 The differentials are given by
 \begin{alignat*}{2}
-  d_1(f)\left(\begin{bmatrix}x_1^a\otimes x_1^b\otimes x_2^c\otimes x_2^d\\ x_1^r\otimes x_1^s\otimes x_2^u\otimes x_2^v\end{bmatrix}\right)= &&f(x_1^a\otimes x_1^b\otimes x_2^{c+1}\otimes x_2^d)-f(x_1^a\otimes x_1^b\otimes x_2^c\otimes x_2^{d+1})\\
-  && f(x_1^{r+1}\otimes x_1^s\otimes  x_2^u\otimes x_2^v)-f(x_1^r\otimes x_1^{s+1}\otimes x_2^u\otimes x_2^v)
+  d_1(f)\left(\begin{bmatrix}x_1^a\otimes x_1^b\otimes x_2^c\otimes x_2^d\\ x_1^r\otimes x_1^s\otimes x_2^u\otimes x_2^v\end{bmatrix}\right)= &&q^{b(c+1)}f(x_1^ax_2^{c+1}\otimes x_1^bx_2^d)-q^{bc}f(x_1^ax_2^c\otimes x_1^bx_2^{d+1})\\
+  && +q^{su}f(x_1^{r+1}x_2^u\otimes x_1^sx_2^v)-q^{s(u+1)}f(x_1^rx_2^u\otimes x_1^{s+1}x_2^ux)
 \end{alignat*}  
 \begin{alignat*}{2}
   d_2(f)(x_1^a\otimes x_1^b\otimes x_2^c\otimes x_2^d)=&&f(x_1^{a+1}\otimes x_1^b\otimes x_2^c\otimes x_2^d,x_1^a\otimes x_1^b\otimes x_2^c\otimes x_2^{d+1})\\
   &&-f(x_1^a\otimes x_1^{b+1}\otimes x_2^c\otimes x_2^d,x_1^a\otimes x_1^b\otimes x_2^{c+1}\otimes x_2^d)
 \end{alignat*}
 
-Next, there are isomorphisms as $A^e$-modules:
+Next, we want to rewrite this resolution in a more familiar form.
+Let $V=\kk x_1\oplus \kk x_2$, then
 \begin{align*}
-Hom_{A^e}(A^e,A)&\cong A\\
-f&\mapsto f(1\otimes 1)  
+\Hom_{A^e}(A^e,A)&\cong A\otimes \Wedge^2_q (V)\\
+f&\mapsto f(1\otimes 1)\otimes x_1\wedge x_2
+\end{align*}
+This map is clearly $A^e$-linear and surjective.
+Since every $f\in \Hom_{A^e}(A^e,A)$ is determined by its image on $1\otimes 1$, it is also injective, and hence, an isomorphism of $A^e$-modules.
+\\
+
+We also have that
+\begin{align*}
+\Hom_{A^e}(\left(A_1^e\otimes A_2^e(-1)\right)\oplus\left(A_1^e(-1)\otimes A_2^e\right))&\cong A\otimes \Wedge_q^1(V)
 \end{align*}
 
 \end{document}
