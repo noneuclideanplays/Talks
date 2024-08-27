@@ -97,31 +97,49 @@ We consider the Koszul resolutions of $A_1$ and $A_2$
 \[
 0\to A_2^e\xrightarrow{(x_2\otimes 1-1\otimes x_2)\cdot}A_2^e\to 0.  
 \]
-In order to use a theorem, the differentials of these resolutions need to be graded maps, to this end we shift the grading of the homological degree 1 component of both resolutions up by 1
+In order to construct a resolution of $A$,, the differentials of these resolutions need to be graded maps.
+To this end, we shift the grading of the homological degree 1 component of both resolutions up by 1:
 \begin{align*}
 0\to A_1^e(-1)\xrightarrow{(x_1\otimes 1-1\otimes x_1)\cdot}A_1^e\to 0\\
 0\to A_2^e(-1)\xrightarrow{(x_2\otimes 1-1\otimes x_2)\cdot}A_2^e\to 0.  
 \end{align*}
-Then by a theorem proved by Bergh and Oppermann, the total complex of the tensor product of these two resolutions is a projective resolution of $A$ as an $A^e$-module.
+Then, the differential $(x_1\otimes 1-1\otimes x_1)\cdot$ maps basis elements as follows
+\[
+(x_1\otimes 1-1\otimes x_1)(x_1^n\otimes x_1^m)=x_1^{n+1}\otimes x_1^m-x_1^n\otimes x_1^{m+1}.
+\]
+The element on the right has degree $n+m+1$ in $A_1^e$ and the element $x_1^n\otimes x_1^m$ has shifted degree $n+m+1$ in $A_1^e(-1)$, so we see the differential is now graded.
+Similarly, the differential $(x_2\otimes 1-1\otimes x_2)\cdot:A_2^e(-1)\to A_2^e$ is graded.
+\\
+
+Then by a theorem proved by Bergh and Oppermann in "Cohomology of Twisted Tensor Products" (2008), the total complex of the tensor product of these two resolutions is a projective resolution of $A$ as an $A^e$-module.
 This resolution is 
 \[
-0\to A_1^e(-1)\otimes A_2^e(-1)\xrightarrow{\partial_2}A_1^e\otimes A_2^e(-1)\oplus A_1^e(-1)\otimes A_2^e\xrightarrow{\partial_1}A_1^e\otimes A_2^e\to 0
+0\to A_1^e(-1)\otimes A_2^e(-1)\xrightarrow{\partial_2}\left[A_1^e\otimes A_2^e(-1)\right]\oplus \left[A_1^e(-1)\otimes A_2^e\right]\xrightarrow{\partial_1}A_1^e\otimes A_2^e\to 0
 \]
 where the differentials are given by
 \[
 \partial_2=\begin{bmatrix}(x_1\otimes 1-1\otimes x_1)\cdot\otimes \text{id}\\\text{id}\otimes(1\otimes x_2-x_2\otimes 1)\cdot\end{bmatrix}:x_1^a\otimes x_1^b\otimes x_2^c\otimes x_2^d\mapsto\begin{bmatrix}x_1^{a+1}\otimes x_1^b\otimes x_2^c\otimes x_2^d-x_1^a\otimes x_1^{b+1}\otimes x_2^c\otimes x_2^d\\ x_1^a\otimes x_1^b\otimes x_2^c\otimes x_2^{d+1}-x_1^a\otimes x_1^b\otimes x_2^{c+1}\otimes x_2^d\end{bmatrix}
 \]
-\begin{alignat*}{2}
-\partial_1=\begin{bmatrix}\text{id}\otimes(x_2\otimes 1-1\otimes x_2)\cdot\\(x_1\otimes 1-1\otimes x_1)\cdot\otimes\text{id}\end{bmatrix}:\\
-\begin{bmatrix}x_1^a\otimes x_1^b\otimes x_2^c\otimes x_2^d\\x_1^r\otimes x_1^s\otimes x_2^u\otimes x_2^v\end{bmatrix}\mapsto &&x_1^a\otimes x_1^b\otimes x_2^{c+1}\otimes x_2^d-x_1^a\otimes x_1^b\otimes x_2^c\otimes x_2^{d+1}\\
-&& x_1^{r+1}\otimes x_1^s\otimes x_2^u\otimes x_2^v-x_1^r\otimes x_1^{s+1}\otimes x_2^u\otimes x_2^v.
-\end{alignat*}
+
+\newpage
+\[\partial_1=\begin{bmatrix}\text{id}\otimes(x_2\otimes 1-1\otimes x_2)\cdot&(x_1\otimes 1-1\otimes x_1)\cdot\otimes\text{id}\end{bmatrix}:\]\\
+\[\begin{bmatrix}x_1^a\otimes x_1^b\otimes x_2^c\otimes x_2^d\\x_1^r\otimes x_1^s\otimes x_2^u\otimes x_2^v\end{bmatrix}\mapsto x_1^a\otimes x_1^b\otimes x_2^{c+1}\otimes x_2^d-x_1^a\otimes x_1^b\otimes x_2^c\otimes x_2^{d+1}
++ x_1^{r+1}\otimes x_1^s\otimes x_2^u\otimes x_2^v-x_1^r\otimes x_1^{s+1}\otimes x_2^u\otimes x_2^v.
+\]
+
 Of note is that the last module, $A_1^e\otimes A_2^e$, is isomorphic to $A^e$ as $A^e$-modules via the map
 \[
 x_1^a\otimes x_1^b\otimes x_2^c\otimes x_2^d\mapsto q^{bc} x_1^ax_2^c\otimes x_1^bx_2^d.  
 \]
 
-\section{Calculating Cohomology}
+We will show that this map is $A^e$-linear. 
+First,
+\begin{align*}
+&x_1^rx_2^s\cdot(x_1^a\otimes x_1^b\otimes x_2^c\otimes c_2^d)\cdot x_1^tx_2^u=
+&q^{-s(a+b)-st-t(c+d)}(x_1^r\cdot(x_1^a\otimes x_1^b)\cdot x_1^t)\otimes(x_2^s\cdot())
+\end{align*}
+
+\section{Computing Cohomology}
 Apply the functor $Hom_{A^e}(-,A)$ to this resolution to get the complex
 \[
 0\to Hom_{A^e}(A^e,A)\xrightarrow{d_1} Hom_{A^e}(A_1^e\otimes A_2^e(-1)\oplus A_1^e(-1)\otimes A_2^e,A)\xrightarrow{d_2}Hom_{A^e}(A_1^e(-1)\otimes A_2^e(-1),A)\to 0.  
