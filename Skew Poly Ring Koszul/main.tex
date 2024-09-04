@@ -156,6 +156,26 @@ So we see that this map is an $A^e-$module map.
 This map is clearly surjective, for any basis element $x_1^ax_2^b\otimes x_1^cx_2^d\in A^e$, the element $q^{-bc}x_1^a\otimes x_1^c\otimes x_2^b\otimes x_2^d\in A_1^e\otimes A_2^e$ is in its pre-image.
 As well, this defines an inverse of the map, so we conclude that this is in fact an isomorphism of $A^e$-modules.
 
+For the sake of easier computation of the cohomology, we will perform similar isomorphisms of the other two $A^e$-modules,
+\begin{align*}
+A^e_1(-1)\otimes A^e_2(-1)&\cong A^e\\
+x_1^a\otimes x_1^b\otimes x_2^c\otimes x_2^d&\mapsto q^{(b+1)(c+1)}x_1^ax_2^c\otimes x_1^bx_2^d
+\end{align*}
+and
+\begin{align*}
+\left(A^e_1\otimes A^e_2(-1)\right)\oplus\left(A^e_1(-1)\otimes A^e_2\right)&\cong \left(A^e\right)^2\\
+\begin{bmatrix} x_1^a\otimes x_1^b\otimes x_2^c\otimes x_2^d\\x_1^r\otimes x_1^s\otimes x_2^u\otimes x_2^v\end{bmatrix}&\mapsto\begin{bmatrix}q^{b(c+1)}x_1^ax_2^c\otimes x_1^bx_2^d\\q^{(s+1)v}x_1^rx_2^u\otimes x_1^sx_2^v \end{bmatrix}
+\end{align*}
+
+Hence we can rewrite the resolution as
+\[
+0\to A^e\xrightarrow{\partial^*_2}A^e\oplus A^e\xrightarrow{\partial^*_1}A^e\to 0
+\]
+where the differentials are given by
+\begin{align*}
+\partial^*_2(x_1^ax_2^b\otimes x_1^cx_2^d)=\begin{bmatrix} \end{bmatrix}
+\end{align*}
+
 \newpage
 
 \section{Computing Cohomology}
