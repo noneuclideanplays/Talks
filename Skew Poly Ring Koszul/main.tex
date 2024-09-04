@@ -163,17 +163,18 @@ x_1^a\otimes x_1^b\otimes x_2^c\otimes x_2^d&\mapsto q^{(b+1)(c+1)}x_1^ax_2^c\ot
 \end{align*}
 and
 \begin{align*}
-\left(A^e_1\otimes A^e_2(-1)\right)\oplus\left(A^e_1(-1)\otimes A^e_2\right)&\cong \left(A^e\right)^2\\
-\begin{bmatrix} x_1^a\otimes x_1^b\otimes x_2^c\otimes x_2^d\\x_1^r\otimes x_1^s\otimes x_2^u\otimes x_2^v\end{bmatrix}&\mapsto\begin{bmatrix}q^{b(c+1)}x_1^ax_2^c\otimes x_1^bx_2^d\\q^{(s+1)v}x_1^rx_2^u\otimes x_1^sx_2^v \end{bmatrix}
+\left(A^e_1\otimes A^e_2(-1)\right)\oplus\left(A^e_1(-1)\otimes A^e_2\right)&\cong A^e\oplus A^e\\
+\begin{bmatrix} x_1^a\otimes x_1^b\otimes x_2^c\otimes x_2^d\\x_1^r\otimes x_1^s\otimes x_2^u\otimes x_2^v\end{bmatrix}&\mapsto\begin{bmatrix}q^{b(c+1)}x_1^ax_2^c\otimes x_1^bx_2^d\\q^{(s+1)u}x_1^rx_2^u\otimes x_1^sx_2^v \end{bmatrix}
 \end{align*}
 
-Hence we can rewrite the resolution as
+Hence, we can rewrite the resolution as
 \[
 0\to A^e\xrightarrow{\partial^*_2}A^e\oplus A^e\xrightarrow{\partial^*_1}A^e\to 0
 \]
 where the differentials are given by
 \begin{align*}
-\partial^*_2(x_1^ax_2^b\otimes x_1^cx_2^d)=\begin{bmatrix} \end{bmatrix}
+\partial^*_2\left(x_1^ax_2^b\otimes x_1^cx_2^d\right)&=\begin{bmatrix}q^{-(b+1)}x_1^{a+1}x_2^b\otimes x_1^cx_2^d-x_1^ax_2^b\otimes x_1^{c+1}x_2^d\\q^{-(c+1)}x_1^ax_2^b\otimes x_1^cx_2^{d+1}-x_1^ax_2^{b+1}\otimes x_1^cx_2^d \end{bmatrix}\\
+\partial^*_1\left(\begin{bmatrix}x_1^ax_2^b\otimes x_1^cx_2^d\\ x_1^rx_2^s\otimes x_1^ux_2^v\end{bmatrix}\right)&=x_1^ax_2^{b+1}\otimes x_1^cx_2^d-q^{-c}x_1^ax_2^b\otimes x_1^cx_2^{d+1}+q^{-s}x_1^{r+1}x_2^s\otimes x_1^ux_2^v-x_1^rx_2^s\otimes x_1^{u+1}x_2^v.
 \end{align*}
 
 \newpage
@@ -181,19 +182,11 @@ where the differentials are given by
 \section{Computing Cohomology}
 Apply the functor $\Hom_{A^e}(-,A)$ to this resolution to get the complex
 \[
-0\to \Hom_{A^e}(A^e,A)\xrightarrow{d_1} \Hom_{A^e}(A_1^e\otimes A_2^e(-1)\oplus A_1^e(-1)\otimes A_2^e,A)\xrightarrow{d_2}\Hom_{A^e}(A_1^e(-1)\otimes A_2^e(-1),A)\to 0.  
+0\to \Hom_{A^e}(A^e,A)\xrightarrow{d_1} \Hom_{A^e}(A^e\oplus A^e,A)\xrightarrow{d_2}\Hom_{A^e}(A^e,A)\to 0.  
 \]
-The differentials are given by
-\begin{alignat*}{2}
-  d_1(f)\left(\begin{bmatrix}x_1^a\otimes x_1^b\otimes x_2^c\otimes x_2^d\\ x_1^r\otimes x_1^s\otimes x_2^u\otimes x_2^v\end{bmatrix}\right)= &&q^{b(c+1)}f(x_1^ax_2^{c+1}\otimes x_1^bx_2^d)-q^{bc}f(x_1^ax_2^c\otimes x_1^bx_2^{d+1})\\
-  && +q^{su}f(x_1^{r+1}x_2^u\otimes x_1^sx_2^v)-q^{s(u+1)}f(x_1^rx_2^u\otimes x_1^{s+1}x_2^ux)
-\end{alignat*}  
-\begin{alignat*}{2}
-  d_2(f)(x_1^a\otimes x_1^b\otimes x_2^c\otimes x_2^d)=&&f(x_1^{a+1}\otimes x_1^b\otimes x_2^c\otimes x_2^d,x_1^a\otimes x_1^b\otimes x_2^c\otimes x_2^{d+1})\\
-  &&-f(x_1^a\otimes x_1^{b+1}\otimes x_2^c\otimes x_2^d,x_1^a\otimes x_1^b\otimes x_2^{c+1}\otimes x_2^d)
-\end{alignat*}
+The differentials are given by $d_i(f)(a)=f(\partial_i^*(a))$.
 
-Next, we want to rewrite this resolution in a more familiar form.
+Next, we want to rewrite this complex in a more familiar form.
 Let $V=\kk x_1\oplus \kk x_2$, then
 \begin{align*}
 \Hom_{A^e}(A^e,A)&\cong A\otimes \Wedge^2_q (V)\\
@@ -205,7 +198,23 @@ Since every $f\in \Hom_{A^e}(A^e,A)$ is determined by its image on $1\otimes 1$,
 
 We also have that
 \begin{align*}
-\Hom_{A^e}(\left(A_1^e\otimes A_2^e(-1)\right)\oplus\left(A_1^e(-1)\otimes A_2^e\right),A)&\cong A\otimes \Wedge_q^1(V)
+\Hom_{A^e}(A^e\oplus A^e,A)&\cong A\otimes \Wedge_q^1(V)\\
+f&\mapsto f(1\otimes 1,0)\otimes x_1+f(0,1\otimes 1)\otimes x_2
+\end{align*}
+and
+\begin{align*}
+\Hom_{A^e}(A^e,A)&\cong A\otimes \Wedge_q^0 (V)\\
+f&\mapsto f(1\otimes 1).
+\end{align*}
+
+Ultimately, we have the complex
+\[
+0 \to A\otimes \Wedge_q^2(V)\xrightarrow{d_1^*}A\otimes \Wedge_q^1(V)\xrightarrow{d_2^*}A\otimes \Wedge_q^0(V)\to 0
+\]
+with differentials given by
+\begin{align*}
+d_1^*(x_1^ax_2^b\otimes x_1\wedge x_2)&=(q^{-a}-1)x_1^ax_2^{b+1}+(1-q^{-b})x_1^{a+1}x_2^b\\
+d_2^*(x_1^ax_2^b\otimes x_1+x_1^cx_2^d\otimes x_2)&=(1-q^{-b})x_1^{a+1}x_2^b+(1-q^{-c})x_1^cx_2^{d+1}
 \end{align*}
 
 \end{document}
