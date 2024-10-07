@@ -106,7 +106,7 @@ We consider the Koszul resolutions of $A_1$ and $A_2$
 \[
 0\to A_2^e\xrightarrow{(x_2\otimes 1-1\otimes x_2)\cdot}A_2^e\to 0.  
 \]
-In order to construct a resolution of $A$,, the differentials of these resolutions need to be graded maps.
+In order to construct a resolution of $A$, the differentials of these resolutions need to be graded maps.
 To this end, we shift the grading of the homological degree 1 component of both resolutions up by 1:
 \begin{align*}
 0\to A_1^e(-1)\xrightarrow{(x_1\otimes 1-1\otimes x_1)\cdot}A_1^e\to 0\\
@@ -152,18 +152,24 @@ Let $V=\kk x_1\oplus \kk x_2$, then we have the $A^e$-module isomorphisms
 \Hom_A^e(\left(A^e_1\otimes A_2^e(-1)\right)\oplus\left(A_1^e(-1)\otimes A_2^e(-1)\right),A)&\cong A\otimes\Wedge_q^1(V)\\
 ((1\otimes 1\otimes 1\otimes 1,0)\mapsto x_1^ax_2^b,(0,1\otimes 1\otimes 1\otimes 1)\mapsto x_1^cx_2^d)&\mapsto x_1^ax_2^b\otimes x_1+x_1^cx_2^d\otimes x_2\\
 \\
-\Hom_A^e(A_1^e(-1)\otimes A_2^(-1),A)&\cong A\otimes\Wedge_q^0(V)\\
+\Hom_A^e(A_1^e(-1)\otimes A_2^e(-1),A)&\cong A\otimes\Wedge_q^0(V)\\
 (1\otimes 1\otimes 1\otimes 1\mapsto x_1^ax_2^b)&\mapsto x_1^ax_2^b
 \end{align*}
 
 Ultimately, we have the complex
 \[
-0 \to A\otimes \Wedge_q^2(V)\xrightarrow{d_1^*}A\otimes \Wedge_q^1(V)\xrightarrow{d_2^*}A\otimes \Wedge_q^0(V)\to 0
+0 \to A\otimes \Wedge_q^2(V)\xrightarrow{d_1}A\otimes \Wedge_q^1(V)\xrightarrow{d_2}A\otimes \Wedge_q^0(V)\to 0
 \]
 with differentials given by
 \begin{align*}
-d_1(x_1^ax_2^b\otimes x_1\wedge x_2)&=(q^{a}-q)x_1^ax_2^{b+1}\otimes x_1+(q-q^{b})x_1^{a+1}x_2^b\otimes x_2\\
-d_2(x_1^ax_2^b\otimes x_1+x_1^cx_2^d\otimes x_2)&=(q-q^{b})x_1^{a+1}x_2^b+(q-q^{c})x_1^cx_2^{d+1}
+d_1(x_1^ax_2^b\otimes x_1\wedge x_2)&=(q^a-1)x_1^ax_2^{b+1}\otimes x_1+(1-q^b)x_1^{a+1}x_2^b\otimes x_2\\
+d_2(x_1^ax_2^b\otimes x_1+x_1^cx_2^d\otimes x_2)&=(1-q^{b+1})x_1^{a+1}x_2^b+(1-q^{c+1})x_1^cx_2^{d+1}
 \end{align*}
+
+Next, we compute the Hochschild cohomology groups. 
+First, as this is a resolution and the outermost maps are both the zero map, $\ker(d_1)=0$ and $\text{im}(d_2)=A\otimes \Wedge_q^0 (V)$.
+As well, $\ker(d_2)=\text{im}(d_1)$.
+
+
 
 \end{document}
