@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1726179757 "/home/bam0430/Documents/LaTeX/Talks/Skew Poly Ring Koszul/main.tex" "main.pdf" "main" 1726179758
+["pdflatex"] 1727998864 "/home/bam0430/Documents/LaTeX/Talks/Skew Poly Ring Koszul/main.tex" "main.pdf" "main" 1727998865
   "/etc/texmf/web2c/texmf.cnf" 1692894484 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/bam0430/Documents/LaTeX/Talks/Skew Poly Ring Koszul/main.tex" 1726179757 8534 75927780b517cc9962e84ba4327843df ""
+  "/home/bam0430/Documents/LaTeX/Talks/Skew Poly Ring Koszul/main.tex" 1727998864 7159 f0e2fd0ce7541895a2ed7b516d85cec0 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbx1728.tfm" 1136768653 3584 ad49a18d8515beef6d92d4d3f197d0fd ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecrm0600.tfm" 1136768653 3584 291a5713401683441e0a8c8f4417b17b ""
@@ -178,8 +178,8 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1644012257 39432 7155514e09a3d69036fac785183a21c2 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1698867455 4379155 98693266ff65f58d9f98aff394de12d2 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1710433036 2800622 233d301b600167d9f334be385b5a94f1 ""
-  "main.aux" 1726179758 325 f9a0807419b3f3e5b36d32a73da0b3f8 "pdflatex"
-  "main.tex" 1726179757 8534 75927780b517cc9962e84ba4327843df ""
+  "main.aux" 1727998865 325 f3aeeab68cdbf79e278f767e120991c0 "pdflatex"
+  "main.tex" 1727998864 7159 f0e2fd0ce7541895a2ed7b516d85cec0 ""
   (generated)
   "main.aux"
   "main.log"
