@@ -1,0 +1,57 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{tikz-cd}
+\usepackage{ulem}
+\usepackage{multicol}
+
+\usepackage{untgreen}
+\UNTGpalette
+\usetheme{Warsaw}
+\setbeamertemplate{navigation symbols}{}%remove navigation symbols
+
+\usepackage{xcolor}
+\definecolor{lightgreen}{RGB}{32, 165, 32}
+\definecolor{darkgreen}{RGB}{0,105,0}
+\definecolor{lightred}{RGB}{209,27,27}
+\definecolor{darkred}{RGB}{162,17,17}
+\definecolor{darkblue}{RGB}{30,30,187}
+
+\title{Deformations of Hopf-Ore Smash Products}
+\author{Brandon Mather}
+\date{TORA, April 2025}
+
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}{Hopf-Ore Smash Products}
+\begin{definition}[Ore Extensions]
+    For a \(k-\)alg \(R\), \textbf{Ore extension} \(R[x;\sigma,\delta]\) has product from \(k[x]\) with relation \(xr=\sigma(r)x+\delta(r)\) where \(\sigma\in \text{Aut}R\) and \(\delta\) a \(\sigma-\)derivation. 
+\end{definition}
+\begin{definition}
+    If \(H\) is a Hopf algebra, \(H[x;\sigma,\delta]\) is a \textbf{Hopf-Ore Extension} if it is both an Ore extension and a Hopf Alg with \(R\) a sub-Hopf algebra, and \(\triangle(x)=x\otimes 1+g\otimes x\) some \(g\in G(R)\).
+\end{definition}
+\begin{definition}
+    A filtered alg \(\mathcal{H}\) is a \textbf{PBW deformation} of its homogeneous version if it has the PBW property.
+\end{definition}
+\end{frame}
+
+\begin{frame} 
+    Let \(H\) be a Hopf alg, \(R\) a Koszul alg
+\begin{beamerboxesrounded}{Question}
+    Given a PBW deformation of \(R\# H\), under what conditions do we also get a PBW deformation of \(R\#H[x;\sigma,\delta]\)?
+\end{beamerboxesrounded}
+
+\underline{Techniques:}
+\begin{itemize}
+    \item Explicit PBW conditions for \(R\#H\) given by Shepler \& Witherspoon
+    \item Hochschild cohomology techniques specific to twisted tensor products
+\end{itemize}
+\begin{example}
+    Consider the Koszul alg \(R=\mathbb{C}[x]\) and the Hopf alg \(H=\mathbb{C}[y]\), a Hopf-Ore extension of \(\mathbb{C}\), \(H\) acts on \(R\) by \(y\cdot x=0\).
+    \(R\#H\) is iso to \(\mathbb{C}[x][y;\text{id},\text{id}]\), which is not PBW, what could the PBW deformations be?
+\end{example}
+\end{frame}
+\end{document}
