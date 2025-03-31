@@ -28,8 +28,9 @@
 
 \begin{frame}{Hopf-Ore Smash Products}
 \begin{definition}[Ore Extensions]
-    For a \(k-\)alg \(R\), \textbf{Ore extension} \(R[x;\sigma,\delta]\) has product from \(k[x]\) with relation \(xr=\sigma(r)x+\delta(r)\) where \(\sigma\in \text{Aut}R\) and \(\delta\) a \(\sigma-\)derivation. 
+    For a \(k\)-alg \(R\), \textbf{Ore extension} \(R[x;\sigma,\delta]\) has product from \(k[x]\) with relation \(xr=\sigma(r)x+\delta(r)\;\forall r\in R\) where \(\sigma\in \text{Aut}R\) and \(\delta\) a \(\sigma-\)derivation. 
 \end{definition}
+Examples: Skew poly rings, Weyl alg, UEA of solvable Lie alg
 \begin{definition}[Hopf-Ore Extension]
     If \(H\) is a Hopf algebra, \(H[x;\sigma,\delta]\) is a \textbf{Hopf-Ore Extension} if it is both an Ore extension and a Hopf Alg with \(R\) a sub-Hopf algebra, and \(\triangle(x)=x\otimes 1+g\otimes x\) some \(g\in G(R)\).
 \end{definition}
@@ -39,19 +40,19 @@
 \end{frame}
 
 \begin{frame} 
-    Let \(H\) be a Hopf alg, \(R\) a Koszul alg
+    Let \(H\) be a Hopf alg, \(H[x;\sigma,\delta]\) a Hopf-Ore ext, \(R\) a Koszul alg.
 \begin{beamerboxesrounded}{Question}
-    Given a PBW deformation of \(R\# H\), under what conditions do we also get a PBW deformation of \(R\#H[x;\sigma,\delta]\)?
+    Under what conditions does a PBW deformation of \(R\#H\) extend to a PBW deformation of \(R\#H[x;\sigma,\delta]\)?
 \end{beamerboxesrounded}
 
 \underline{Techniques:}
 \begin{itemize}
-    \item Explicit PBW conditions for \(R\#H\) given by Shepler \& Witherspoon
-    \item Hochschild cohomology techniques specific to twisted tensor products
+    \item PBW conditions for \(R\#H\) given by Shepler \& Witherspoon
+    \item Hochschild cohomology tools for twisted tensor products
 \end{itemize}
 \begin{example}
-    Consider the Koszul alg \(R=\mathbb{C}[x]\) and the Hopf alg \(H=\mathbb{C}[y]\), a Hopf-Ore extension of \(\mathbb{C}\), \(H\) acts on \(R\) by \(y\cdot x=0\).
-    \(R\#H\) is iso to \(\mathbb{C}[x][y;\text{id},\text{id}]\), which is not PBW, what could the PBW deformations be?
+    Consider the Koszul alg \(R=\mathbb{C}[x]\) and the Hopf alg \(H=\mathbb{C}\), \(H[y]=\mathbb{C}[y]\) a Hopf-Ore extension of \(H\), \(H[y]\) acts on \(R\) by \(y\cdot x=0\).
+    Which PBW deformations of \(R\#H[y]=\mathbb{C}[x]\#\mathbb{C}[y]\) arise from PBW deofrmations of \(R\#H=\mathbb{C}[x]\#\mathbb{C}\)?
 \end{example}
 \end{frame}
 \end{document}
