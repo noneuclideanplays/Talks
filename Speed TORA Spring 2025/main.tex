@@ -28,11 +28,11 @@
 
 \begin{frame}{Hopf-Ore Smash Products}
 \begin{definition}[Ore Extensions]
-    For a \(k\)-alg \(R\), \textbf{Ore extension} \(R[x;\sigma,\delta]\) has product from \(k[x]\) with relation \(xr=\sigma(r)x+\delta(r)\;\forall r\in R\) where \(\sigma\in \text{Aut}R\) and \(\delta\) a \(\sigma-\)derivation. 
+    For a \(k\)-alg \(R\), an \textbf{Ore extension} \(R[x;\sigma,\delta]\) has product from \(k[x]\) with relation \(xr=\sigma(r)x+\delta(r)\;\forall r\in R\) \\where \(\sigma\in \text{Aut}R\) and \(\delta\) a \(\sigma\)-derivation. 
 \end{definition}
-Examples: Skew poly rings, Weyl alg, UEA of solvable Lie alg
+Examples: Skew poly rings, Weyl alg, UEA of solvable Lie alg/\(\mathbb{C}\)
 \begin{definition}[Hopf-Ore Extension]
-    If \(H\) is a Hopf algebra, \(H[x;\sigma,\delta]\) is a \textbf{Hopf-Ore Extension} if it is both an Ore extension and a Hopf Alg with \(H\) a sub-Hopf algebra, and \(\triangle(x)=x\otimes 1+g\otimes x\) some \(g\in G(R)\).
+    If \(H\) is a Hopf alg, \(H[x;\sigma,\delta]\) is a \textbf{Hopf-Ore Extension} if it is both an Ore extension and a Hopf alg with \(H\) a sub-Hopf alg, and \(\triangle(x)=x\otimes *+*\otimes x\).
 \end{definition}
 \begin{definition}[Poincare-Birkhoff-Witt Deformation]
     A filtered alg \(\mathcal{H}\) is a \textbf{PBW deformation} of its homogeneous version if it has the PBW property.
@@ -42,17 +42,19 @@ Examples: Skew poly rings, Weyl alg, UEA of solvable Lie alg
 \begin{frame} 
     Let \(H\) be a Hopf alg, \(H[x;\sigma,\delta]\) a Hopf-Ore ext, \(R\) a Koszul alg.
 \begin{beamerboxesrounded}{Question}
-    Under what conditions does a PBW deformation of \(R\#H\) extend to a PBW deformation of \(R\#H[x;\sigma,\delta]\)?
+    Under what conditions does a PBW deformation of \(R\#H\) extend to a PBW deformation of \(R\ \#\ H[x;\sigma,\delta]\)?
 \end{beamerboxesrounded}
 
 \underline{Techniques:}
 \begin{itemize}
-    \item PBW conditions for \(R\#H\) given by Shepler \& Witherspoon
+    \item Conditions for PBW deformations \`a la Shepler \& Witherspoon
     \item Hochschild cohomology tools for twisted tensor products
 \end{itemize}
 \begin{example}
-    Consider the Koszul alg \(R=\mathbb{C}[x]\) and the Hopf alg \(H=\mathbb{C}\), \(H[y]=\mathbb{C}[y]\) a Hopf-Ore extension of \(H\), \(H[y]\) acts on \(R\) by \(y\cdot x=0\).
-    Which PBW deformations of \(R\#H[y]=\mathbb{C}[x]\#\mathbb{C}[y]\) arise from PBW deformations of \(R\#H=\mathbb{C}[x]\#\mathbb{C}\)?
+    Consider the Koszul alg \(R=\mathbb{C}[y]\) and the Hopf alg \(H=\mathbb{C}\).
+    \\A Hopf-Ore ext \(H[x]=\mathbb{C}[x]\) acts on \(R\) by \(x\cdot y=0\).
+    \\Which PBW deformations of \(R\#H[x]\) arise \\\hspace{1.5ex}from PBW deformations of \(R\#H\)?
 \end{example}
+\comment{Sweedler algebra as Hopf-Ore Extension smash with skew poly ring}
 \end{frame}
 \end{document}
