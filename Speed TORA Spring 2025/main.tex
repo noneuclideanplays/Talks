@@ -18,7 +18,8 @@
 \definecolor{darkblue}{RGB}{30,30,187}
 
 \title{Deformations of Hopf-Ore Smash Products}
-\author{Brandon Mather}
+\author{Brandon Mather\\ University of North Texas}
+%\affil{University of North Texas}
 \date{TORA, April 2025}
 
 
@@ -28,32 +29,35 @@
 
 \begin{frame}{Hopf-Ore Smash Products}
 \begin{definition}[Ore Extensions]
-    For a \(k\)-alg \(R\), an \textbf{Ore extension} \(R[x;\sigma,\delta]\) has product from \(k[x]\) with relation \(xr=\sigma(r)x+\delta(r)\;\forall r\in R\) \\where \(\sigma\in \text{Aut}R\) and \(\delta\) a \(\sigma\)-derivation. 
+    For a \(k\)-alg \(R\), an \textbf{Ore extension} \(R[x;\sigma,\delta]\) is \(R[x]\) as a set \\with non-comm multiplication preserving (filtered) degree. 
 \end{definition}
-Examples: Skew poly rings, Weyl alg, UEA of solvable Lie alg/\(\mathbb{C}\)
+This forces the relation \(x\,r=\sigma(r)\,x+\delta(r)\;\forall r\in R\) \\ for some \(\sigma\in \text{Aut}R\) and \(\delta\) a \(\sigma\)-derivation.
+\\Examples: Skew poly rings, Weyl algs, UEA of solvable Lie algs/\(\mathbb{C}\)
 \begin{definition}[Hopf-Ore Extension]
-    If \(H\) is a Hopf alg, \(H[x;\sigma,\delta]\) is a \textbf{Hopf-Ore Extension} if it is both an Ore extension and a Hopf alg with \(H\) a sub-Hopf alg, and \(\triangle(x)=x\otimes *+*\otimes x\).
+    If \(H\) is a Hopf alg, \(H[x;\sigma,\delta]\) is a \textbf{Hopf-Ore Extension} if it is both an Ore extension and a Hopf alg with \(H\) a sub-Hopf alg, and \(\triangle(x)=x\otimes \ast\,+\,*\otimes x\).
 \end{definition}
-\begin{definition}[Poincare-Birkhoff-Witt Deformation]
-    A filtered alg \(\mathcal{H}\) is a \textbf{PBW deformation} of its homogeneous version if it has the PBW property.
+\begin{definition}[Poincar\'e-Birkhoff-Witt Deformation]
+    A filtered alg \(\mathcal{H}\) is a \textbf{PBW deformation} of its homogeneous version if it satisfies a PBW property.
 \end{definition}
 \end{frame}
 
 \begin{frame} 
     Let \(H\) be a Hopf alg, \(H[x;\sigma,\delta]\) a Hopf-Ore ext, \(R\) a Koszul alg.
 \begin{beamerboxesrounded}{Question}
-    Under what conditions does a PBW deformation of \(R\#H\) extend to a PBW deformation of \(R\ \#\ H[x;\sigma,\delta]\)?
+    Under what conditions does a PBW deformation of \(R\#H\) \\extend to a PBW deformation of \(R\ \#\ H[x;\sigma,\delta]\)?
 \end{beamerboxesrounded}
 
 \underline{Techniques:}
 \begin{itemize}
+    \item Work in a tensor alg over a non-comm ring modulo relations
     \item Conditions for PBW deformations \`a la Shepler \& Witherspoon
     \item Hochschild cohomology tools for twisted tensor products
 \end{itemize}
 \begin{example}
-   The 4-dimn'l Sweedler alg, \(H_4\), is a  Hopf-Ore ext of the grp alg \(\mathbb{C}[\mathbb{Z}/2\mathbb{Z}]\) and acts on the Koszul alg \(\mathbb{C}[u,v]\).
-   A natural question is \\what PBW deformations of \(\mathbb{C}[u,v]\#H_4\) arise \\ from PBW deformations of \(\mathbb{C}[u,v]\#\mathbb{C}[Z/2\mathbb{Z}]\).
+   The 4-dim Sweedler alg, \(H_4\), is a  Hopf-Ore ext of the group alg \(k[\mathbb{Z}/2\mathbb{Z}]\) and acts on the Koszul alg \(k[u,v]\).
+   A natural question: \\which PBW deformations of \(k[u,v]\#H_4\) arise \\ \hspace{0.2cm}from PBW deformations of \(k[u,v]\#k[\mathbb{Z}/2\mathbb{Z}]\)\,?
 \end{example}
+
 %Sweedler algebra as Hopf-Ore Extension smash with skew poly ring
 \end{frame}
 \end{document}
